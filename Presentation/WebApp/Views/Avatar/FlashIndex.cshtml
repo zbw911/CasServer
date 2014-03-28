@@ -1,0 +1,78 @@
+﻿@{
+    this.ViewBag.Title = "FlashIndex";
+
+    //Layout = null;
+
+    var arg = Dev.Comm.Web.HttpServerInfo.WapperFullUrl("/images/common/camera.swf") +
+              "?nt=1" +
+              "&inajax=1" +
+              "&appid=67111770b37d9fc06c56e691c013b685" +
+              "&input=Y5WgirRbGJI=" +
+              "&ucapi=" +
+              Dev.Comm.Web.HttpServerInfo.WapperFullUrl("/Avatar/FlashFaceUpload");
+
+
+    var width = Dev.Comm.Web.DevRequest.GetInt("width", 540);
+    var height = Dev.Comm.Web.DevRequest.GetInt("height", 253);
+}
+
+@*<img id="avatar">*@
+
+
+<object id="mycamera" name="mycamera" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="@width" height="@height">
+    <param name="_cx" value="14288">
+    <param name="_cy" value="6694">
+    <param name="FlashVars" value="">
+    <param name="Movie" value="@arg">
+    <param name="Src" value="@arg">
+    <param name="wmode" value="opaque" />
+    <param name="Play" value="0">
+    <param name="Loop" value="-1">
+    <param name="Quality" value="High">
+    <param name="SAlign" value="">
+    <param name="Menu" value="0">
+    <param name="Base" value="">
+    <param name="AllowScriptAccess" value="always">
+    <param name="Scale" value="NoScale">
+    <param name="DeviceFont" value="0">
+    <param name="EmbedMovie" value="0">
+    <param name="BGColor" value="FFFFFF">
+    <param name="SWRemote" value="">
+    <param name="MovieData" value="">
+    <param name="SeamlessTabbing" value="1">
+    <param name="Profile" value="0">
+    <param name="ProfileAddress" value="">
+    <param name="ProfilePort" value="0">
+    <param name="AllowNetworking" value="all">
+    <param name="AllowFullScreen" value="false">
+    <param name="AllowFullScreenInteractive" value="">
+    <param name="IsDependent" value="0">
+    <embed   movie="@arg" src="@arg" quality="high" width="@width" height="@height" wmode="opaque"
+       id="mycamera" name="mycamera"   type="application/x-shockwave-flash"
+        pluginspage="http://www.macromedia.com/go/getflashplayer"> 
+    </embed>
+</object>
+
+
+@*@section scripts
+{
+
+    <script type="text/javascript">
+
+        function updateavatar(sender, args) {
+
+            window.alert(args.length);
+
+            $.get('@Dev.Comm.Web.HttpServerInfo.BaseUrl/Avatar/GetAvataUrlByUserid', {
+                userid: '@WebSecurity.CurrentUserId',
+                type: 4
+
+            }, function (data) {
+                $('#avatar').attr('src', '' + data);
+            }, 'jsonp');
+        }
+
+        updateavatar();
+
+    </script>
+}*@

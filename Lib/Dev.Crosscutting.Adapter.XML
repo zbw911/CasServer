@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Crosscutting.Adapter</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Crosscutting.Adapter.Adapter.ITypeAdapter">
+            <summary>
+            Base contract for map dto to aggregate or aggregate to dto.
+            <remarks>
+            This is a  contract for work with "auto" mappers ( automapper,emitmapper,valueinjecter...)
+            or adhoc mappers
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Dev.Crosscutting.Adapter.Adapter.ITypeAdapter.Adapt``2(``0)">
+            <summary>
+            Adapt a source object to an instance of type <paramref name="TTarget"/>
+            </summary>
+            <typeparam name="TSource">Type of source item</typeparam>
+            <typeparam name="TTarget">Type of target item</typeparam>
+            <param name="source">Instance to adapt</param>
+            <returns><paramref name="source"/> mapped to <typeparamref name="TTarget"/></returns>
+        </member>
+        <member name="M:Dev.Crosscutting.Adapter.Adapter.ITypeAdapter.Adapt``1(System.Object)">
+            <summary>
+            Adapt a source object to an instnace of type <paramref name="TTarget"/>
+            </summary>
+            <typeparam name="TTarget">Type of target item</typeparam>
+            <param name="source">Instance to adapt</param>
+            <returns><paramref name="source"/> mapped to <typeparamref name="TTarget"/></returns>
+        </member>
+        <member name="T:Dev.Crosscutting.Adapter.Adapter.ITypeAdapterFactory">
+            <summary>
+            Base contract for adapter factory
+            </summary>
+        </member>
+        <member name="M:Dev.Crosscutting.Adapter.Adapter.ITypeAdapterFactory.Create">
+            <summary>
+            Create a type adater
+            </summary>
+            <returns>The created ITypeAdapter</returns>
+        </member>
+        <member name="M:Dev.Crosscutting.Adapter.Adapter.TypeAdapterFactory.SetCurrent(Dev.Crosscutting.Adapter.Adapter.ITypeAdapterFactory)">
+            <summary>
+            Set the current type adapter factory
+            </summary>
+            <param name="adapterFactory">The adapter factory to set</param>
+        </member>
+        <member name="M:Dev.Crosscutting.Adapter.Adapter.TypeAdapterFactory.CreateAdapter">
+            <summary>
+            Create a new type adapter from currect factory
+            </summary>
+            <returns>Created type adapter</returns>
+        </member>
+        <member name="T:Dev.Crosscutting.Adapter.ProjectionsExtensionMethods">
+            <summary>
+            这个方法来自于http://microsoftnlayerapp.codeplex.com/
+            对原有方法进行了部分改进，将 ：Entity 改为 object ,
+            当然，副作用也是显而易见的，
+            在所有的“类”实例后面都会加上这个扩展方法，
+            但原方法有更强类型化，两者取其一吧，对于EF DB first 中，如果有一个使用基类型反而是一个比较好的方法。
+             add by zbw911 2013-2-16
+            </summary>
+        </member>
+        <member name="M:Dev.Crosscutting.Adapter.ProjectionsExtensionMethods.ProjectedAs``1(System.Object)">
+            <summary>
+            Project a type using a DTO，
+            这个只用于单个实例，由于为了通用性，就使用了object ,但同时也会出现一个问题，对于任何 “类”实例的都会出现这个扩展了
+            </summary>
+            <typeparam name="TProjection">The dto projection</typeparam>
+            <param name="entity">The source entity to project</param>
+            <returns>The projected type</returns>
+        </member>
+        <member name="M:Dev.Crosscutting.Adapter.ProjectionsExtensionMethods.ProjectedAsCollection``1(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            projected a enumerable collection of items,
+            适用于集全类型
+            </summary>
+            <typeparam name="TProjection">The dtop projection type</typeparam>
+            <param name="items">the collection of entity items</param>
+            <returns>Projected collection</returns>
+        </member>
+    </members>
+</doc>

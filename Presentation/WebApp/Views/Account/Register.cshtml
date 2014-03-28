@@ -1,0 +1,375 @@
+﻿@model CASServer.Models.RegisterModel
+@{
+    this.ViewBag.Title = "注册";
+}
+
+<div class="reg_wp">
+    <div class="reg_title">
+        <span class="reg_tag">注册XXXXX帐号</span><span><em>894751</em>位玩家邀您加入XXXXX，享受一起游戏的快乐</span>
+    </div>
+    <div class="reg_cont clear">
+        @Html.ValidationSummary(true)
+        @using (this.Html.BeginForm(new { ReturnUrl = this.ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="reg_form">
+                <div class="new_item">
+                    <div class="tit">
+                        常用邮箱：
+                    </div>
+                    <div class="bdmain" id="b_email">
+                        <div class="bd_input">
+                            @Html.TextBoxFor(x => x.UserName, new { @class = "regP ui-autocomplete-input bdcolor", autocomplete = "off" })
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.UserName)
+                    <div></div>
+
+                </div>
+                <div class="new_item">
+                    <div class="tit">
+                        密码：
+                    </div>
+                    <div class="bdmain" id="b_pass">
+                        <div class="bd_input">
+                            @Html.PasswordFor(x => x.Password, new { @class = "regP bdcolor" })
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.Password)
+                    <div class="reg_warn">@*<span class="right"></span>*@<span style="display: none" class="w w1"></span></div>
+                    <!-- w1 密码弱 w2密码中 w3密码强-->
+                    <div></div>
+
+                </div>
+                <div class="new_item">
+                    <div class="tit">
+                        确认密码：
+                    </div>
+                    <div class="bdmain" id="b_pass2">
+                        <div class="bd_input">
+                            @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "regP bdcolor" })
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.ConfirmPassword)
+                    <div></div>
+
+                </div>
+                <div class="new_item">
+                    <div class="tit">
+                        昵称：
+                    </div>
+                    <div class="bdmain" id="b_nickname">
+                        <div class="bd_input">
+                            @Html.TextBoxFor(x => x.NickName, new { @class = "regP bdcolor" })
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.NickName)
+                    <div></div>
+                </div>
+                <div class="new_item">
+                    <div class="tit">
+                        性别：
+                    </div>
+                    <div class="bdmain">
+                        <div class="bd_radio">
+                            <span class="man">
+                                @Html.RadioButtonFor(x => x.Sex, 1, new { id = "man" })<label for="man">男</label></span>
+                            <span class="woman">
+                                @Html.RadioButtonFor(x => x.Sex, 2, new { id = "woman" })<label for="woman">女</label></span>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.Sex)
+                </div>
+                <div class="new_item">
+                    <div class="tit">
+                        所在地：
+                    </div>
+                    <div class="bdmain" id="b_area">
+                        <div class="bd_select" id="area_ch">
+                            <span>
+                                <select id="selectprovince" style="width: 80px;">
+                                    <option value="">请选择</option>
+                                </select>
+                            </span>
+                            <span>
+                                <select id="selectcity">
+                                    <option value="">请选择</option>
+                                </select></span>
+                            @Html.HiddenFor(x => x.Province)
+                            @Html.HiddenFor(x => x.City, new { style = "display:''" })
+
+                            @Html.HiddenFor(x => x.ProvinceName)
+                            @Html.HiddenFor(x => x.CityName, new { style = "display:''" })
+
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.City)
+                    <div>
+                    </div>
+
+                </div>
+                <div class="new_item">
+                    <div class="tit">
+                        验证码：
+                    </div>
+                    <div class="bdmain" id="b_valid">
+                        <div class="bd_check">
+                            <span>
+                                @Html.TextBoxFor(x => x.Validcode, new { @class = "bdcolor" })
+
+                            </span>
+                            <span>
+                                <img width="100px" height="29px" class="check_img" id="check_img"  src="@this.Url.Action("code", "account", new { r = System.DateTime.Now.Ticks })" /></span>
+                            <a class="check_text" href="javascript:void(0)">换一组</a>
+
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.Validcode)
+                    <div>
+                    </div>
+
+                </div>
+                <div class="new_item">
+                    <div class="bd-des">
+                        <div class="tit">
+                        </div>
+                        <div class="bdmain">
+                            <p>
+                                @Html.CheckBoxFor(x => x.IsAgree, new { @checked = "checked" })
+
+                                @Html.LabelFor(x => x.IsAgree, "同意XXXXX使用服务协议", new { @class = "dark" })
+                            </p>
+                        </div>
+                        @Html.ValidationMessageFor(x => x.IsAgree)
+
+                    </div>
+
+                </div>
+                <div class="new_item">
+                    <p class="reg_pdl">
+                        <a class="reg_btn" href="javascript:void(0)"></a>
+                    </p>
+                </div>
+            </div>
+        }
+        <div class="reg_right">
+            <div class="reg_login">
+                <p>
+                    已有XXXXX账号？
+                </p>
+                <p>
+                    @Html.ActionLink("登录", "login", "CAS", null, new { @class = "gray_btn", title = "登录即可分享新鲜事" })
+                </p>
+            </div>
+            <div class="login_other">
+                <p>您也可以通过以下方式登录：</p>
+                @Html.Action("ExternalLoginsList", "account", new { ReturnUrl = this.ViewBag.ReturnUrl })
+            </div>
+            <div class="reg_r2">
+                @*  <p>
+                    已有<span>12240</span>玩家加入XXXXX
+                </p>
+                <p>
+                    已举办<span>2116</span>场游戏活动
+                </p>*@
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/townarr")
+    <script type="text/javascript">
+       
+        $(".reg_btn").click(function () {
+
+            //if (!$('#City').valid())
+            //    return false;
+
+            $('#@Html.IdFor(x => x.CityName)').val($('#selectcity option:selected').text());
+            $('#@Html.IdFor(x => x.ProvinceName)').val($('#selectprovince option:selected').text());
+
+            $(this).closest("form").submit();
+
+            return false;
+        });
+
+
+        $(function () {
+
+            $(document).keydown(function (e) {
+                if (e.keyCode == 13) {
+                    $(".reg_btn").click();
+
+                }
+            });
+
+            $("#UserName").blur(function () {
+                if ($("#UserName").valid()) {
+
+                    $.get('/account/check?username=' + encodeURIComponent($(this).val()) + '&' + $.now(), function (back) {
+
+                        back = back.toLowerCase();
+
+                        if (back === 'false') {
+                            onSuccess($("#UserName"));
+                        } else {
+                            onError($("#UserName"), '此用户已经存在');
+                        }
+                    });
+                }
+            });
+
+
+            $("#NickName").blur(function () {
+
+                //if (GetCharLength($.trim($(this).val())) < 4 || GetCharLength($.trim($(this).val())) > 14) {
+
+                //    onError($("#NickName"), '昵称长度在4-14之间,一个中文长度为2');
+
+                //    return false;
+                //}
+
+                if ($("#NickName").valid()) {
+
+                    $.get('/account/CheckNick?nickname=' + encodeURIComponent($(this).val()) + '&' + $.now(), function (back) {
+
+                        back = back.toLowerCase();
+
+                        if (back === 'false') {
+                            onSuccess($("#NickName"));
+                        } else {
+                            onError($("#NickName"), '此昵称已经存在');
+                        }
+                    });
+                }
+            });
+
+            $(".check_text,.check_img").click(function () {
+                $(".check_img").attr("src", "/account/code?r=" + $.now());
+            });
+
+            $("#selectprovince").change(changePro);
+            $("#selectprovince").change(function () {
+                $("#Province").val($(this).val());
+                if ($('#City').valid()) {
+                    onSuccess($('#City'));
+                }
+            });
+            $("#selectcity").change(function () {
+                $("#City").val($(this).val());
+                if ($('#City').valid()) {
+                    onSuccess($('#City'));
+                }
+
+            });
+
+            $.each(townarr, function (key, value) {
+                $('<option value="' + key + '">' + value.name + '</option>').appendTo('#selectprovince');
+            });
+
+            //$('#selectprovince').val($("#Province").val());
+            //changePro(true);
+
+
+            function changePro(isinit) {
+                var proid = $('#selectprovince').val();
+
+                if (proid == "")
+                    return;
+
+              
+                    $('#selectcity').empty();
+                    $('<option value="">请选择</option>').appendTo("#selectcity");
+                    $.each(townarr[proid]['child'], function (key, val) {
+                        $("<option value='" + key + "'>" + val.name + "</option>").appendTo('#selectcity');
+                    });
+                    if (isinit) {
+                        $('#selectcity').val($("#City").val());
+                    } else {
+                        $('#City').val("");
+                    }
+                    if ($('#City').valid()) {
+                        onSuccess($('#City'));
+                    }
+             
+            }
+            
+           
+            $('#Password').keyup(function () {
+                if ($(this).valid()) {
+                    $('.w').show().removeClass('w1').removeClass('w2').removeClass('w3');
+                    switch (checkStrong($(this).val())) {
+                        case 0:
+                        case 1:
+                            $('.w').addClass('w1');
+                            break;
+                        case 2:
+                            $('.w').addClass('w2');
+                            break;
+                        default:
+                            $('.w').addClass('w3');
+                            break;
+                    }
+                    onSuccess(this);
+                } else {
+                    $('.w').hide();
+                }
+            });
+
+            $('#ConfirmPassword,[name=Sex]').blur(function () {
+
+                if ($(this).valid()) {
+                    onSuccess(this);
+                }
+            });
+        });
+
+
+        function checkStrong(sPW) {
+            if (sPW.length <= 5)
+                return 0; //密码太短
+            var Modes = 0;
+            for (i = 0; i < sPW.length; i++) {
+                Modes |= CharMode(sPW.charCodeAt(i));
+            }
+            return bitTotal(Modes);
+        }
+
+        //验证密码组成
+
+        function CharMode(iN) {
+            if (iN >= 48 && iN <= 57) //数字
+                return 1;
+            if (iN >= 65 && iN <= 90) //大写字母
+                return 2;
+            if (iN >= 97 && iN <= 122) //小写
+                return 4;
+            else
+                return 8; //特殊字符
+        }
+
+        function bitTotal(num) {
+            var modes = 0;
+            for (var i = 0; i < 5; i++) {
+                if (num & 1) modes++;
+                num >>>= 1;
+            }
+            return modes;
+
+        }
+
+        function GetCharLength(str) {
+            var iLength = 0;
+            for (var i = 0; i < str.length; i++) {
+                if (str.charCodeAt(i) > 255) {
+                    iLength += 2;
+                } else {
+                    iLength += 1;
+                }
+            }
+            return iLength;
+        }
+
+    </script>
+}

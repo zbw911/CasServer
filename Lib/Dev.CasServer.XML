@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.CasServer</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.CasServer.CasServer">
+            <summary>
+              CAS server class that provides the basic Jasig CAS functionality.
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.HandleLogoutRequest">
+            <summary>
+              Handle CAS logout request: logout and redirect to the logon page.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <param name="casAuthenticator"> </param>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.HandlePageLoad(System.String,System.String@)">
+            <summary>
+              处理登录页面加载
+            </summary>
+            <param name="strService"> </param>
+            <param name="returl"> </param>
+            <returns> 是否有必要进行跳转 </returns>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.HandlePageLogin(System.String,System.String,System.String,System.Boolean,System.String@)">
+            <summary>
+              Handle Login_Click from Login page, after a successfull authentication
+            </summary>
+            <param name="strService"> </param>
+            <param name="casAuthenticator"> </param>
+            <param name="strUserName"> </param>
+            <param name="doRemember"> </param>
+            <returns> Returns true when the call was handled. </returns>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.HandleServiceValidateRequest(System.String,System.String)">
+            <summary>
+              处理 cas/ServiceValidate 的请求
+            </summary>
+            <param name="casAuthenticator"> </param>
+            <param name="strResponse"> </param>
+            <param name="service"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.BuildServiceValidateResponse(System.Boolean,System.String,System.String,System.String)">
+            <summary>
+              Build a XML response for ticket service validation CAS 2.0
+            </summary>
+            <param name="isOK"> Indicates whether it is a positive response </param>
+            <param name="strUserName"> The user name to be included in the response. </param>
+            <param name="strErrorCode"> The error code to be included in the response. </param>
+            <param name="strErrorMsg"> The error message to be included in the response. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.BuildValidateResponse(System.Boolean,System.String)">
+            <summary>
+              Build a response for ticket validation CAS 1.0
+            </summary>
+            <param name="isOK"> Indicates whether it is a positive response </param>
+            <param name="strUserName"> The user name to be included in the response. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.HandleLoginRequest(System.String,System.String,System.Boolean)">
+            <summary>
+              Handle CAS login request: create a ticket and redirect to the requested service.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <param name="casAuthenticator"> </param>
+            <param name="strUserName"> </param>
+            <param name="doRemember"> </param>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.TranslateService(System.String)">
+            <summary>
+              Service translation
+            </summary>
+            <param name="strService"> </param>
+            <param name="casAuthenticator"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.CasServer.ValidateTicket(System.String,System.String,System.String@,System.String@,System.String@)">
+            <summary>
+              Validate the given ticket and return the corresponding user, or an error code and message
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <param name="casAuthenticator"> </param>
+            <param name="strUserName"> </param>
+            <param name="strErrorCode"> </param>
+            <param name="strErrorMsg"> </param>
+            <returns> Returns true when the ticket is valid. </returns>
+        </member>
+        <member name="T:Dev.CasServer.CasTicket">
+            <summary>
+              Representation of a temporary CAS service validation ticket
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.CasTicket.CheckAndPunch(System.String,System.String@)">
+            <summary>
+              Read a ticket from cache, check and immedeately invalidate (punch) it
+            </summary>
+            <param name="httpContext"> </param>
+            <param name="strTicket"> </param>
+            <param name="strService"> Returns the corresponding service </param>
+            <returns> Returns the corresponding user name </returns>
+        </member>
+        <member name="M:Dev.CasServer.CasTicket.Issue(System.String,System.String)">
+            <summary>
+              Issue a CAS ticket and store it temporarily in the context cache
+            </summary>
+            <param name="httpContext"> </param>
+            <param name="strUserName"> </param>
+            <param name="strService"> </param>
+            <returns> Returns the corresponding ticket string. </returns>
+        </member>
+        <member name="P:Dev.CasServer.Configuration.CasServerConfiguration.DefaultUrl">
+            <summary>
+              默认的主页面
+            </summary>
+        </member>
+        <member name="T:Dev.CasServer.Configuration.ICasServerConfigurationStorage">
+            <summary>
+              配置文件存储接口， zbw911
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.Configuration.ICasServerConfigurationStorage.Get">
+            <summary>
+              取得
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.Configuration.ICasServerConfigurationStorage.Get(System.String)">
+            <summary>
+              根据名称取得
+            </summary>
+            <param name="configname"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.Configuration.ICasServerConfigurationStorage.Save(Dev.CasServer.Configuration.CasServerConfiguration)">
+            <summary>
+              保存
+            </summary>
+            <param name="config"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.Configuration.ICasServerConfigurationStorage.Save(Dev.CasServer.Configuration.CasServerConfiguration,System.String)">
+            <summary>
+            </summary>
+            <param name="config"> </param>
+            <param name="configname"> </param>
+        </member>
+        <member name="T:Dev.CasServer.Configuration.XmlCasServerConfigurationStorage">
+            <summary>
+              xml保存，911
+            </summary>
+        </member>
+        <member name="T:Dev.CasServer.TicketStorage.ITicketStorage">
+            <summary>
+              Ticket 存储接口,
+              created by zbw911
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.TicketStorage.ITicketStorage.Add(System.String,Dev.CasServer.CasTicket,System.DateTime)">
+            <summary>
+              存储 ticket
+            </summary>
+            <param name="strTicket"> </param>
+            <param name="ticket"> </param>
+            <param name="dateTime"> </param>
+        </member>
+        <member name="M:Dev.CasServer.TicketStorage.ITicketStorage.Get(System.String)">
+            <summary>
+              取得 ticket
+            </summary>
+            <param name="strTicket"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.TicketStorage.ITicketStorage.Remove(System.String)">
+            <summary>
+              移除 ticket
+            </summary>
+            <param name="strTicket"> </param>
+        </member>
+        <member name="M:Dev.CasServer.Authenticator.ICasAuthenticator.CasCheckPermission(System.String,System.String)">
+            <summary>
+              The check permission hook will be called when the CAS server receives a CAS login request, after 
+              the user has been authenticated and right before the user is redirected back to the client page.
+              The hook can check whether the user is permitted to call the requested service and return
+              false if not.
+              Also, if the client web application provides an interface for external user management, this 
+              is the point where a dynamic user creation can be implemented.
+            </summary>
+            <param name="strUserName"> </param>
+            <param name="strService"> </param>
+        </member>
+        <member name="M:Dev.CasServer.Authenticator.ICasAuthenticator.CasLogin(System.String,System.Boolean)">
+            <summary>
+              The login hook will be called when the CAS server receives a CAS login request, after the check 
+              permission hook has been called and right before the user is redirected back to the client page.
+              If the server uses forms authentication it should call SetAuthCookie.
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.Authenticator.ICasAuthenticator.CasLogout">
+            <summary>
+              The logout hook will be called when the CAS server receives a CAS logout request.
+              If the server uses forms authentication it should call SignOut and redirect to the login page.
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.Authenticator.ICasAuthenticator.CasTranslateService(System.String)">
+            <summary>
+              In some scenarious a service translation hook might be useful.
+              Some Java CAS client applications tend to request a CAS ticket for a service, and then validate the service under a different name,
+              especially when the Java client can be accessed via multiple domains like "www.mycasclient.com" and "wiki.mycasclient.com" the client 
+              might request the ticket for "www.mycasclient.com" and then validates the ticket for "wiki.mycasclient.com" (for whatever reason).
+            </summary>
+            <param name="strService"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.Authenticator.ICasAuthenticator.GetName">
+            <summary>
+              当前用户名
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.Authenticator.ICasAuthenticator.IsAuthenticated">
+            <summary>
+              IsLogin
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="T:Dev.CasServer.RequestTypes.IRequestType">
+            <summary>
+              Created by zbw911
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.RequestTypes.IRequestType.IsLoginRequest">
+            <summary>
+              Check if the current request is CAS login request.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.RequestTypes.IRequestType.IsLogoutRequest">
+            <summary>
+              Check if the current request is CAS logout request.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.RequestTypes.IRequestType.IsServiceValidateRequest">
+            <summary>
+              Check if the current request is CAS validate (CAS 1.0) request.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.RequestTypes.IRequestType.IsValidateRequest">
+            <summary>
+              Check if the current request is CAS server validate request.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <returns> </returns>
+        </member>
+        <member name="T:Dev.CasServer.IUserValidate">
+            <summary>
+              用户验证接口，这个接口去持久化或其它接口进行用户的验证
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.IUserValidate.GetExtendProperty(System.String)">
+            <summary>
+              取得用户的扩展属性
+            </summary>
+            <param name="strUserName"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.IUserValidate.PerformAuthentication(System.String,System.String,System.Boolean,System.String@)">
+            <summary>
+              验证用户登录
+            </summary>
+            <param name="strUserName"> </param>
+            <param name="strPassWord"> </param>
+            <returns> </returns>
+        </member>
+        <member name="T:Dev.CasServer.RequestTypes.FormRequestType">
+            <summary>
+              这只是对RequestType的一种实现，在实际应用中也仅在WebForm中有意思，对于Mvc就意义不大了。
+              added by zbw911 , 2013-1-28
+            </summary>
+        </member>
+        <member name="M:Dev.CasServer.RequestTypes.FormRequestType.IsLoginRequest">
+            <summary>
+              Check if the current request is CAS login request.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.RequestTypes.FormRequestType.IsServiceValidateRequest">
+            <summary>
+              Check if the current request is CAS validate (CAS 1.0) request.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.RequestTypes.FormRequestType.IsValidateRequest">
+            <summary>
+              Check if the current request is CAS server validate request.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.CasServer.RequestTypes.FormRequestType.IsLogoutRequest">
+            <summary>
+              Check if the current request is CAS logout request.
+            </summary>
+            <param name="httpContext"> An System.Web.HttpContext object that contains information associated with the current page. </param>
+            <returns> </returns>
+        </member>
+    </members>
+</doc>

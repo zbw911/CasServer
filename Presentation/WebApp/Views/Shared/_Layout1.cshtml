@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>@this.ViewBag.Title </title>
+        @Styles.Render("~/Content/css")
+        @this.RenderSection("css", required: false)
+    </head>
+    <body>
+        <div class="head">
+            <div class="lay_hd clear">
+                <div class="logo_box l">
+                    <a href="#" class="logo"></a>
+                </div>
+                <div class="lay_hd_r r">
+                    <div class="clear">
+                        <ul class="tabr_r r">
+                            <li><a href="#" class="menu_a">关注</a></li>
+                            <li><a href="#" class="menu_a">订阅</a></li>
+                            <li>
+                                <div class="">
+                                    <a href="#" class="menu_a">个人中心</a>
+                                    <div class="menu_layer menu_tuan" style="display: none">
+                                        <p><a href="#">我的团</a></p>
+                                        <p><a href="#">我的活动</a></p>
+                                        <p><a href="#">我的足迹</a></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#" class="red menu_a">营销中心</a></li>
+                            <li><a href="#" class="menu_a">VCU计划</a></li>
+                            <li><a href="#" class="menu_a">玩转XXXXX</a></li>
+                            <li class="last"><a href="#" class="menu_a">网站导航</a> </li>
+                        </ul>
+                    </div>
+                    <div class="sr_box clear">
+                        <b></b>
+                        <div class="sr_from l">
+                            <input type="text" value="尝试输入您感兴趣的..." />
+                            <a class="sr_btn" href=""></a>
+                        </div>
+                        <div class="hd_reg l">
+                            @Html.Partial("_LoginPartial")
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @this.ViewBag.current
+
+        <!--头部结束-->
+        <!--正文开始-->
+        @this.RenderBody()
+        <!--正文结束-->
+        <div class="footer mt12">
+            <div class="foot">
+                <h3>合作伙伴</h3>
+                <div><a href="#">猫扑游戏</a><a href="#">天涯游戏 </a><a href="#">游卡桌游</a><a href="#">扑家汉化组 </a><a href="#">动漫周边</a><a href="#"> 78动漫</a><a href="#"> 78439小游戏 </a><a href="#">叶网网页游戏</a><a href="#">单机游戏大全  </a><a href="#">单机游戏库  </a><a href="#">游戏补丁下载  </a><a href="#">单机游戏攻略  </a><a href="#">ABAB小游戏   </a><a href="#">游戏补丁下载电玩海域  </a><a href="#">苹果游戏下载 </a><a href="#">红色警戒 </a><a href="#">最新网页游戏  </a><a href="#">07073新闻中心 </a><a href="#">平板电脑游戏 </a><a href="#">游戏兵工厂 </a><a href="#">火影忍者漫画  </a></div>
+                <p class="center">
+                <span>© 2012 北京网弦信息技术有限公司 xxxxxxx.com 京ICP备12005734号</span>  <a href="#">关于XXXXX</a><span>|</span><a href="#"> 网站地图</a><span>|</span><a href="#">联系我们</a><span>|</span><a href="#">免责声明</a><span>|</span><a href="#">隐私保护</a><span>|</span><a href="#">帮助中心</a>
+                <p class="center">京公网安备11010802008524号</p>
+            </div>
+        </div>
+
+
+        <!--hot img-->
+
+
+
+    </body>
+
+    @Scripts.Render("~/bundles/jquery")
+    @this.RenderSection("scripts", required: false)
+</html>

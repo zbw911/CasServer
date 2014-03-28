@@ -1,0 +1,116 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.about_l {
+    padding: 27px 0 0 18px;
+    width: 216px;
+}
+
+.about_r {
+    padding: 37px 0 0;
+    width: 746px;
+}
+
+.about_l h3 {
+    color: #F76D5F;
+    font-family: Arial;
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 173px;
+}
+
+.about_l ul li {
+    background: url("../images/dot_b.gif") no-repeat scroll 40px 50% transparent;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 4px;
+    padding-left: 55px;
+    width: 118px;
+}
+
+.about_l ul li a { color: #333333; }
+
+.about_l ul li.on {
+    background: url("../images/dot_w.gif") no-repeat scroll 40px 50% #F76D5F;
+    font-weight: bold;
+}
+
+.about_l ul li.on a { color: #FFFFFF; }
+
+.ab_title {
+    margin-bottom: 13px;
+    overflow: hidden;
+}
+
+.ab_title h3 {
+    float: left;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.ab_title i.head-line {
+    border-bottom: 1px solid #E9E9E9;
+    display: block;
+    height: 1px;
+    margin-top: 9px;
+    overflow: hidden;
+}
+
+.about_tab {
+    position: relative;
+    z-index: 2;
+}
+
+.about_tab li {
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+}
+
+.about_tab li a, .about_tab li a span {
+    background: url("../images/about_t.gif") no-repeat scroll right -37px transparent;
+    display: block;
+    padding: 0 30px 0 0;
+}
+
+.about_tab li a {
+    color: #333333;
+    font-weight: bold;
+}
+
+.about_tab li a:hover { text-decoration: none; }
+
+.about_tab li a span {
+    background-position: 0 0;
+    padding: 0 13px 0 18px;
+}
+
+.about_tab li.abt_r { margin-left: -15px; }
+
+.about_tab li.on {
+    border-bottom: 1px solid #FFFFFF;
+    height: 35px;
+    margin-bottom: -1px;
+    position: relative;
+    z-index: 10;
+}
+
+.about_tab li.on a { color: #F76D5F; }
+
+.about_con {
+    color: #333333;
+    line-height: 22px;
+}
+
+.abt_r_con {
+    border: 1px solid #DFDFDF;
+    padding: 20px;
+}
+
+.about_info p {
+    margin-top: 25px;
+    text-indent: 2em;
+}

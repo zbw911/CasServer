@@ -1,0 +1,95 @@
+.rg-image-wrapper {
+    background: transparent url(../images/black.png) repeat top left;
+    min-height: 20px;
+    padding: 20px 30px;
+    position: relative;
+}
+
+.rg-image {
+    line-height: 0px;
+    position: relative;
+    text-align: center;
+}
+
+.rg-image img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.rg-image-nav a {
+    background: #000 url(../images/nav.png) no-repeat -20% 50%;
+    cursor: pointer;
+    height: 100%;
+    left: 0px;
+    opacity: 0.3;
+    outline: none;
+    position: absolute;
+    text-indent: -9000px;
+    top: 0px;
+    width: 28px;
+}
+
+.rg-image-nav a.rg-image-nav-next {
+    background-position: 115% 50%;
+    left: auto;
+    right: 0px;
+}
+
+.rg-image-nav a:hover { opacity: 0.8; }
+
+.rg-caption {
+    margin-top: 15px;
+    position: relative;
+    text-align: center;
+}
+
+.rg-caption p {
+    color: #FFF;
+    font: 12px/1.6 Tahoma, Verdana, Arial, sans-serif, "宋体";
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 16px;
+    padding: 0 15px;
+}
+
+.rg-view {
+    display: none;
+    height: 30px;
+}
+
+.rg-view a {
+    background: #464646 url(../images/views.png) no-repeat top left;
+    border: 3px solid #464646;
+    display: block;
+    float: right;
+    height: 16px;
+    margin-right: 3px;
+    opacity: 0.8;
+    width: 16px;
+}
+
+.rg-view a:hover { opacity: 1.0; }
+
+.rg-view a.rg-view-full { background-position: 0px 0px; }
+
+.rg-view a.rg-view-selected {
+    background-color: #6f6f6f;
+    border-color: #6f6f6f;
+}
+
+.rg-view a.rg-view-thumbs { background-position: 0px -16px; }
+
+.rg-loading {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background: #000 url(../images/ajax-loader.gif) no-repeat center center;
+    border-radius: 10px;
+    height: 46px;
+    left: 50%;
+    margin: -23px 0px 0px -23px;
+    opacity: 0.7;
+    position: absolute;
+    top: 50%;
+    width: 46px;
+    z-index: 100;
+}

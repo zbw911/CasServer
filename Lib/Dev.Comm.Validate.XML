@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Comm.Validate</name>
+    </assembly>
+    <members>
+        <member name="M:Dev.Comm.Validate.Validate.isPhone(System.String)">
+            <summary>是否电话,包含手机 </summary>
+            <param name="strInput">输入字符串</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:Dev.Comm.Validate.Validate.isUrl(System.String)">
+            <summary>
+            是否是URL
+            </summary>
+            <param name="strInput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Validate.Validate.IsDateTime(System.String)">
+            <summary>
+            是不是日期+时间格式
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Validate.Validate.IsDate(System.String)">
+            <summary>
+            是不是日期格式
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Validate.Validate.IsDateOrDateTime(System.String)">
+            <summary>
+            判断是不是时间格式
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Validate.Validate.validateNumberCase(System.String)">
+            <summary>
+            验证密码中的字符是否有数字
+            </summary>
+            <param name="strPwd">字符串</param>
+            <returns>BOOL</returns>
+        </member>
+        <member name="M:Dev.Comm.Validate.Validate.validateMixedCase(System.String)">
+            <summary>
+            验证密码中的字符是否大小写混合
+            </summary>
+            <param name="strPwd">密码字符串</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Dev.Comm.Validate.Validate.validatePasswordLength(System.String,System.Int32)">
+            <summary>
+            对密码的长度进行检验
+            </summary>
+            <param name="strPwd">密码字符串</param>
+            <param name="intLen">密码长度</param>
+            <returns>BOOL,false代表长度不够</returns>
+        </member>
+    </members>
+</doc>

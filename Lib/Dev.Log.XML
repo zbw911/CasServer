@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Log</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Log.Config.Setting">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Dev.Log.Config.Setting.AttachLog(Dev.Log.ILog)">
+            <summary>
+            附加log
+            </summary>
+            <param name="observer"></param>
+        </member>
+        <member name="M:Dev.Log.Config.Setting.DetachLog(Dev.Log.ILog)">
+            <summary>
+            去除log
+            </summary>
+            <param name="observer"></param>
+        </member>
+        <member name="M:Dev.Log.Config.Setting.SetLogSeverity(Dev.Log.LogSeverity)">
+            <summary>
+            
+            </summary>
+            <param name="logSeverity"></param>
+        </member>
+        <member name="T:Dev.Log.ILog">
+            <summary>
+            Defines a single method to write requested log events to an output device.
+            </summary>
+        </member>
+        <member name="M:Dev.Log.ILog.Log(System.Object,Dev.Log.LogEventArgs)">
+            <summary>
+            Write a log request to a given output device.
+            </summary>
+            <param name="sender">Sender of the log request.</param>
+            <param name="e">Parameters of the log request.</param>
+        </member>
+        <member name="T:Dev.Log.Impl.ObserverLogToConsole">
+            <summary>
+            Writes log events to the diagnostic trace.
+            </summary>
+            <remarks>
+            GoF Design Pattern: Observer.
+            The Observer Design Pattern allows this class to attach itself to an
+            the logger and 'listen' to certain events and be notified of the event. 
+            </remarks>
+        </member>
+        <member name="M:Dev.Log.Impl.ObserverLogToConsole.Log(System.Object,Dev.Log.LogEventArgs)">
+            <summary>
+            Writes a log request to the diagnostic trace on the page.
+            </summary>
+            <param name="sender">Sender of the log request.</param>
+            <param name="e">Parameters of the log request.</param>
+        </member>
+        <member name="T:Dev.Log.Impl.ObserverLogToDatabase">
+            <summary>
+            Writes log events to a database.
+            </summary>
+            <remarks>
+            GoF Design Pattern: Observer.
+            The Observer Design Pattern allows this class to attach itself to an
+            the logger and 'listen' to certain events and be notified of the event. 
+            </remarks>
+        </member>
+        <member name="M:Dev.Log.Impl.ObserverLogToDatabase.Log(System.Object,Dev.Log.LogEventArgs)">
+            <summary>
+            Writes a log request to the database.
+            </summary>
+            <remarks>
+            Actual database insert statements are commented out.
+            You can activate this if you have the proper database 
+            configuration and access privileges.
+            </remarks>
+            <param name="sender">Sender of the log request.</param>
+            <param name="e">Parameters of the log request.</param>
+        </member>
+        <member name="T:Dev.Log.Impl.ObserverLogToEmail">
+            <summary>
+            Sends log events via email.
+            </summary>
+            <remarks>
+            GoF Design Pattern: Observer.
+            The Observer Design Pattern allows this class to attach itself to an
+            the logger and 'listen' to certain events and be notified of the event. 
+            </remarks>
+        </member>
+        <member name="M:Dev.Log.Impl.ObserverLogToEmail.#ctor(System.String,System.String,System.String,System.String,System.Net.Mail.SmtpClient)">
+            <summary>
+            Constructor for the ObserverlogToEmail class
+            </summary>
+            <param name="from">From email address.</param>
+            <param name="to">To email address.</param>
+            <param name="subject">Email subject.</param>
+            <param name="smtpClient">Smtp email client.</param>
+        </member>
+        <member name="M:Dev.Log.Impl.ObserverLogToEmail.Log(System.Object,Dev.Log.LogEventArgs)">
+            <summary>
+            Sends a log request via email.
+            </summary>
+            <remarks>
+            Actual email 'Send' calls are commented out.
+            Uncomment if you have the proper email privileges.
+            </remarks>
+            <param name="sender">Sender of the log request.</param>
+            <param name="e">Parameters of the log request.</param>
+        </member>
+        <member name="T:Dev.Log.Impl.ObserverLogToEventlog">
+            <summary>
+            Writes log events to the Windows event log.
+            </summary>
+            <remarks>
+            GoF Design Pattern: Observer.
+            The Observer Design Pattern allows this class to attach itself to an
+            the logger and 'listen' to certain events and be notified of the event. 
+            </remarks>
+        </member>
+        <member name="M:Dev.Log.Impl.ObserverLogToEventlog.Log(System.Object,Dev.Log.LogEventArgs)">
+            <summary>
+            Write a log request to the event log.
+            </summary>
+            <remarks>
+            Actual event log write entry statements are commented out.
+            Uncomment if you have the proper privileges.
+            </remarks>
+            <param name="sender">Sender of the log request.</param>
+            <param name="e">Parameters of the log request.</param>
+        </member>
+        <member name="T:Dev.Log.Impl.ObserverLogToFile">
+            <summary>
+            Writes log events to a local file.
+            </summary>
+            <remarks>
+            GoF Design Pattern: Observer.
+            The Observer Design Pattern allows this class to attach itself to an
+            the logger and 'listen' to certain events and be notified of the event. 
+            </remarks>
+        </member>
+        <member name="M:Dev.Log.Impl.ObserverLogToFile.#ctor(System.String)">
+            <summary>
+            Constructor of ObserverLogToFile.
+            </summary>
+            <param name="fileName">File log to.</param>
+        </member>
+        <member name="M:Dev.Log.Impl.ObserverLogToFile.Log(System.Object,Dev.Log.LogEventArgs)">
+            <summary>
+            Write a log request to a file.
+            </summary>
+            <param name="sender">Sender of the log request.</param>
+            <param name="e">Parameters of the log request.</param>
+        </member>
+        <member name="M:Dev.Log.Loger.Debug(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Debug" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.Loger.Info(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Info" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.Loger.Warning(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Warning" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.Loger.Error(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Error" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.Loger.Fatal(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Fatal"
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="T:Dev.Log.LogEventArgs">
+            <summary>
+            Contains log specific event data for log events.
+            </summary>
+        </member>
+        <member name="M:Dev.Log.LogEventArgs.#ctor(Dev.Log.LogSeverity,System.String,System.Exception,System.DateTime)">
+            <summary>
+            Constructor of LogEventArgs.
+            </summary>
+            <param name="severity">Log severity.</param>
+            <param name="message">Log message</param>
+            <param name="exception">Inner exception.</param>
+            <param name="date">Log date.</param>
+        </member>
+        <member name="M:Dev.Log.LogEventArgs.ToString">
+            <summary>
+            LogEventArgs as a string representation.
+            </summary>
+            <returns>String representation of the LogEventArgs.</returns>
+        </member>
+        <member name="P:Dev.Log.LogEventArgs.Severity">
+            <summary>
+            Gets and sets the log severity.
+            </summary>        
+        </member>
+        <member name="P:Dev.Log.LogEventArgs.Message">
+            <summary>
+            Gets and sets the log message.
+            </summary>        
+        </member>
+        <member name="P:Dev.Log.LogEventArgs.Exception">
+            <summary>
+            Gets and sets the optional inner exception.
+            </summary>        
+        </member>
+        <member name="P:Dev.Log.LogEventArgs.Date">
+            <summary>
+            Gets and sets the log date and time.
+            </summary>        
+        </member>
+        <member name="P:Dev.Log.LogEventArgs.SeverityString">
+            <summary>
+            Friendly string that represents the severity.
+            </summary>
+        </member>
+        <member name="T:Dev.Log.LogSeverity">
+            <summary>
+            Enumeration of log severity levels.
+            </summary>
+        </member>
+        <member name="F:Dev.Log.LogSeverity.Debug">
+            <summary>
+            Severity level of "Debug"
+            </summary>
+        </member>
+        <member name="F:Dev.Log.LogSeverity.Info">
+            <summary>
+            Severity level of "Info"
+            </summary>
+        </member>
+        <member name="F:Dev.Log.LogSeverity.Warning">
+            <summary>
+            Severity level of "Warning"
+            </summary>
+        </member>
+        <member name="F:Dev.Log.LogSeverity.Error">
+            <summary>
+            Severity level of "Error"
+            </summary>
+        </member>
+        <member name="F:Dev.Log.LogSeverity.Fatal">
+            <summary>
+            Severity level of "Fatal"
+            </summary>
+        </member>
+        <member name="T:Dev.Log.SingletonLogger">
+            <summary>
+            Singleton logger class through which all log events are processed.
+            </summary>
+            <remarks>
+            GoF Design Patterns: Singleton, Observer.
+            </remarks>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Debug(System.String)">
+            <summary>
+            Log a message when severity level is "Debug" or higher.
+            </summary>
+            <param name="message">Log message</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Debug(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Debug" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Info(System.String)">
+            <summary>
+            Log a message when severity level is "Info" or higher.
+            </summary>
+            <param name="message">Log message</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Info(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Info" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Warning(System.String)">
+            <summary>
+            Log a message when severity level is "Warning" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Warning(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Warning" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Error(System.String)">
+            <summary>
+            Log a message when severity level is "Error" or higher.
+            </summary>
+            <param name="message">Log message</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Error(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Error" or higher.
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Fatal(System.String)">
+            <summary>
+            Log a message when severity level is "Fatal"
+            </summary>
+            <param name="message">Log message</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Fatal(System.String,System.Exception)">
+            <summary>
+            Log a message when severity level is "Fatal"
+            </summary>
+            <param name="message">Log message.</param>
+            <param name="exception">Inner exception.</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.OnLog(Dev.Log.LogEventArgs)">
+            <summary>
+            Invoke the Log event.
+            </summary>
+            <param name="e">Log event parameters.</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Attach(Dev.Log.ILog)">
+            <summary>
+            Attach a listening observer logging device to logger.
+            </summary>
+            <param name="observer">Observer (listening device).</param>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.Detach(Dev.Log.ILog)">
+            <summary>
+            Detach a listening observer logging device from logger.
+            </summary>
+            <param name="observer">Observer (listening device).</param>
+        </member>
+        <member name="F:Dev.Log.SingletonLogger.instance">
+            <summary>
+            The one and only Singleton Logger instance. 
+            </summary>
+        </member>
+        <member name="M:Dev.Log.SingletonLogger.#ctor">
+            <summary>
+            Private constructor. Initializes default severity to "Error".
+            </summary>
+        </member>
+        <member name="P:Dev.Log.SingletonLogger.Severity">
+            <summary>
+            Gets and sets the severity level of logging activity.
+            </summary>
+        </member>
+        <member name="E:Dev.Log.SingletonLogger.Log">
+            <summary>
+            The Log event.
+            </summary>
+        </member>
+        <member name="P:Dev.Log.SingletonLogger.Instance">
+            <summary>
+            Gets the instance of the singleton logger object.
+            </summary>
+        </member>
+        <member name="T:Dev.Log.SingletonLogger.LogEventHandler">
+            <summary>
+            Delegate event handler that hooks up requests.
+            </summary>
+            <param name="sender">Sender of the event.</param>
+            <param name="e">Event arguments.</param>
+            <remarks>
+            GoF Design Pattern: Observer, Singleton.
+            The Observer Design Pattern allows Observer classes to attach itself to 
+            this Logger class and be notified if certain events occur. 
+            
+            The Singleton Design Pattern allows the application to have just one
+            place that is aware of the application-wide LogSeverity setting.
+            </remarks>
+        </member>
+    </members>
+</doc>

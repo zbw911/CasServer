@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C95A9C4-E1E4-4824-84FD-82B1D923C4DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NCAS</RootNamespace>
+    <AssemblyName>NCAS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dev.Comm.Core">
+      <HintPath>..\..\..\..\DevLibs\ReleaseLib\Dev.Comm.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Dev.Comm.Net">
+      <HintPath>..\..\..\..\DevLibs\ReleaseLib\Dev.Comm.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Dev.Log">
+      <HintPath>..\..\..\..\DevLibs\ReleaseLib\Dev.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivator">
+      <HintPath>..\..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="jasig\authentication\Authentication.cs" />
+    <Compile Include="jasig\authentication\AuthenticationManager.cs" />
+    <Compile Include="jasig\authentication\handler\AuthenticationException.cs" />
+    <Compile Include="jasig\authentication\handler\AuthenticationHandler.cs" />
+    <Compile Include="jasig\authentication\principal\AbstractPersonDirectoryCredentialsToPrincipalResolver.cs" />
+    <Compile Include="jasig\authentication\principal\AbstractWebApplicationService.cs" />
+    <Compile Include="jasig\authentication\principal\Credentials.cs" />
+    <Compile Include="jasig\authentication\principal\CredentialsToPrincipalResolver.cs" />
+    <Compile Include="jasig\authentication\principal\HttpBasedServiceCredentials.cs" />
+    <Compile Include="jasig\authentication\principal\PersistentIdGenerator.cs" />
+    <Compile Include="jasig\authentication\principal\Principal.cs" />
+    <Compile Include="jasig\authentication\principal\Response.cs" />
+    <Compile Include="jasig\authentication\principal\Service.cs" />
+    <Compile Include="jasig\authentication\principal\SimpleWebApplicationServiceImpl.cs" />
+    <Compile Include="jasig\authentication\principal\support\SimplePrincipal.cs" />
+    <Compile Include="jasig\authentication\principal\support\StubPersonAttributeDao.cs" />
+    <Compile Include="jasig\authentication\principal\UsernamePasswordCredentials.cs" />
+    <Compile Include="jasig\authentication\principal\WebApplicationService.cs" />
+    <Compile Include="jasig\CasVersion.cs" />
+    <Compile Include="jasig\CentralAuthenticationService.cs" />
+    <Compile Include="jasig\services\AbstractRegisteredService.cs" />
+    <Compile Include="jasig\services\InMemoryServiceRegistryDaoImpl.cs" />
+    <Compile Include="jasig\services\persondir\IPersonAttributeDao.cs" />
+    <Compile Include="jasig\services\persondir\IPersonAttributes.cs" />
+    <Compile Include="jasig\services\RegexRegisteredService.cs" />
+    <Compile Include="jasig\services\RegisteredService.cs" />
+    <Compile Include="jasig\services\RegisteredServiceImpl.cs" />
+    <Compile Include="jasig\services\ReloadableServicesManager.cs" />
+    <Compile Include="jasig\services\ServiceRegistryDao.cs" />
+    <Compile Include="jasig\services\ServicesManager.cs" />
+    <Compile Include="jasig\ticket\AbstractTicket.cs" />
+    <Compile Include="jasig\ticket\ExpirationPolicy.cs" />
+    <Compile Include="jasig\ticket\ServiceTicket.cs" />
+    <Compile Include="jasig\ticket\ServiceTicketImpl.cs" />
+    <Compile Include="jasig\ticket\Ticket.cs" />
+    <Compile Include="jasig\ticket\TicketGrantingTicket.cs" />
+    <Compile Include="jasig\ticket\TicketGrantingTicketImpl.cs" />
+    <Compile Include="jasig\ticket\TicketPrefix.cs" />
+    <Compile Include="jasig\ticket\TicketState.cs" />
+    <Compile Include="jasig\util\CalendarUtils.cs" />
+    <Compile Include="jasig\util\DefaultLongNumericGenerator.cs" />
+    <Compile Include="jasig\util\DefaultRandomStringGenerator.cs" />
+    <Compile Include="jasig\util\DefaultUniqueTicketIdGenerator.cs" />
+    <Compile Include="jasig\util\HttpClient.cs" />
+    <Compile Include="jasig\util\LongNumericGenerator.cs" />
+    <Compile Include="jasig\util\NumericGenerator.cs" />
+    <Compile Include="jasig\util\RandomStringGenerator.cs" />
+    <Compile Include="jasig\util\SamlUtils.cs" />
+    <Compile Include="jasig\util\UniqueTicketIdGenerator.cs" />
+    <Compile Include="jasig\validation\AbstractCasProtocolValidationSpecification.cs" />
+    <Compile Include="jasig\validation\Assertion.cs" />
+    <Compile Include="jasig\validation\Cas10ProtocolValidationSpecification.cs" />
+    <Compile Include="jasig\validation\Cas20ProtocolValidationSpecification.cs" />
+    <Compile Include="jasig\validation\Cas20WithoutProxyingValidationSpecification.cs" />
+    <Compile Include="jasig\validation\ImmutableAssertionImpl.cs" />
+    <Compile Include="jasig\validation\ValidationSpecification.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\AbstractController.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\Extens.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\JavaCSharExtends.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\RedirectView.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\StringUtils.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\Event.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\AbstractAction.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\MessageContext.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\CookieGenerator.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\ModelAndView.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\ServletRequestDataBinder.cs" />
+    <Compile Include="jasig\web\MOCK2JAVA\AbstractView.cs" />
+    <Compile Include="Juntil\ToStringBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="jasig\aspect\LogAspect.java" />
+    <Content Include="jasig\audit\spi\CredentialsAsFirstParameterResourceResolver.java" />
+    <Content Include="jasig\audit\spi\ServiceManagementResourceResolver.java" />
+    <Content Include="jasig\audit\spi\ServiceResourceResolver.java" />
+    <Content Include="jasig\audit\spi\TicketAsFirstParameterResourceResolver.java" />
+    <Content Include="jasig\audit\spi\TicketOrCredentialPrincipalResolver.java" />
+    <Compile Include="jasig\authentication\AbstractAuthentication.cs" />
+    <Compile Include="jasig\authentication\AbstractAuthenticationManager.cs" />
+    <Compile Include="jasig\authentication\AuthenticationManagerImpl.cs" />
+    <Compile Include="jasig\authentication\AuthenticationMetaDataPopulator.cs" />
+    <Compile Include="jasig\authentication\DirectMappingAuthenticationManagerImpl.cs" />
+    <Compile Include="jasig\authentication\handler\BadCredentialsAuthenticationException.cs" />
+    <Compile Include="jasig\authentication\handler\BadPasswordAuthenticationException.cs" />
+    <Compile Include="jasig\authentication\handler\BadUsernameOrPasswordAuthenticationException.cs" />
+    <Compile Include="jasig\authentication\handler\BlockedCredentialsAuthenticationException.cs" />
+    <Compile Include="jasig\authentication\handler\DefaultPasswordEncoder.cs" />
+    <Compile Include="jasig\authentication\handler\NamedAuthenticationHandler.cs" />
+    <Compile Include="jasig\authentication\handler\NoOpPrincipalNameTransformer.cs" />
+    <Content Include="jasig\authentication\handler\package.html" />
+    <Compile Include="jasig\authentication\handler\PasswordEncoder.cs" />
+    <Compile Include="jasig\authentication\handler\PlainTextPasswordEncoder.cs" />
+    <Compile Include="jasig\authentication\handler\PrefixSuffixPrincipalNameTransformer.cs" />
+    <Compile Include="jasig\authentication\handler\PrincipalNameTransformer.cs" />
+    <Compile Include="jasig\authentication\handler\support\AbstractPreAndPostProcessingAuthenticationHandler.cs" />
+    <Compile Include="jasig\authentication\handler\support\AbstractUsernamePasswordAuthenticationHandler.cs" />
+    <Compile Include="jasig\authentication\handler\support\HttpBasedServiceCredentialsAuthenticationHandler.cs" />
+    <Content Include="jasig\authentication\handler\support\JaasAuthenticationHandler.java" />
+    <Content Include="jasig\authentication\handler\support\package.html" />
+    <Compile Include="jasig\authentication\handler\support\SimpleTestUsernamePasswordAuthenticationHandler.cs" />
+    <Compile Include="jasig\authentication\handler\UncategorizedAuthenticationException.cs" />
+    <Compile Include="jasig\authentication\handler\UnknownUsernameAuthenticationException.cs" />
+    <Compile Include="jasig\authentication\handler\UnsupportedCredentialsException.cs" />
+    <Compile Include="jasig\authentication\ImmutableAuthentication.cs" />
+    <Compile Include="jasig\authentication\LinkedAuthenticationHandlerAndCredentialsToPrincipalResolverAuthenticationManager.cs" />
+    <Compile Include="jasig\authentication\MutableAuthentication.cs" />
+    <Content Include="jasig\authentication\package.html" />
+    <Compile Include="jasig\authentication\principal\GoogleAccountsService.cs" />
+    <Compile Include="jasig\authentication\principal\HttpBasedServiceCredentialsToPrincipalResolver.cs" />
+    <Content Include="jasig\authentication\principal\package.html" />
+    <Compile Include="jasig\authentication\principal\RememberMeAuthenticationMetaDataPopulator.cs" />
+    <Compile Include="jasig\authentication\principal\RememberMeCredentials.cs" />
+    <Compile Include="jasig\authentication\principal\RememberMeUsernamePasswordCredentials.cs" />
+    <Content Include="jasig\authentication\principal\SamlService.java" />
+    <Compile Include="jasig\authentication\principal\ShibbolethCompatiblePersistentIdGenerator.cs" />
+    <Compile Include="jasig\authentication\principal\SimplePrincipal.cs" />
+    <Compile Include="jasig\authentication\principal\UsernamePasswordCredentialsToPrincipalResolver.cs" />
+    <Compile Include="jasig\authentication\SamlAuthenticationMetaDataPopulator.cs" />
+    <Compile Include="jasig\CentralAuthenticationServiceImpl.cs" />
+    <Content Include="jasig\monitor\AbstractCacheMonitor.java" />
+    <Content Include="jasig\monitor\AbstractNamedMonitor.java" />
+    <Content Include="jasig\monitor\AbstractPoolMonitor.java" />
+    <Content Include="jasig\monitor\CacheStatistics.java" />
+    <Content Include="jasig\monitor\CacheStatus.java" />
+    <Content Include="jasig\monitor\DataSourceMonitor.java" />
+    <Content Include="jasig\monitor\HealthCheckMonitor.java" />
+    <Content Include="jasig\monitor\HealthStatus.java" />
+    <Content Include="jasig\monitor\MemoryMonitor.java" />
+    <Content Include="jasig\monitor\MemoryStatus.java" />
+    <Content Include="jasig\monitor\Monitor.java" />
+    <Content Include="jasig\monitor\PoolStatus.java" />
+    <Content Include="jasig\monitor\SessionMonitor.java" />
+    <Content Include="jasig\monitor\SessionStatus.java" />
+    <Content Include="jasig\monitor\SimpleCacheStatistics.java" />
+    <Compile Include="jasig\monitor\Status.cs" />
+    <Compile Include="jasig\monitor\StatusCode.cs" />
+    <Compile Include="jasig\monitor\TicketRegistryState.cs" />
+    <Content Include="jasig\package.html" />
+    <Content Include="jasig\remoting\server\package.html" />
+    <Compile Include="jasig\remoting\server\RemoteCentralAuthenticationService.cs" />
+    <Compile Include="jasig\services\DefaultServicesManagerImpl.cs" />
+    <Compile Include="jasig\services\jmx\AbstractServicesManagerMBean.cs" />
+    <Compile Include="jasig\services\jmx\ReloadableServicesManagerMBean.cs" />
+    <Compile Include="jasig\services\jmx\ServicesManagerMBean.cs" />
+    <Content Include="jasig\services\JpaServiceRegistryDaoImpl.java" />
+    <Content Include="jasig\services\package.html" />
+    <Compile Include="jasig\services\UnauthorizedProxyingException.cs" />
+    <Compile Include="jasig\services\UnauthorizedServiceException.cs" />
+    <Compile Include="jasig\services\UnauthorizedSsoServiceException.cs" />
+    <Content Include="jasig\services\web\ManageRegisteredServicesMultiActionController.java" />
+    <Content Include="jasig\services\web\package.html" />
+    <Content Include="jasig\services\web\RegisteredServiceSimpleFormController.java" />
+    <Content Include="jasig\services\web\ServiceThemeResolver.java" />
+    <Content Include="jasig\services\web\support\RegisteredServiceValidator.java" />
+    <Compile Include="jasig\ticket\InvalidTicketException.cs" />
+    <Content Include="jasig\ticket\package.html" />
+    <Content Include="jasig\ticket\proxy\package.html" />
+    <Compile Include="jasig\ticket\proxy\ProxyHandler.cs" />
+    <Compile Include="jasig\ticket\proxy\support\Cas10ProxyHandler.cs" />
+    <Compile Include="jasig\ticket\proxy\support\Cas20ProxyHandler.cs" />
+    <Content Include="jasig\ticket\proxy\support\package.html" />
+    <Compile Include="jasig\ticket\registry\AbstractDistributedTicketRegistry.cs" />
+    <Compile Include="jasig\ticket\registry\AbstractTicketRegistry.cs" />
+    <Compile Include="jasig\ticket\registry\DefaultTicketRegistry.cs" />
+    <Content Include="jasig\ticket\registry\JpaTicketRegistry.java" />
+    <Content Include="jasig\ticket\registry\package.html" />
+    <Compile Include="jasig\ticket\registry\RegistryCleaner.cs" />
+    <Compile Include="jasig\ticket\registry\support\DefaultTicketRegistryCleaner.cs" />
+    <Content Include="jasig\ticket\registry\support\JdbcLockingStrategy.java" />
+    <Content Include="jasig\ticket\registry\support\JpaLockingStrategy.java" />
+    <Compile Include="jasig\ticket\registry\support\LockingStrategy.cs" />
+    <Compile Include="jasig\ticket\registry\support\NoOpLockingStrategy.cs" />
+    <Content Include="jasig\ticket\registry\support\package.html" />
+    <Compile Include="jasig\ticket\registry\TicketRegistry.cs" />
+    <Compile Include="jasig\ticket\support\HardTimeoutExpirationPolicy.cs" />
+    <Compile Include="jasig\ticket\support\MultiTimeUseOrTimeoutExpirationPolicy.cs" />
+    <Compile Include="jasig\ticket\support\NeverExpiresExpirationPolicy.cs" />
+    <Content Include="jasig\ticket\support\package.html" />
+    <Compile Include="jasig\ticket\support\RememberMeDelegatingExpirationPolicy.cs" />
+    <Compile Include="jasig\ticket\support\ThrottledUseAndTimeoutExpirationPolicy.cs" />
+    <Compile Include="jasig\ticket\support\TicketGrantingTicketExpirationPolicy.cs" />
+    <Compile Include="jasig\ticket\support\TimeoutExpirationPolicy.cs" />
+    <Compile Include="jasig\ticket\TicketCreationException.cs" />
+    <Compile Include="jasig\ticket\TicketException.cs" />
+    <Compile Include="jasig\ticket\TicketValidationException.cs" />
+    <Content Include="jasig\util\AopUtils.java" />
+    <Content Include="jasig\util\ApplicationContextProvider.java" />
+    <Content Include="jasig\util\CasHTTPSOAP11Encoder.java" />
+    <Content Include="jasig\util\CustomBeanValidationPostProcessor.java" />
+    <Content Include="jasig\util\package.html" />
+    <Content Include="jasig\util\PrivateKeyFactoryBean.java" />
+    <Content Include="jasig\util\PublicKeyFactoryBean.java" />
+    <Compile Include="jasig\util\SamlCompliantUniqueTicketIdGenerator.cs" />
+    <Content Include="jasig\util\SpringAwareMessageMessageInterpolator.java" />
+    <Content Include="jasig\validation\package.html" />
+    <Compile Include="jasig\web\bind\CredentialsBinder.cs" />
+    <Content Include="jasig\web\bind\package.html" />
+    <Compile Include="jasig\web\DelegateController.cs" />
+    <Compile Include="jasig\web\DelegatingController.cs" />
+    <Compile Include="jasig\web\flow\AbstractNonInteractiveCredentialsAction.cs" />
+    <Compile Include="jasig\web\flow\AuthenticationViaFormAction.cs" />
+    <Content Include="jasig\web\flow\CasDefaultFlowUrlHandler.java" />
+    <Compile Include="jasig\web\flow\GenerateLoginTicketAction.cs" />
+    <Compile Include="jasig\web\flow\GenerateServiceTicketAction.cs" />
+    <Compile Include="jasig\web\flow\InitialFlowSetupAction.cs" />
+    <Content Include="jasig\web\flow\package.html" />
+    <Compile Include="jasig\web\flow\SendTicketGrantingTicketAction.cs" />
+    <Content Include="jasig\web\flow\TerminateWebSessionListener.java" />
+    <Content Include="jasig\web\HealthCheckController.java" />
+    <Content Include="jasig\web\init\package.html" />
+    <Compile Include="jasig\web\init\SafeContextLoaderListener.cs" />
+    <Compile Include="jasig\web\init\SafeDispatcherServlet.cs" />
+    <Compile Include="jasig\web\LogoutController.cs" />
+    <Compile Include="jasig\web\OpenIdProviderController.cs" />
+    <Content Include="jasig\web\package.html" />
+    <Compile Include="jasig\web\ProxyController.cs" />
+    <Compile Include="jasig\web\ServiceValidateController.cs" />
+    <Content Include="jasig\web\StatisticsController.java" />
+    <Compile Include="jasig\web\support\AbstractInMemoryThrottledSubmissionHandlerInterceptorAdapter.cs" />
+    <Compile Include="jasig\web\support\AbstractSingleSignOutEnabledArgumentExtractor.cs" />
+    <Compile Include="jasig\web\support\AbstractThrottledSubmissionHandlerInterceptorAdapter.cs" />
+    <Compile Include="jasig\web\support\ArgumentExtractor.cs" />
+    <Compile Include="jasig\web\support\CasArgumentExtractor.cs" />
+    <Compile Include="jasig\web\support\CookieRetrievingCookieGenerator.cs" />
+    <Content Include="jasig\web\support\GoogleAccountsArgumentExtractor.java" />
+    <Compile Include="jasig\web\support\InMemoryThrottledSubmissionByIpAddressAndUsernameHandlerInterceptorAdapter.cs" />
+    <Compile Include="jasig\web\support\InMemoryThrottledSubmissionByIpAddressHandlerInterceptorAdapter.cs" />
+    <Content Include="jasig\web\support\InspektrThrottledSubmissionByIpAddressAndUsernameHandlerInterceptorAdapter.java" />
+    <Content Include="jasig\web\support\package.html" />
+    <Content Include="jasig\web\support\SamlArgumentExtractor.java" />
+    <Compile Include="jasig\web\support\WebUtils.cs" />
+    <Compile Include="jasig\web\view\AbstractCasView.cs" />
+    <Compile Include="jasig\web\view\AbstractSaml10ResponseView.cs" />
+    <Compile Include="jasig\web\view\Cas10ResponseView.cs" />
+    <Content Include="jasig\web\view\package.html" />
+    <Content Include="jasig\web\view\Saml10FailureResponseView.java" />
+    <Content Include="jasig\web\view\Saml10SuccessResponseView.java" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="README.md">
+      <SubType>Form</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

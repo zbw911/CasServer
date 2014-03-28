@@ -1,0 +1,326 @@
+.yx_top { height: 124px; }
+
+.yx_logo {
+    background: url("../images/y_logo.gif");
+    height: 50px;
+    margin-top: 42px;
+    width: 298px;
+}
+
+.yxt_r {
+    color: #999;
+    text-align: right
+}
+
+.yxt_r a { color: #999 }
+
+.yxt_r .yt_tel { margin-top: 15px; }
+
+.yxt_r .yt_tel span {
+    color: #fd4801;
+    font-family: "arial";
+    font-size: 36px;
+    vertical-align: middle;
+}
+
+.yx_nav_wp {
+    background: #ff6600;
+    height: 41px;
+    line-height: 41px;
+    width: 100%
+}
+
+.yx_nav {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.yx_nav ul li {
+    color: #fff;
+    float: left;
+    font-family: 'microsoft yahei'
+}
+
+.yx_nav ul li span { color: #fd8c42 }
+
+.yx_nav ul li a {
+    background: url("../images/yx_nav.gif") right 50% no-repeat;
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    padding: 0 40px;
+}
+
+.yx_nav ul li.last a { background: none }
+
+.yx_nav ul li a:hover, .yx_nav ul li.on a {
+    background: #fd8c42;
+    margin-left: -1px;
+    padding-left: 41px;
+    text-decoration: none;
+}
+
+.yx_banner_wp {
+    background: #f1f1f1;
+    width: 100%;
+}
+
+.yx_banner {
+    background: url("../images/yx_banner.jpg") no-repeat;
+    height: 284px;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.yx_login {
+    background: #fff;
+    float: right;
+    margin-top: 12px;
+    padding: 25px 0 10px;
+    text-align: center;
+    width: 271px;
+}
+
+.yx_login input { width: 225px; }
+
+.yx_login .textarea {
+    border: 1px solid #d8d8d8;
+    height: 80px;
+    padding: 3px;
+    width: 225px;
+}
+
+.yx_login .yx_btn {
+    background: url("../images/yx_btn.gif");
+    display: inline-block;
+    height: 43px;
+    width: 184px;
+}
+
+.yx_tit {
+    color: #333;
+    font-family: "microsoft yahei";
+    font-size: 20px;
+    margin: 30px 0
+}
+
+.yx_ico_box a {
+    background: url("../images/yx_ico.png");
+    display: inline;
+    float: left;
+    height: 109px;
+    margin-left: 26px;
+    width: 144px;
+}
+
+.yx_ico_box a.yx_ico1 {
+    background-position: 0 0;
+    margin-left: 0;
+}
+
+.yx_ico_box a.yx_ico2 { background-position: -170px 0 }
+
+.yx_ico_box a.yx_ico3 { background-position: -341px 0 }
+
+.yx_ico_box a.yx_ico4 { background-position: -512px 0 }
+
+.yx_ico_box a.yx_ico5 { background-position: -683px 0 }
+
+.yx_ico_box a.yx_ico6 { background-position: -854px 0 }
+
+.yx_box2 li {
+    float: left;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    width: 326px;
+    _display: inline;
+}
+
+.yx_box2 li.first { margin-left: 0 }
+
+.yx_box2 li .yxb_l { width: 114px; }
+
+.yx_box2 li .yxb_con { margin-left: 124px; }
+
+.yx_timg {
+    background: #f1f1f1 url("../images/yx_timg.jpg") center no-repeat;
+    height: 237px;
+}
+
+.yx_sbox {
+    border: 1px solid #ddd;
+    padding: 25px 82px;
+}
+
+.yx_simg {
+    background: url("../images/yx_turn.jpg") no-repeat center;
+    height: 98px;
+    width: 833px;
+}
+
+.yx_sbox .task_set { padding-left: 113px }
+
+
+.pro_left {
+    border: 1px solid #E4E4E4;
+    float: left;
+    padding-bottom: 150px;
+    width: 220px;
+}
+
+.pro_left ul li {
+    background: #F5F5F5;
+    border-bottom: 1px solid #E4E4E4;
+    border-top: 1px solid #FFFFFF;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.pro_left ul li:hover { background: #FF6600; }
+
+.pro_left ul li:hover a { color: #FFF; }
+
+.pro_right {
+    float: right;
+    width: 772px;
+}
+
+.pro_tit {
+    border-bottom: 1px solid #F2F2F2;
+    height: 43px;
+    line-height: 43px;
+}
+
+.pro_tit h2 {
+    font-family: 'microsoft yahei';
+    font-size: 16px;
+    text-indent: 20px;
+}
+
+.pro_cont { padding: 10px 15px; }
+
+.pro_cont p {
+    color: #A1A1A1;
+    font-size: 14px;
+}
+
+.pro_cont h2 {
+    font-family: 'microsoft yahei';
+    font-size: 14px;
+    line-height: 45px;
+}
+
+.map_boder {
+    border: 1px solid #CCC;
+    padding: 2px;
+}
+
+#faq {
+    padding-top: 12px;
+    width: 100%;
+}
+
+#faq li {
+    color: #525252;
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-left: 2px;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+#faq dl {
+    margin: 0px;
+    padding: 0px;
+}
+
+#faq dt {
+    line-height: 33px;
+    *line-height: 18px;
+}
+
+#faq dt a {
+    background-image: url(../images/help_wen.gif);
+    background-position: 0px center;
+    background-repeat: no-repeat;
+    color: #525252;
+    display: block;
+    font-size: 14px;
+    text-indent: 22px;
+}
+
+#faq dt a:hover {
+    background-image: url(../images/help_wenon.gif);
+    background-position: 0px center;
+    background-repeat: no-repeat;
+    color: #DF5300;
+    text-decoration: none;
+    text-indent: 22px;
+}
+
+#faq dd {
+    background-color: #FFFDF7;
+    background-image: url(../images/help_topjiao.gif);
+    background-repeat: no-repeat;
+    color: #717171;
+    display: none;
+    font-size: 12px;
+    margin-left: 22px;
+    padding-top: 15px;
+    width: 720px;
+}
+
+.faq_conent {
+    border-bottom-color: #F1C9A0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #F1C9A0;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #F1C9A0;
+    border-right-style: solid;
+    border-right-width: 1px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
+.faq_conent span {
+    display: block;
+    margin-top: 15px;
+    text-align: right;
+}
+
+.faq_conent span a { color: #DF5400; }
+
+.yx_list li {
+    background: url("../images/dot_line.gif") repeat-x bottom;
+    overflow: hidden;
+    padding: 20px 0
+}
+
+.yx_list li .yxl_r {
+    line-height: 22px;
+    margin-left: 220px;
+}
+
+.yx_list li .yxl_r h3 a {
+    color: #DF5300;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.yx_con {
+    line-height: 30px;
+    padding: 0 50px
+}
+
+.yx_con p {
+    margin-bottom: 10px;
+    text-indent: 2em
+}

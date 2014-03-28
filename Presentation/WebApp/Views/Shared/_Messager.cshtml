@@ -1,0 +1,94 @@
+﻿@model CASServer.Core.Messager
+@{
+    this.ViewBag.Title = " 提示消息";
+
+}
+@*信息提示*@
+
+
+
+@section css
+{
+    <style>
+        /*跳转页面*/
+
+        .yel_box {
+            background: #fffff0;
+            border: 1px solid #f4e4b4;
+            padding: 10px;
+        }
+
+        .main_tishi {
+            color: #ff0000;
+            font-size: 14px;
+            margin-top: 20px;
+            padding: 10px 60px;
+        }
+
+        .tishi_info {
+            color: #333;
+            line-height: 30px;
+            margin: 0 auto;
+            margin-top: 15px;
+            min-height: 200px;
+            padding-top: 10px;
+            width: 935px;
+        }
+
+        .tishi_info a { color: #666666; }
+
+        .tishi_info a:hover { text-decoration: underline; }
+
+        .tishi_info li { padding-left: 20px; }
+    </style>
+}
+
+<div class="main_tishi yel_box" style="margin-left: auto; margin-right: auto; width: 1000px;">
+    <div class="mt18">
+        <span class="yahei orange3 mr15">@(string.IsNullOrWhiteSpace(this.Model.return_msg) ? "提示信息" : this.Model.return_msg)</span>
+        <ul class="tishi_info">
+
+            @foreach (var msg in this.Model.MessageList)
+            {
+                <li><span class="opreate_span plr12">@msg</span></li>
+            }
+            <li class="li_nostyle" style="margin: 5px 0"><span class="opreate_span">
+
+                                                             @if (string.IsNullOrEmpty(this.Model.return_msg))
+                                                             {
+                                                                 if (this.Model.time > 0)
+                                                                 {
+                                                                     <a href="@Model.redirectto"><span id='redirect_status'><span id='msg_time'>@Model.time</span>秒后 @Model.to_title</span>，
+                                                                     
+                                                                         如果您的浏览器没有自动跳转，请点这里继续</a>
+                                                                     <script type="text/javascript">
+                                                                         function showTimeStatus() {
+                                                                             var timeObj = document.getElementById('msg_time');
+                                                                             if (timeObj.innerHTML == 1) {
+                                                                                 document.getElementById('redirect_status').innerHTML = "正在 @Model.to_title";
+
+                                                                                 window.location = "@Model.redirectto";
+
+                                                                                 return false;
+                                                                             }
+                                                                             timeObj.innerHTML -= 1;
+
+                                                                             setTimeout(showTimeStatus, 1000);
+                                                                         }
+
+                                                                         showTimeStatus();
+                                                                     </script>
+                                                                 }
+                                                                 else
+                                                                 {
+                                                                     <a href="@Model.redirectto">@Model.to_title</a>
+                                                                 }
+                                                             }
+                                                             else
+                                                             {
+                                                                 @Model.return_msg
+                                                             }
+                                                         </span></li>
+        </ul>
+    </div>
+</div>

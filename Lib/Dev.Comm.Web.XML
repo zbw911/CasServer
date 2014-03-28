@@ -1,0 +1,826 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Comm.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Comm.Web.UrlHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.UrlHelper.IsUrlLocalToHost(System.String)">
+            <summary>
+             是否为本地Url
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.WebCrossPage(System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+             页面分页控制函数
+            </summary>
+            <param name="TotalCount">是总记录数</param>
+            <param name="PerPageCount">每页数目</param>
+            <param name="FileName">连接地址</param>
+            <param name="CurrentPage">当前页</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.ShowPartConToDg(System.Object,System.Int32)">
+            <summary>
+            取某个字段的部分内容显示在DataGrid中
+            </summary>
+            <param name="strCon">内容</param>
+            <param name="intLength">长度</param>
+            <returns>STRING</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.DataBindDropdl(System.Web.UI.WebControls.DropDownList,System.Data.DataSet,System.String,System.String)">
+            <summary>
+            初始化DropDownList与数据库绑定的数据
+            </summary>
+            <param name="DdlName">DropDownList名称</param>
+            <param name="strSql">DataSet</param>
+            <param name="strDataField">显示值</param>
+            <param name="strFieldId">绑定值</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.DataBindDdlYear(System.Web.UI.WebControls.DropDownList,System.Int32)">
+            <summary>
+            初始化DropDownList
+            </summary>
+            <param name="DdlName">DropDownList</param>
+            <param name="intValue">数量</param>
+            <param name="strType">Year,Month,Day,Comm</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.DataBindDdlMonth(System.Web.UI.WebControls.DropDownList)">
+            <summary>
+            初始化DropDownList
+            </summary>
+            <param name="DdlName">DropDownList</param>
+            <param name="intValue">数量</param>
+            <param name="strType">Year,Month,Day,Comm</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.DataBindDdlDaye(System.Web.UI.WebControls.DropDownList)">
+            <summary>
+            初始化DropDownList
+            </summary>
+            <param name="DdlName">DropDownList</param>
+            <param name="intValue">数量</param>
+            <param name="strType">Year,Month,Day,Comm</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.AddDataToDdl(System.Web.UI.WebControls.DropDownList,System.String)">
+            <summary>
+            在DropDownList中插入一条记录
+            </summary>
+            <param name="ddlname">DropDownList名</param>
+            <param name="strName">插入的内容</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.DataGridDataBind(System.Web.UI.WebControls.DataGrid,System.Data.DataSet)">
+            <summary>
+            DataGrid数据绑定
+            </summary>
+            <param name="Dg">待绑定的DataGrid</param>
+            <param name="strSql">DataSet</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.UniteDataGrid(System.Web.UI.WebControls.DataGrid,System.Int32)">
+            <summary>
+            格式化DATAGRID中的某列中的行
+            </summary>
+            <param name="dgr">DataGrid列</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.LinkAddress(System.String,System.Object)">
+            <summary>
+             DataGrid中连接地址
+            </summary>
+            <param name="strAddr">连接的地址</param>
+            <param name="pathname">传的参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.ControlSet.GetDgPartStr(System.String,System.Int32)">
+            <summary>
+            取DataGrid中某列的部分数据
+            </summary>
+            <param name="strConn"></param>
+            <param name="intNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.CookieFun.SetCookie(System.String,System.String,System.Nullable{System.TimeSpan},System.String,System.Boolean)">
+            <summary>
+            设置 cookies
+            </summary>
+            <param name="cookieName"></param>
+            <param name="value"></param>
+            <param name="time"></param>
+            <param name="domain"></param>
+        </member>
+        <member name="M:Dev.Comm.Web.CookieFun.SetCookie(System.String,System.String,System.Nullable{System.TimeSpan},System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="cookieName"></param>
+            <param name="value"></param>
+            <param name="timespan"></param>
+            <param name="crossDomainCookie"></param>
+        </member>
+        <member name="M:Dev.Comm.Web.CookieFun.IsExistCookies(System.String)">
+            **
+        </member>
+        <member name="T:Dev.Comm.Web.DevRequest">
+            <summary>
+            Request操作类
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.IsPost">
+            <summary>
+            判断当前页面是否接收到了Post请求
+            </summary>
+            <returns>是否接收到了Post请求</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.IsGet">
+            <summary>
+            判断当前页面是否接收到了Get请求
+            </summary>
+            <returns>是否接收到了Get请求</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.IsBrowserGet">
+            <summary>
+            判断当前访问是否来自浏览器软件
+            </summary>
+            <returns>当前访问是否来自浏览器软件</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.IsSearchEnginesGet">
+            <summary>
+            判断是否来自搜索引擎链接
+            </summary>
+            <returns>是否来自搜索引擎链接</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetParamCount">
+            <summary>
+            返回表单或Url参数的总个数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetQueryString(System.String)">
+            <summary>
+            获得指定Url参数的值
+            </summary>
+            <param name="strName">Url参数</param>
+            <returns>Url参数的值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetQueryString(System.String,System.Boolean)">
+            <summary>
+            获得指定Url参数的值
+            </summary> 
+            <param name="strName">Url参数</param>
+            <param name="sqlSafeCheck">是否进行SQL安全检查</param>
+            <returns>Url参数的值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetFormString(System.String)">
+            <summary>
+            获得指定表单参数的值
+            </summary>
+            <param name="strName">表单参数</param>
+            <returns>表单参数的值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetFormString(System.String,System.Boolean)">
+            <summary>
+            获得指定表单参数的值
+            </summary>
+            <param name="strName">表单参数</param>
+            <param name="sqlSafeCheck">是否进行SQL安全检查</param>
+            <returns>表单参数的值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetString(System.String)">
+            <summary>
+            获得Url或表单参数的值, 先判断Url参数是否为空字符串, 如为True则返回表单参数的值
+            </summary>
+            <param name="strName">参数</param>
+            <returns>Url或表单参数的值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetString(System.String,System.Boolean)">
+            <summary>
+            获得Url或表单参数的值, 先判断Url参数是否为空字符串, 如为True则返回表单参数的值
+            </summary>
+            <param name="strName">参数</param>
+            <param name="sqlSafeCheck">是否进行SQL安全检查</param>
+            <returns>Url或表单参数的值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetQueryInt(System.String)">
+            <summary>
+            获得指定Url参数的int类型值
+            </summary>
+            <param name="strName">Url参数</param>
+            <returns>Url参数的int类型值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetQueryInt(System.String,System.Int32)">
+            <summary>
+            获得指定Url参数的int类型值
+            </summary>
+            <param name="strName">Url参数</param>
+            <param name="defValue">缺省值</param>
+            <returns>Url参数的int类型值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetFormInt(System.String,System.Int32)">
+            <summary>
+            获得指定表单参数的int类型值
+            </summary>
+            <param name="strName">表单参数</param>
+            <param name="defValue">缺省值</param>
+            <returns>表单参数的int类型值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetInt(System.String,System.Int32)">
+            <summary>
+            获得指定Url或表单参数的int类型值, 先判断Url参数是否为缺省值, 如为True则返回表单参数的值
+            </summary>
+            <param name="strName">Url或表单参数</param>
+            <param name="defValue">缺省值</param>
+            <returns>Url或表单参数的int类型值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetQueryFloat(System.String,System.Single)">
+            <summary>
+            获得指定Url参数的float类型值
+            </summary>
+            <param name="strName">Url参数</param>
+            <param name="defValue">缺省值</param>
+            <returns>Url参数的int类型值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetFormFloat(System.String,System.Single)">
+            <summary>
+            获得指定表单参数的float类型值
+            </summary>
+            <param name="strName">表单参数</param>
+            <param name="defValue">缺省值</param>
+            <returns>表单参数的float类型值</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.DevRequest.GetFloat(System.String,System.Single)">
+            <summary>
+            获得指定Url或表单参数的float类型值, 先判断Url参数是否为缺省值, 如为True则返回表单参数的值
+            </summary>
+            <param name="strName">Url或表单参数</param>
+            <param name="defValue">缺省值</param>
+            <returns>Url或表单参数的int类型值</returns>
+        </member>
+        <member name="T:Dev.Comm.Web.UnSafeRequestException">
+            <summary>
+            不安装的请求异常 added by zbw911 
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.ExportData.ExpertControl(System.Web.UI.Control,System.String,Dev.Comm.Web.ExportData.DocumentType)">
+            <summary> 
+            将Web控件导出 
+            </summary> 
+            <param name="source">控件实例</param> 
+            <param name="type">类型:Excel或Word</param> 
+        </member>
+        <member name="M:Dev.Comm.Web.HostHelper.GetHostName">
+            <summary>
+            获取本地机器名称
+            </summary>
+            <returns>机器名称</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HostHelper.getRealIp_byKW">
+            <summary>
+            快网CDN专用取IP方法 ygj 2011-6-15 团卡前台用的快网CDN，必须掉这个方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HostHelper.GetHostMac">
+            <summary>
+            获取本机MAC地址
+            </summary>
+            <returns>string null</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.HtmlUtil.urldecode(System.String)">
+            <summary>
+            .net to php
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.AddParmToUrl(System.String,System.String)">
+            <summary>
+              增加参数
+            </summary>
+            <param name="sk"> </param>
+            <param name="sv"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.FullRequestPath">
+            <summary>
+              全地址包括？后的
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.GetHost">
+            <summary>
+              当前系统网点地址
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.GetLeftPath">
+            <summary>
+              如源地址 : http://www.google.com/aaaa.html?fffffff.com
+              返回: http://www.google.com/aaaa.html
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.GetPort">
+            <summary>
+              请求端口
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.GetRequestAgent">
+            <summary>
+              Agent
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.GetRequestType">
+            <summary>
+              请求类型
+            </summary>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.GetUrlReferrer">
+            <summary>
+              返回上一个页面的地址
+            </summary>
+            <returns> 上一个页面的地址 </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.RebuildUrl(System.Collections.Specialized.NameValueCollection,System.String[])">
+            <summary>
+              重建
+            </summary>
+            <param name="AddParms"> </param>
+            <param name="RemoveKeys"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.RebuildUrl(System.String,System.String,System.String)">
+            <summary>
+              重建
+            </summary>
+            <param name="AddParms"> </param>
+            <param name="RemoveKeys"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.RemoveParmToUrl(System.String)">
+            <summary>
+              从URL中移除一个参数
+            </summary>
+            <param name="sk"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.WapperFullUrl(System.String)">
+            <summary>
+              将本地URL,包装包完整URL
+            </summary>
+            <param name="url"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.HttpServerInfo.RebuildUrlParms(System.Collections.Specialized.NameValueCollection,System.Collections.Generic.IEnumerable{System.String},System.Collections.Specialized.NameValueCollection,System.String)">
+            <summary>
+              重建URL
+            </summary>
+            <param name="addParms"> </param>
+            <param name="removeKeys"> </param>
+            <param name="queryString"> </param>
+            <param name="url"> </param>
+            <returns> </returns>
+        </member>
+        <member name="P:Dev.Comm.Web.HttpServerInfo.BaseUrl">
+            <summary>
+              服务器地址
+            </summary>
+        </member>
+        <member name="P:Dev.Comm.Web.HttpServerInfo.RELATIVE_ROOT_PATH">
+            <summary>
+              系统根路径
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.Show(System.Web.UI.Page,System.String)">
+            <summary>
+            显示消息提示对话框
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowAlert(System.Web.UI.Page,System.String)">
+            <summary>
+            显示消息提示对话框
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowAndCloseCeng(System.Web.UI.Page,System.String,System.String)">
+            <summary>
+            显示消息提示对话框
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ExecJs(System.Web.UI.Page,System.String)">
+            <summary>
+            显示消息提示对话框
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowAndCloseAndRefrush(System.Web.UI.Page,System.String)">
+            <summary>
+            显示消息提示对话框,刷新打开窗口，关闭本窗口
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowAndClose(System.Web.UI.Page,System.String)">
+            <summary>
+            显示消息提示对话框,刷新打开窗口，关闭本窗口
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowConfirm(System.Web.UI.WebControls.WebControl,System.String)">
+            <summary>
+            控件点击 消息确认提示框
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowAndRedirect(System.Web.UI.Page,System.String,System.String)">
+            <summary>
+            显示消息提示对话框，并进行页面跳转
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="msg">提示信息</param>
+            <param name="url">跳转的目标URL</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ResponseScript(System.Web.UI.Page,System.String)">
+            <summary>
+            输出自定义脚本信息
+            </summary>
+            <param name="page">当前页面指针，一般为this</param>
+            <param name="script">输出脚本</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowMessageBox(System.String)">
+            <summary>
+            提示信息
+            </summary>
+            <param name="strMsg">信息内容</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowMessageBox(System.Object)">
+            <summary>
+            提示信息
+            </summary>
+            <param name="message">任意类型的变量</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.RedirectPage(System.String)">
+            <summary>
+            指向指定的某个页面
+            </summary>
+            <param name="strUrl">页面地址</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowMessageBox(System.Web.UI.WebControls.ImageButton,System.String)">
+            <summary>
+            确认是否删除提示 ImageButton
+            </summary>
+            <param name="IB">ImageButton控件</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowMessageBox(System.Web.UI.WebControls.Button,System.String)">
+            <summary>
+            确认是否删除提示 Button
+            </summary>
+            <param name="IB">Button控件</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowMessageBox(System.Web.UI.WebControls.LinkButton,System.String)">
+            <summary>
+            确认是否删除提示 LinkButton
+            </summary>
+            <param name="lb">LinkButton控件</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.AlertAndRedirect(System.String,System.String)">
+            <summary>
+            弹出提示信息，同时打开有效的页面
+            </summary>
+            <param name="message">提示信息内容</param>
+            <param name="toURL">页面地址</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.GoHistory(System.Int32)">
+            <summary>
+            回到历史页面
+            </summary>
+            <param name="value">-1/1,1表示前进，－1表示后退</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.CloseWindow">
+            <summary>
+            关闭当前窗口
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.RefreshParent">
+            <summary>
+            刷新父窗口
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.JSStringFormat(System.String)">
+            <summary>
+            格式化为JS可解释的字符串
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.RefreshOpener">
+            <summary>
+            刷新打开窗口
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.OpenWebForm(System.String)">
+            <summary>
+            新开页面去掉ie的菜单
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.OpenWebForm(System.String,System.String,System.String)">
+            <summary>
+            打开窗口
+            </summary>
+            <param name="url">地址</param>
+            <param name="name"></param>
+            <param name="future"></param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.OpenWebForm(System.String,System.String)">
+            <summary>
+            打开窗口
+            </summary>
+            <param name="url">地址</param>
+            <param name="formName">窗口名称</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.OpenWebForm(System.String,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>		
+            函数名:OpenWebForm	
+            功能描述:打开WEB窗口	
+            处理流程:
+            算法描述:
+            作 者: 杨秀东
+            日 期: 2005-12-2 17:00
+            修 改:
+            日 期:
+            版 本:
+            </summary>
+            <param name="url">WEB窗口</param>
+            <param name="isFullScreen">是否全屏幕</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.JavaScriptLocationHref(System.String)">
+            <summary>
+            转向Url制定的页面
+            </summary>
+            <param name="url">Url</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.JavaScriptFrameHref(System.String,System.String)">
+            <summary>
+            指定的框架页面转换
+            </summary>
+            <param name="FrameName">框架名称</param>
+            <param name="url">URL</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.JavaScriptResetPage(System.String)">
+            <summary>
+            重置页面
+            </summary>
+            <param name="strRows"></param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.JavaScriptSetCookie(System.String,System.String)">
+            <summary>
+            函数名:JavaScriptSetCookie
+            功能描述:客户端方法设置Cookie
+            作者:yxd
+            日期：2003-4-9
+            版本：1.0
+            </summary>
+            <param name="strName">Cookie名</param>
+            <param name="strValue">Cookie值</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.GotoParentWindow(System.String)">
+            <summary>		
+            函数名:GotoParentWindow	
+            功能描述:返回父窗口	
+            处理流程:
+            算法描述:
+            作 者: 杨秀东
+            日 期: 2003-04-30 10:00
+            修 改:
+            日 期:
+            版 本:
+            </summary>
+            <param name="parentWindowUrl">父窗口</param>		
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ReplaceParentWindow(System.String,System.String,System.String)">
+            <summary>		
+            函数名:ReplaceParentWindow	
+            功能描述:替换父窗口	
+            处理流程:
+            算法描述:
+            作 者: 杨秀东
+            日 期: 2003-04-30 10:00
+            修 改:
+            日 期:
+            版 本:
+            </summary>
+            <param name="parentWindowUrl">父窗口</param>
+            <param name="caption">窗口提示</param>
+            <param name="future">窗口特征参数</param>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ReplaceOpenerWindow(System.String)">
+            <summary>		
+            函数名:ReplaceOpenerWindow	
+            功能描述:替换当前窗体的打开窗口	
+            处理流程:
+            算法描述:
+            作 者: 孙洪彪
+            日 期: 2003-04-30 16:00
+            修 改:
+            日 期:
+            版 本:
+            </summary>
+            <param name="openerWindowUrl">当前窗体的打开窗口</param>		
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ReplaceOpenerParentFrame(System.String,System.String)">
+            <summary>		
+            函数名:ReplaceOpenerParentWindow	
+            功能描述:替换当前窗体的打开窗口的父窗口	
+            处理流程:
+            算法描述:
+            作 者: 孙洪彪
+            日 期: 2003-07-03 19:00
+            修 改:
+            日 期:
+            版 本:
+            </summary>
+            <param name="openerWindowUrl">当前窗体的打开窗口的父窗口</param>		
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ReplaceOpenerParentWindow(System.String)">
+            <summary>		
+            函数名:ReplaceOpenerParentWindow	
+            功能描述:替换当前窗体的打开窗口的父窗口	
+            处理流程:
+            算法描述:
+            作 者: 孙洪彪
+            日 期: 2003-07-03 19:00
+            修 改:
+            日 期:
+            版 本:
+            </summary>
+            <param name="openerWindowUrl">当前窗体的打开窗口的父窗口</param>		
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.CloseParentWindow">
+            <summary>		
+            函数名:CloseParentWindow	
+            功能描述:关闭窗口	
+            处理流程:
+            算法描述:
+            作 者: 杨秀东
+            日 期: 2003-04-30 16:00
+            修 改:
+            日 期:
+            版 本:
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.CloseOpenerWindow">
+            <summary>
+            关闭窗口
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowModalDialogJavascript(System.String)">
+            <summary>
+            函数名:ShowModalDialogJavascript	
+            功能描述:返回打开模式窗口的脚本	
+            处理流程:
+            算法描述:
+            作 者: 孙洪彪
+            日 期: 2003-04-30 15:00
+            修 改:
+            日 期:
+            版 本:
+            </summary>
+            <param name="webFormUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFrom.JScript.ShowSaveResult(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            充值结果输出函数
+            </summary>
+            <param name="RedirectUrl"></param>
+            <param name="ProductName"></param>
+            <param name="PlayerName"></param>
+            <param name="Num"></param>
+            <param name="SaveMsg"></param>
+            <param name="SaveResult"></param>
+            <param name="OtherMsg"></param>
+            <param name="FromUrl"></param>
+            <param name="ProductId"></param>
+            <param name="ProductType"></param>
+            <param name="SpUserId"></param>
+        </member>
+        <member name="M:Dev.Comm.Web.ScriptBuilder.GetSelectAll4Btn(System.Boolean)">
+            <summary>
+            用户button出发的全选和反选
+            </summary>
+            <param name="Flag">true 全选,false 反选</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.ScriptBuilder.GetSelectAll4Sub">
+            <summary>
+            用于checkbox出发的全选
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Web.ScriptBuilder.GetSelectAll4Cbk">
+            <summary>
+            用于checkbox出发的全选
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Dev.Comm.Web.WebFile">
+            <summary>
+            文件管理
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.IsFileExists(System.String)">
+            <summary>
+            指定文件是否存在
+            </summary>
+            <param name="fullName">指定文件完整路径</param>
+            <returns>存在返回true;否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.UploadFile(System.Web.HttpPostedFile,System.String)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="postedFile">上传的文件</param>
+            <param name="saveAsFullName">文件保存的完整路径，但不能重名</param>
+            <returns>成功返回true;否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.UploadFile(System.Web.HttpPostedFile,System.String,System.Boolean)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="postedFile">上传的文件</param>
+            <param name="saveAsFullName">文件保存的完整路径</param>
+            <param name="isReplace">如果有同名文件存在，是否覆盖</param>
+            <returns>成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.DownloadFile(System.String)">
+            <summary>
+            文件下载
+            </summary>
+            <param name="fullName">文件完整路径</param>
+            <returns>下载成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.DownloadFile(System.String,System.String)">
+            <summary>
+            文件下载
+            </summary>
+            <param name="fullName">文件完整路径</param>
+            <param name="sendFileName">发送到客户端显示的文件名</param>
+            <returns>下载成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.DeleteFile(System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="fullName">文件完整路径</param>
+            <returns>删除成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.MoveTo(System.String,System.String)">
+            <summary>
+            移动文件
+            </summary>
+            <param name="fullName">文件完整路径</param>
+            <param name="newFullName">文件移动到的完整路径（可重新命名，但不能重名）</param>
+            <returns>移动成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.MoveTo(System.String,System.String,System.Boolean)">
+            <summary>
+            移动文件
+            </summary>
+            <param name="fullName">文件完整路径</param>
+            <param name="newFullName">文件移动到的完整路径（可重新命名）</param>
+            <param name="isReplace">如果有同名文件存在，是否覆盖</param>
+            <returns>移动成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.CopyTo(System.String,System.String)">
+            <summary>
+            复制文件
+            </summary>
+            <param name="fullName">文件完整路径</param>
+            <param name="newFullName">文件移动到的完整路径（可重新命名）</param>
+            <returns>复制成功返回true,否则返回false</returns>
+        </member>
+        <member name="M:Dev.Comm.Web.WebFile.CopyTo(System.String,System.String,System.Boolean)">
+            <summary>
+            复制文件
+            </summary>
+            <param name="fullName">文件完整路径</param>
+            <param name="newFullName">文件移动到的完整路径（可重新命名）</param>
+            <param name="isReplace">如果有同名文件存在，是否覆盖</param>
+            <returns>复制成功返回true,否则返回false</returns>
+        </member>
+    </members>
+</doc>

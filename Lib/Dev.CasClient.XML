@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.CasClient</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.CasClient.CasClient">
+            <summary>
+                Static CAS client class that consumes the basic Jasig CAS functionality.
+            </summary>
+        </member>
+        <member name="M:Dev.CasClient.CasClient.Login(System.String,System.String,System.String@,System.String@,System.String@)">
+            <summary>
+                登录,如果这是一个登录的方法,那就直接去调用登录了
+            </summary>
+            <param name="strTicket"></param>
+            <param name="strService"></param>
+            <param name="strRedirectUrl"></param>
+            <param name="strUserName"></param>
+            <param name="strErrorText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.CasClient.LoginOut(System.String@)">
+            <summary>
+                登出的方法
+            </summary>
+            <param name="strRedirectUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Dev.CasClient.Configuration.CasClientConfiguration.CasServerUrl">
+            <summary>
+            CAS的服务地址
+            </summary>
+        </member>
+        <member name="T:Dev.CasClient.Configuration.ICasClientConfigurationStorage">
+            <summary>
+                配置文件存储接口， zbw911
+            </summary>
+        </member>
+        <member name="M:Dev.CasClient.Configuration.ICasClientConfigurationStorage.Get">
+            <summary>
+                取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.Configuration.ICasClientConfigurationStorage.Get(System.String)">
+            <summary>
+                根据名称取得
+            </summary>
+            <param name="configname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.Configuration.ICasClientConfigurationStorage.Save(Dev.CasClient.Configuration.CasClientConfiguration)">
+            <summary>
+                保存
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.Configuration.ICasClientConfigurationStorage.Save(Dev.CasClient.Configuration.CasClientConfiguration,System.String)">
+            <summary>
+            </summary>
+            <param name="config"></param>
+            <param name="configname"></param>
+        </member>
+        <member name="T:Dev.CasClient.Configuration.XmlCasClientConfigurationStorage">
+            <summary>
+                xml保存，911
+            </summary>
+        </member>
+        <member name="T:Dev.CasClient.UserAuthenticate.FormUserAuthenticate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Dev.CasClient.UserAuthenticate.IUserAuthenticate.CurUserLoginOut">
+            <summary>
+                登出
+            </summary>
+        </member>
+        <member name="M:Dev.CasClient.UserAuthenticate.IUserAuthenticate.GetUserIsAuthenticated">
+            <summary>
+                是否已经验证通过
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.UserAuthenticate.IUserAuthenticate.SignUserLogin(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            标识用户登录
+            </summary>
+            <param name="strUserName"></param>
+            <param name="extDatas"></param>
+        </member>
+        <member name="M:Dev.CasClient.UserAuthenticate.FormUserAuthenticate.CurUserLoginOut">
+            <summary>
+                登出
+            </summary>
+        </member>
+        <member name="M:Dev.CasClient.UserAuthenticate.FormUserAuthenticate.GetUserIsAuthenticated">
+            <summary>
+                是否已经验证通过
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Dev.CasClient.UserAuthenticate.UserAuthenticateManager">
+            <summary>
+                provider模式
+            </summary>
+        </member>
+        <member name="T:Dev.CasClient.User.UserInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Dev.CasClient.User.UserInfo.GetUserInfo(System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.User.UserInfo.GetUserInfoList(System.Decimal[])">
+            <summary>
+            
+            </summary>
+            <param name="uids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.User.UserInfo.GetUserInfoByNickname(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="nickname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.User.UserInfo.GetUserInfoListByNickNames(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="nicknames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.User.UserInfo.CheckNick(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="nickname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.User.UserInfo.GetUserInfoByUserName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.Utils.Urls.GetReturnUrl(System.String)">
+            <summary>
+            返回地址,return->reffer-> /
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.CasClient.Utils.Urls.BuildServiceUrl(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="handedReturl"></param>
+            <param name="returnUrl">返回参数，默认是 returnUrl,如果</param>
+            <param name="ticket"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

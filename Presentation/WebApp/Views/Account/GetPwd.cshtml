@@ -1,0 +1,87 @@
+﻿@model CASServer.Models.GetPwdModel
+@{
+    this.ViewBag.Title = "找回密码";
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(function() {
+            $(".check_text,#check_img").click(function() {
+                $("#check_img").attr("src", "/account/code?r=" + $.now());
+                return false;
+            });
+
+            $(".pasd_tbar li").click(function() {
+                $(".pasd_tbar li").removeClass("on");
+                $(this).addClass("on");
+                $("#@Html.IdFor(x => x.GetPwdType)").val($(this).attr("gettype"));
+            });
+            $(".nxt_green_btn").click(function() {
+                $(this).closest("form").submit();
+            });
+
+            $(document).keydown(function(e) {
+                if (e.keyCode == 13) {
+                    $(".nxt_green_btn").click();
+                    return false;
+                }
+            });
+
+            $("li[gettype=" + $("#@Html.IdFor(x => x.GetPwdType)").val() + "]").click();
+
+        });
+
+    </script>
+}
+<div class="reg_wp">
+    <div class="reg_title">
+        <span class="reg_tag">找回密码</span>
+    </div>
+    <div class="reg_cont clear">
+        @Html.ValidationSummary(true)
+        <div class="pasd_get">
+            <ul class="pasd_tbar clear">
+                <li gettype="0" class="on"><a href="javascript:void(0)">用邮箱找回</a></li>
+                @* <li gettype="1"><a href="javascript:void(0)">用手机号找回</a></li>*@
+            </ul>
+            <div id="tabs-1">
+                @using (this.Html.BeginForm())
+                {
+                    @Html.HiddenFor(x => x.GetPwdType)
+                    <div class="new_item">
+                        <div class="tit">
+                            用户名：
+                        </div>
+                        <div class="bdmain" id="b_email">
+                            <div class="bd_input">
+                                @Html.TextBoxFor(x => x.UserName, new {@class = "regP ui-autocomplete-input", role = "textbox", aria_haspopup = "true", aria_autocomplete = "list", maxlength = "50", autocomplete = "off"})
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(x => x.UserName)
+                    </div>
+                    <div class="new_item">
+                        <div class="tit">验证码：</div>
+                        <div class="bdmain" id="b_valid">
+                            <div class="bd_check">
+                                <span>
+                                    @Html.TextBoxFor(x => x.Validcode, new {maxlength = "4"})
+                                </span>
+                                <span>
+                                    <input name="check_img" id="check_img" type="image" src="@this.Url.Action("code", "account", new {r = System.DateTime.Now.Ticks})"></span>
+                                <a class="check_text" href="javascript:void(0);">换一组</a>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(x => x.Validcode)
+                    </div>
+                    <div class="new_item">
+                        <p class="reg_pdl">
+                            <a class="nxt_green_btn" href="javascript:void(0)">下一步</a>
+                        </p>
+                    </div>
+                }
+            </div>
+            <p class="detil">忘记登录邮箱或手机号？ 请联系客服 <a class="red" href="mailto:kefu@xxxxxxx.com">kefu@xxxxxxx.com</a></p>
+        </div>
+    </div>
+</div>

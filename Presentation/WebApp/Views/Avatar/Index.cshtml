@@ -1,0 +1,331 @@
+﻿@model CASServer.Controllers.UploadImageModel
+@{
+    this.ViewBag.Title = "Index";
+}
+
+@section css{
+    <link href="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Content("~/Scripts/plus/imgareaselect/img/imgareaselect-animated.css"))" rel="stylesheet" />
+    <link href="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Content("~/Content/User.css"))" rel="stylesheet" />
+
+
+    <link href="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Content("~/Scripts/Plus/toastmessage/css/jquery.toastmessage.css"))"  rel="stylesheet" />
+}
+
+@section scripts
+{
+    <script src="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Content("~/Scripts/Plus/toastmessage/jquery.toastmessage.js"))"> </script>
+    <script src="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Content("~/Scripts/plus/jquery.form.js"))"> </script>
+    <script src="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Content("~/Scripts/plus/imgareaselect/jquery.imgareaselect.pack.js"))"> </script>
+
+    <script type="text/javascript">
+
+        var avatarbase = '@Dev.Comm.Web.HttpServerInfo.BaseUrl';
+        //原图/缩略图 的比例 >=1
+        var UserHeadUtil = {
+            ratio: 1,
+            view_H: 300,
+            view_W: 300,
+            initialize: function(path) {
+                $("#user_head_origin").attr("src", path);
+                $("#user_head_upload_box").hide();
+                $("#user_head_show_box").show();
+
+                $("#user_head_25").attr("src", path);
+                $("#user_head_50").attr("src", path);
+                $("#user_head_75").attr("src", path);
+                $("#user_head_180").attr("src", path);
+                var img = new Image();
+                img.src = path;
+                if (img.width == 0) {
+                    var obj = this;
+                    img.onload = function() {
+                        obj.imgOperate(img);
+                    };
+                } else {
+                    this.imgOperate(img);
+                }
+            },
+            imgOperate: function(img) {
+                if (img) {
+                    this.resize('user_head_origin', img.width, img.height, 300, 300);
+                    var x = 0, y = 0, size = 0;
+                    if (this.view_W > this.view_H) {
+                        x = (this.view_W - this.view_H) / 2;
+                        size = this.view_H;
+                    } else if (this.view_W < this.view_H) {
+                        y = (this.view_H - this.view_W) / 2;
+                        size = this.view_W;
+                    } else {
+                        size = this.view_W;
+                    }
+                    var obj = this;
+                    $('img#user_head_origin').imgAreaSelect({
+                        aspectRatio: "1:1",
+                        handles: "corners",
+                        persistent: true,
+                        show: true,
+                        imageWidth: obj.view_W,
+                        imageHeight: obj.view_H,
+                        x1: x,
+                        y1: y,
+                        x2: x + size,
+                        y2: y + size,
+                        onSelectChange: function(img, selection) {
+                            obj.preview('user_head_25', obj.view_W, obj.view_H, selection.x1, selection.y1, selection.width, selection.height, 25, 25);
+                            obj.preview('user_head_50', obj.view_W, obj.view_H, selection.x1, selection.y1, selection.width, selection.height, 50, 50);
+                            obj.preview('user_head_75', obj.view_W, obj.view_H, selection.x1, selection.y1, selection.width, selection.height, 75, 75);
+                            obj.preview('user_head_180', obj.view_W, obj.view_H, selection.x1, selection.y1, selection.width, selection.height, 180, 180);
+                            obj.setCutParams(selection.x1, selection.y1, selection.width, selection.height);
+                        }
+                    });
+                    this.preview('user_head_25', this.view_W, this.view_H, x, y, size, size, 25, 25);
+                    this.preview('user_head_50', this.view_W, this.view_H, x, y, size, size, 50, 50);
+                    this.preview('user_head_75', this.view_W, this.view_H, x, y, size, size, 75, 75);
+                    this.preview('user_head_180', this.view_W, this.view_H, x, y, size, size, 180, 180);
+                    this.setCutParams(x, y, size, size);
+                }
+            },
+            resize: function(id, width, height, limit_W, limit_H) {
+                if (width > 0 && height > 0) {
+                    if (width / height >= limit_W / limit_H) {
+                        if (width > limit_W) {
+                            this.view_W = limit_W;
+                            this.view_H = (limit_W / width) * height;
+                        }
+                    } else {
+                        if (height > limit_H) {
+                            this.view_H = limit_H;
+                            this.view_W = (limit_H / height) * width;
+                        }
+                    }
+
+                    $('#' + id).attr({
+                        "width": this.view_W,
+                        "height": this.view_H
+                    });
+
+                    this.ratio = width / this.view_W;
+                }
+            },
+
+            preview: function(id, width, height, x, y, cut_W, cut_H, show_W, show_H) {
+                var scaleX = show_W / (cut_W * this.ratio || 1);
+                var scaleY = show_H / (cut_H * this.ratio || 1);
+                $('#' + id).css({
+                    width: Math.round(scaleX * width * this.ratio) + 'px',
+                    height: Math.round(scaleY * height * this.ratio) + 'px',
+                    marginLeft: '-' + Math.round(scaleX * x * this.ratio) + 'px',
+                    marginTop: '-' + Math.round(scaleY * y * this.ratio) + 'px'
+                });
+            },
+            setCutParams: function(x, y, width, height) {
+                $('#head_x').val(Math.round(x * this.ratio));
+                $('#head_y').val(Math.round(y * this.ratio));
+                $('#head_width').val(Math.round(width * this.ratio));
+                $('#head_height').val(Math.round(height * this.ratio));
+            }
+        };
+
+        function cancelHead() {
+            //	window.location.reload();
+            $('img#user_head_origin').imgAreaSelect({ remove: true });
+            $("#user_head_show_box").hide();
+            $("#user_head_upload_box").show();
+            $("#user_head_origin").attr({
+                "src": avatarbase + "/Content/img/upload.png",
+                "width": "100%",
+                "height": "100%"
+            });
+
+
+            getHead(1, $("#user_head_25"));
+            getHead(2, $("#user_head_50"));
+            getHead(3, $("#user_head_75"));
+            getHead(4, $("#user_head_180"));
+
+        }
+
+
+        function fileuploadcallback(data) {
+            $('#user_head_upload_box').show();
+            $('#user_head_show_box').hide();
+            if (data != undefined && data != null) {
+
+                if (data.ErrorCode != 0) {
+                    showError(data.ErrorMessage);
+                } else {
+                    var path = data.ErrorMessage;
+
+                    var filename = path.substring(path.lastIndexOf("/") + 1, path.length);
+
+                    $("#head_name").val(filename);
+                    UserHeadUtil.initialize(path);
+                }
+
+            }
+        }
+
+        function fileupladmodifycallback(data) {
+            if (data.ErrorCode != 0) {
+                showError(data.ErrorMessage);
+            } else {
+                showSuccess("上传头像成功！");
+
+                $('img#user_head_origin').imgAreaSelect({ remove: true });
+                $("#user_head_show_box").hide();
+                $("#user_head_upload_box").show();
+                $("#user_head_origin").attr({
+                    "src": "/Content/img/upload.png",
+                    "width": "100%",
+                    "height": "100%"
+                });
+            }
+        }
+
+        $(document).ready(function() {
+
+            //$("#user_head_form").ajaxForm({
+            //    success: function (data) {
+            //        $('#user_head_upload_box').show();
+            //        $('#user_head_show_box').hide();
+            //        if (data != undefined && data != null) {
+
+            //            if (data.ErrorCode != 0) {
+            //                showError(data.ErrorMessage);
+            //            } else {
+            //                var path = data.ErrorMessage;
+
+            //                var filename = path.substring(path.lastIndexOf("/") + 1, path.length);
+
+            //                $("#head_name").val(filename);
+            //                UserHeadUtil.initialize(path);
+            //            }
+
+            //        }
+            //    }, dataType: 'json'
+
+
+            //});
+
+
+            //$("#user_head_param_form").ajaxForm({
+            //    success: function (data) {
+
+            //        if (data.ErrorCode != 0) {
+            //            showError(data.ErrorMessage);
+            //        } else {
+            //            showSuccess("上传头像成功！");
+
+            //            //window.alert(data.ErrorMessage);
+
+            //            //$("img#origin_user_head_75").attr("src", "/avatarImage/75/" + data);
+            //            //$("img#top_user_head_25").attr("src", "/avatarImage/25/" + data);
+            //            $('img#user_head_origin').imgAreaSelect({ remove: true });
+            //            $("#user_head_show_box").hide();
+            //            $("#user_head_upload_box").show();
+            //            $("#user_head_origin").attr({
+            //                "src": "/Content/img/upload.png",
+            //                "width": "100%",
+            //                "height": "100%"
+            //            });
+            //        }
+            //    },
+            //    dataType: 'jsonp'
+            //});
+        });
+
+
+        function getHead(type, selecter) {
+            $.get("@Dev.Comm.Web.HttpServerInfo.BaseUrl/Avatar/CurrentUserAvataUrl?type=" + type, function(d) {
+                $(selecter).attr("src", d);
+            }, 'jsonp');
+        }
+
+    </script>
+}
+<div class="reg_wp">
+
+<div class="upbox clear">
+<div class="upPhoto">
+<div class="upcon" id="user_head_upload_box">
+    <p class="phototxt">选择你要上传的头像</p>
+    <div class="upfile">
+        @using (this.Html.BeginForm(null, null, FormMethod.Post, new
+                                                                     {
+                                                                         ID = "user_head_form",
+                                                                         enctype = "multipart/form-data",
+                                                                         @action = Dev.Comm.Web.HttpServerInfo.BaseUrl + "/Avatar/uploadHead/",
+                                                                         target = "uploadframe"
+                                                                     }))
+        {
+            <input type="file" name="head" class="filebtn" onchange=" $('#user_head_upload_box').hide();$('#user_head_show_box').show();$('#user_head_form').submit(); " />
+            <input type="button" class="upimgbtn" value="上传头像" />
+        }
+
+        <iframe id="uploadframe" name="uploadframe" width="0" height="0" marginwidth="0"
+                frameborder="0" src="about:blank"></iframe>
+    </div>
+</div>
+<div id="user_head_show_box" style="background: gray no-repeat; display: none; height: 300px; line-height: 300px; margin-bottom: 40px; text-align: center; width: 300px;">
+    <img id="user_head_origin" style="vertical-align: middle;" src="@Dev.Comm.Web.HttpServerInfo.BaseUrl/Content/img/load.gif">
+</div>
+<div class="sysbtn">
+    @using (this.Html.BeginForm(null, null, FormMethod.Get, new
+                                                                {
+                                                                    @action = Dev.Comm.Web.HttpServerInfo.BaseUrl + "/Avatar/saveHead/",
+                                                                    ID = "user_head_param_form",
+                                                                    enctype = "multipart/form-data",
+                                                                    target = "uploadframe"
+                                                                }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.headFileName, new {id = "head_name"})
+        @Html.HiddenFor(model => model.x, new {id = "head_x"})
+        @Html.HiddenFor(model => model.y, new {id = "head_y"})
+        @Html.HiddenFor(model => model.width, new {id = "head_width"})
+        @Html.HiddenFor(model => model.height, new {id = "head_height"})
+    <input type="submit" class="btnyes" value="保存">
+    <input type="button" class="btnno" value="取消" onclick=" cancelHead(); ">
+    }
+
+</div>
+        </div>
+        <div class="upPhotolist clearfix">
+            <div class="upimg upbig">
+                <div class="upimgbox up_1">
+                    <img src="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Action("AvataUrlByUserid", new {type = 4, userid = WebSecurity.CurrentUserId}))" style="height: 180px; width: 180px;" id="user_head_180">
+                </div>
+                <p>大尺寸头像180×180像素</p>
+            </div>
+            <div class="upimg upsmall">
+                <div class="upsm">
+                    <div class="upimgbox up_2">
+                        <img src="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Action("AvataUrlByUserid", new {type = 3, userid = WebSecurity.CurrentUserId}))" style="height: 75px; width: 75px;" id="user_head_75">
+                    </div>
+                    <p>
+                        中尺寸头像<br>
+                             75×75像素
+                    </p>
+                </div>
+                <div class="upsm">
+                    <div class="upimgbox up_3">
+                        <img src="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Action("AvataUrlByUserid", new {type = 2, userid = WebSecurity.CurrentUserId}))" style="height: 50px; width: 50px;" id="user_head_50">
+                    </div>
+                    <p>
+                        中尺寸头像<br>
+                             50×50像素
+                    </p>
+                </div>
+                <div class="upsm">
+                    <div class="upimgbox up_4">
+                        <img src="@Dev.Comm.Web.HttpServerInfo.BaseUrl@(this.Url.Action("AvataUrlByUserid", new {type = 1, userid = WebSecurity.CurrentUserId}))" style="height: 25px; width: 25px;" id="user_head_25">
+                    </div>
+                    <p>
+                        小尺寸头像<br>
+                             25×25像素
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

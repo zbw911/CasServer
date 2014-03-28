@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Comm.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Comm.Web.Mvc.ActionResult.JsonpResult">
+            <summary>
+              Renders result as JSON and also wraps the JSON in a call
+              to the callback function specified in "JsonpResult.Callback".
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.ActionResult.JsonpResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+              Enables processing of the result of an action method by a
+              custom type that inherits from <see cref="T:System.Web.Mvc.ActionResult" />.
+            </summary>
+            <param name="context"> The context within which the result is executed. </param>
+        </member>
+        <member name="P:Dev.Comm.Web.Mvc.ActionResult.JsonpResult.Callback">
+            <summary>
+              Gets or sets the javascript callback function that is
+              to be invoked in the resulting script output.
+            </summary>
+            <value> The callback function name. </value>
+        </member>
+        <member name="T:Dev.Comm.Web.Mvc.Filter.TraceRunAttribute">
+            <summary>
+            跟踪MVC Action Result 运行所用时间
+            </summary>
+        </member>
+        <member name="P:Dev.Comm.Web.Mvc.Filter.TraceRunAttribute.TitleTemple">
+            <summary>
+            标题模板
+            </summary>
+        </member>
+        <member name="P:Dev.Comm.Web.Mvc.Filter.TraceRunAttribute.ItemTemple">
+            <summary>
+            组模板
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Web.Mvc.Filter.ErrorFilter">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Web.Mvc.Filter.ActionAllowCrossSiteJsonAttribute">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Web.Mvc.Formatter.JsonpMediaTypeFormatter">
+            <summary>
+              jsonp
+            </summary>
+        </member>
+        <!-- 对于成员“T:Dev.Comm.Web.HtmlExtensions”忽略有格式错误的 XML 注释 -->
+        <member name="T:Dev.Comm.Web.Mvc.Pager.Pagination">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Pager.Pagination.#ctor(System.Int32,System.Int32,System.Int32,System.String,System.String,System.Web.Routing.RouteValueDictionary,System.String)">
+            <summary>
+            </summary>
+            <param name="currentPage"> </param>
+            <param name="count"> </param>
+            <param name="pageSize"> </param>
+            <param name="action"> </param>
+            <param name="controller"> </param>
+            <param name="routeDictionary"> </param>
+            <param name="pageQueryString"> </param>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Pager.Pagination.#ctor(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+              AJAX方法调用的构造函数
+            </summary>
+            <param name="currentPage"> </param>
+            <param name="count"> </param>
+            <param name="pageSize"> </param>
+            <param name="JavascriptFun"> </param>
+        </member>
+        <member name="P:Dev.Comm.Web.Mvc.Pager.Pagination.CurrentPage">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Dev.Comm.Web.Mvc.Pager.Pagination.JavascriptFun">
+            <summary>
+              Javascript 方法体 ， 例如 ： @"ajaxpage({0})"
+              <![CDATA[
+             function ajaxpage(pageNo){
+                 pageSize, 条件 等从页面中取得或写成固定值。。。
+                 //  调用 Ajax 的方法 从服务器读取数据
+             }
+            ]]>
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Web.Mvc.Routes.RouteInfo">
+            <summary>
+              Uri uri = new Uri("http://www.yoursite.com/somepage");
+              RouteInfo routeInfo = new RouteInfo(uri, HttpContext.Current.Request.ApplicationPath);
+              RouteData routeData = routeInfo.RouteData;
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Web.UrlHelperExtension">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Web.Mvc.Validate.CnStringLengthAttribute">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Validate.CnStringLengthAttribute.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="maximumLength"></param>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Validate.CnStringLengthAttribute.IsValid(System.Object)">
+            <summary>
+            </summary>
+            <param name="value"> </param>
+            <returns> </returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Validate.CnStringLengthAttribute.FormatErrorMessage(System.String)">
+            <summary>
+            </summary>
+            <param name="name"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Validate.CnStringLengthAttribute.GetClientValidationRules(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext)">
+            <summary>
+              When implemented in a class, returns client validation rules for that class.
+            </summary>
+            <returns> The client validation rules for this validator. </returns>
+            <param name="metadata"> The model metadata. </param>
+            <param name="context"> The controller context. </param>
+        </member>
+        <member name="P:Dev.Comm.Web.Mvc.Validate.CnStringLengthAttribute.MaximumLength">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Dev.Comm.Web.Mvc.Validate.CnStringLengthAttribute.MinimumLength">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Web.Mvc.Validate.EmailAddressAttribute">
+            <summary>
+              邮件地址
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Web.Mvc.Validate.EnforceTrueAttribute">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Validate.EnforceTrueAttribute.IsValid(System.Object)">
+            <summary>
+            </summary>
+            <param name="value"> </param>
+            <returns> </returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Validate.EnforceTrueAttribute.FormatErrorMessage(System.String)">
+            <summary>
+            </summary>
+            <param name="name"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Dev.Comm.Web.Mvc.Validate.EnforceTrueAttribute.GetClientValidationRules(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext)">
+            <summary>
+              When implemented in a class, returns client validation rules for that class.
+            </summary>
+            <returns> The client validation rules for this validator. </returns>
+            <param name="metadata"> The model metadata. </param>
+            <param name="context"> The controller context. </param>
+        </member>
+    </members>
+</doc>

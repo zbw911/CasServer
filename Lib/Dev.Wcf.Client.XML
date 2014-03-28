@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Wcf.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Wcf.Client.Security.AppContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <!-- 对于成员“T:Dev.Wcf.Client.Security.AttachContextBehavior”忽略有格式错误的 XML 注释 -->
+    </members>
+</doc>

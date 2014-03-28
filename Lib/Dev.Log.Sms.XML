@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Log.Sms</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Log.Sms.ObserverLogToPhone">
+            <summary>
+            发送到手机的逻辑
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,118 @@
+﻿.photo_album {
+    margin: 0 auto;
+    position: relative;
+    width: 1000px;
+}
+
+.photo_album .close {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 10px
+}
+
+.photo_album .title {
+    color: #FFF;
+    font-size: 14px;
+    line-height: 65px;
+    text-align: center;
+}
+
+.photo_album .title a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+#DB_gallery ul, #DB_gallery li {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+#DB_gallery img {
+    border: none;
+    vertical-align: top;
+}
+
+#DB_gallery .DB_imgSet {
+    height: 387px;
+    overflow: hidden;
+    position: relative;
+    width: 580px;
+}
+
+#DB_gallery .DB_imgSet .DB_imgWin { height: 100% }
+
+#DB_gallery .DB_imgSet .DB_page {
+    bottom: 0;
+    color: #ffffff;
+    font-family: 'Microsoft YaHei';
+    font-siz: 18px;
+    font-weight: bold;
+    padding: 5px;
+    position: absolute;
+}
+
+#DB_gallery .DB_imgSet .DB_page .DB_current { color: #ffff00 }
+
+#DB_gallery .DB_imgSet .DB_page .DB_total { color: #ffcc00 }
+
+#DB_gallery .DB_imgSet .DB_prevBtn {
+    cursor: pointer;
+    left: 0;
+    margin-top: -45px;
+    position: absolute;
+    top: 50%;
+}
+
+#DB_gallery .DB_imgSet .DB_nextBtn {
+    cursor: pointer;
+    margin-top: -45px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+#DB_gallery .DB_thumSet {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 580px;
+}
+
+#DB_gallery .DB_thumSet .DB_thumMove {
+    font-size: 0;
+    position: relative;
+    white-space: nowrap;
+}
+
+#DB_gallery .DB_thumSet .DB_thumMove li {
+    display: inline;
+    margin-right: 8px
+}
+
+#DB_gallery .DB_thumSet .DB_prevPageBtn {
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+#DB_gallery .DB_thumSet .DB_nextPageBtn {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#DB_gallery .DB_thumSet .DB_thumLine {
+    border: 5px solid #FF9900;
+    height: 63px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100px;
+}

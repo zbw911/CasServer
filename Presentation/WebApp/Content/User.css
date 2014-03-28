@@ -1,0 +1,173 @@
+﻿.upbox { padding: 80px 0 }
+
+@media all and (-webkit-min-device-pixel-ratio: 10000), not all and (-webkit-min-device-pixel-ratio: 0) {
+    .myInfo { height: 133px }
+} /*opera css hack */
+
+.upimg img { vertical-align: bottom }
+
+.upimg { float: left }
+
+.upimgbox {
+    border: 5px solid #fff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #ccc;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.upsm {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.upimg p {
+    color: #999;
+    font-size: 12px;
+    text-align: center
+}
+
+.upbig { margin-right: 60px }
+
+.upPhoto { width: 400px; }
+
+.upPhoto, .upPhotolist { float: left }
+
+.upcon {
+    background: url(./img/upload.png) no-repeat;
+    height: 300px;
+    margin-bottom: 40px;
+    width: 300px;
+}
+
+.upPhoto {
+    background: url(./img/line.png) no-repeat right top;
+    margin-right: 50px
+}
+
+.phototxt {
+    color: #fff;
+    font-size: 14px;
+    padding: 190px 0 0 0;
+    text-align: center
+}
+
+.upfile { position: relative; }
+
+.upimgbtn {
+    background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#eeeeee));
+    background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#eeeeee));
+    background: -moz-linear-gradient(top, #f9f9f9, #eeeeee);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 4px #666;
+    color: #666;
+    cursor: pointer;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#eeeeee');
+    font: 20px 'Microsoft YaHei', 'SimSun';
+    height: 40px;
+    left: 87px;
+    line-height: 40px;
+    position: absolute;
+    top: 5px;
+    width: 125px;
+    z-index: 9;
+    _background: #f4f4f4;
+}
+
+.filebtn {
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    height: 55px;
+    left: 80px;
+    opacity: 0;
+    outline: none;
+    padding: 20px 0;
+    position: absolute;
+    width: 140px;
+    z-index: 10;
+}
+
+.up_1 {
+    height: 180px;
+    width: 180px;
+}
+
+.up_2 {
+    height: 75px;
+    width: 75px;
+}
+
+.up_3 {
+    height: 50px;
+    margin-left: 10px;
+    width: 50px;
+}
+
+.up_4 {
+    height: 25px;
+    margin-left: 22px;
+    width: 25px;
+}
+
+
+.btnyes, .btnno {
+    border: none;
+    border-bottom: 1px solid #ff9b1d;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px #eee;
+    color: #fff;
+    cursor: pointer;
+    font: 20px 'Microsoft YaHei', 'SimSun';
+    height: 36px;
+    width: 105px;
+    _border-bottom: none
+}
+
+.btnyes {
+    background: #ffa921;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffab12), to(#ffa921));
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffab12), to(#ffa921));
+    background: -moz-linear-gradient(top, #ffab12, #ffa921);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab12', endColorstr='#ffa921');
+    margin-right: 10px;
+    _background: #ffa921;
+}
+
+.btnno {
+    background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#eeeeee));
+    background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#eeeeee));
+    background: -moz-linear-gradient(top, #f4f4f4, #eeeeee);
+    border: 1px solid #d9d9d9;
+    box-shadow: none;
+    color: #666;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eeeeee');
+    _background: #f9f9f9;
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 10000), not all and (-webkit-min-device-pixel-ratio: 0) {
+    .btnyes { background: #ffbe45 }
+
+    .morebox { background: #f4f4f4 }
+} /*opera css hack */
+
+.ftadd {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffbe45), to(#ff9b2e));
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffbe45), to(#ff9b2e));
+    background: -moz-linear-gradient(top, #ffbe45, #ff9b2e);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffbe45', endColorstr='#ff9b2e');
+    _background: #ffbe45
+}
+
+.morebox {
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f4f4f4));
+    background: -moz-linear-gradient(top, #ffffff, #f4f4f4);
+    *background: #f4f4f4;
+    border: 1px solid #d4d4d4;
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f4f4f4');
+    margin-bottom: 50px;
+    text-align: center;
+    _background: #f4f4f4
+}

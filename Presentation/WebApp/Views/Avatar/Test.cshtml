@@ -1,0 +1,23 @@
+﻿@{
+    this.ViewBag.Title = "Test";
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        function avataruploader(selecter) {
+            $.get("http://192.168.1.10:8088/Avatar/FlashJson?r=" + $.now(), function(back) {
+                $(selecter).html(back);
+            }, "jsonp");
+        }
+
+        avataruploader(".reg_wp");
+    </script>
+}
+
+<div class="reg_wp">
+</div>
+
+@*<div class="reg_wp">
+</div>*@

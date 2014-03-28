@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Framework.Cache.AppFabric</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Framework.Cache.AppFabric.AppFabricCache">
+            <summary>
+              使用 AppFabric 缓存服务器的缓存
+            </summary>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Get``1">
+            <summary>
+              Gets state data stored with the default key.
+            </summary>
+            <typeparam name="T"> The type of data to retrieve. </typeparam>
+            <returns> An instance of <typeparamref name="T" /> or null if not found. </returns>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Get``1(System.Object)">
+            <summary>
+              通过KEY取得缓存内容
+            </summary>
+            <typeparam name="T"> The type of data to retrieve. </typeparam>
+            <param name="key"> An object representing the unique key with which the data was stored. </param>
+            <returns> An instance of <typeparamref name="T" /> or null if not found. </returns>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Put``1(``0)">
+            <summary>
+              Puts state data into the cache state with the specified key with no expiration.
+            </summary>
+            <typeparam name="T"> The type of data to put. </typeparam>
+            <param name="instance"> An instance of <typeparamref name="T" /> to store. </param>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Put``1(System.Object,``0)">
+            <summary>
+              Puts state data into the cache state with the specified key with no expiration.
+            </summary>
+            <typeparam name="T"> The type of data to put. </typeparam>
+            <param name="key"> An object representing the unique key with which the data is stored. </param>
+            <param name="instance"> An instance of <typeparamref name="T" /> to store. </param>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Put``1(``0,System.DateTime)">
+            <summary>
+              Puts state data into the cache state with the default key and absolute expiration policy.
+            </summary>
+            <typeparam name="T"> The type of data to put. </typeparam>
+            <param name="instance"> An instance of <typeparamref name="T" /> to store. </param>
+            <param name="absoluteExpiration"> The date and time when the data from the cache will be removed. </param>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Put``1(System.Object,``0,System.DateTime)">
+            <summary>
+              Puts state data into the cache state with the specified key with the specified absolute expiration.
+            </summary>
+            <typeparam name="T"> The type of data to put. </typeparam>
+            <param name="key"> An object representing the unique key with which the data is stored. </param>
+            <param name="instance"> An instance of <typeparamref name="T" /> to store. </param>
+            <param name="absoluteExpiration"> The date and time when the absolute data from the cache will be removed. </param>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Put``1(``0,System.TimeSpan)">
+            <summary>
+              Puts state data into the cache state with the default key and sliding expiration policy.
+            </summary>
+            <typeparam name="T"> The type of data to put. </typeparam>
+            <param name="instance"> An instance of <typeparamref name="T" /> to store. </param>
+            <param name="slidingExpiration"> A time span representing the sliding expiration policy. </param>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Put``1(System.Object,``0,System.TimeSpan)">
+            <summary>
+              Puts state data into the cache state with the specified key with the specified sliding expiration
+            </summary>
+            <typeparam name="T"> The type of data to put. </typeparam>
+            <param name="key"> An object representing the unique key with which the data is stored. </param>
+            <param name="instance"> An instance of <typeparamref name="T"/> to store. </param>
+            <param name="slidingExpiration"> A <see cref="T:System.TimeSpan"/> specifying the sliding expiration policy. </param>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Remove``1">
+            <summary>
+              Removes state data stored in the cache with the default key.
+            </summary>
+            <typeparam name="T"> The type of data to remove. </typeparam>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Remove``1(System.Object)">
+            <summary>
+              Removes state data stored in the cache state with the specified key.
+            </summary>
+            <typeparam name="T"> The type of data to remove. </typeparam>
+            <param name="key"> An object representing the unique key with which the data was stored. </param>
+        </member>
+        <member name="M:Dev.Framework.Cache.AppFabric.AppFabricCache.Clear">
+            <summary>
+              Clears all state stored in the cache.
+            </summary>
+        </member>
+        <member name="T:Dev.Framework.Cache.AppFabric.CacheUtil">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

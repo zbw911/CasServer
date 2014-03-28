@@ -1,0 +1,579 @@
+﻿@charset "utf-8";
+/*活动主页*/
+/*slide*/
+
+.slide-box { position: relative; }
+
+.slide-box .corner {
+    border-top: #333 1px solid;
+    clear: both;
+    display: block;
+    height: 0;
+    margin: 0 1px;
+    overflow: hidden;
+}
+
+.slide-content {
+    height: 120px;
+    margin: 20px 0 0 50px;
+    overflow: hidden;
+    padding: 0 30px;
+    position: relative;
+    width: 572px;
+    zoom: 1;
+}
+
+.slide-box .JQ-slide-content {
+    height: 95px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.slide-box .JQ-slide-nav a {
+    color: #b4b4b4;
+    display: block;
+    height: 65px;
+    position: absolute;
+    text-decoration: none;
+    top: 55px;
+    width: 37px;
+    z-index: 99;
+}
+
+.slide-box .JQ-slide-nav span {
+    cursor: pointer;
+    display: block;
+    font: 700 53px arial;
+    height: 63px;
+    text-align: center;
+    width: 37px;
+}
+
+.slide-box .JQ-slide-nav .corner { border-color: #4b4b4b; }
+
+.slide-box .JQ-slide-nav .prev { left: -10px; }
+
+.slide-box .JQ-slide-nav .next {
+    right: -10px;
+    text-indent: 0;
+}
+
+.slide-box .wrap {
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide-box ul { width: 10000px; }
+
+.slide-box li {
+    float: left;
+    margin: 0 10px;
+    text-align: center;
+    width: 123px;
+    _display: inline
+}
+
+.slide-box li a { display: block; }
+
+.slide-box .JQ-slide-nav a:hover, #slide-box .JQ-slide-nav a:hover span { color: #DD0D0B; }
+
+.slide-box .JQ-slide-nav a {
+    color: #b4b4b4;
+    display: block;
+    height: 65px;
+    position: absolute;
+    text-decoration: none;
+    top: 10px;
+    width: 37px;
+    z-index: 99;
+}
+
+.place { padding: 10px 12px; }
+
+.place .map {
+    border: 1px solid #CCC;
+    height: 448px;
+    width: 408px;
+}
+
+.map_label {
+    margin-right: 10px;
+    width: 176px;
+}
+
+.map_label .tags {
+    border-bottom: 2px solid #c84123;
+    height: 26px;
+}
+
+.map_label .tags ul li {
+    background: #f2f2f2;
+    border-radius: 5px 5px 0px 0px;
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    margin-right: 16px;
+    text-align: center;
+    width: 70px;
+}
+
+.map_label .tags ul li.nowtag { background: #c84123; }
+
+.map_label .tags ul li.nowtag a { color: #fff }
+
+.map_label.tags ul li.nowtag a { color: #FFF; }
+
+.place_label { padding-top: 10px; }
+
+.place_label ul li {
+    background: url(../images/place_label.png) no-repeat;
+    height: 50px;
+    padding-bottom: 7px;
+    padding-left: 38px;
+    _padding-bottom: 0px;
+}
+
+.place_label h2 {
+    color: #3f5487;
+    font-weight: normal;
+}
+
+.place_label p { color: #999999; }
+
+.place_label .labelA { background-position: 0 0; }
+
+.place_label .labelB { background-position: 0 -56px; }
+
+.place_label .labelC { background-position: 0 -112px; }
+
+.place_label .labelD { background-position: 0 -169px; }
+
+.place_label .labelE { background-position: 0 -225px; }
+
+.place_label .labelF { background-position: 0 -282px; }
+
+.place_label .labelG { background-position: 0 -342px; }
+
+.place_label .labelH { background-position: 0 -399px; }
+
+.place_label .labelI { background-position: 0 -455px; }
+
+.place_label .labelJ { background-position: 0 -512px; }
+
+.place_label .labelk { background-position: 0 -568px; }
+
+.place_label .labelL { background-position: 0 -626px; }
+
+.place_label .labelA_on { background-position: -260px 0; }
+
+.place_label .labelB_on { background-position: -260px -56px; }
+
+.place_label .labelC_on { background-position: -260px -112px; }
+
+.place_label .labelD_on { background-position: -260px -169px; }
+
+.place_label .labelE_on { background-position: -260px -225px; }
+
+.place_label .labelF_on { background-position: -260px -282px; }
+
+.place_label .labelG_on { background-position: -260px -342px; }
+
+.place_label .labelH_on { background-position: -260px -399px; }
+
+.place_label .labelI_on { background-position: -260px -455px; }
+
+.place_label .labelJ_on { background-position: -260px -512px; }
+
+.place_label .labelk_on { background-position: -260px -568px; }
+
+.place_label .labelL_on { background-position: -260px -626px; }
+
+.place_label .labelA_on h2, .place_label .labelB_on h2, .place_label .labelC_on h2, .place_label .labelD_on h2, .place_label .labelE_on h2, .place_label .labelF_on h2, .place_label .labelG_on h2, .place_label .labelH_on h2, .place_label .labelI_on h2, .place_label .labelJ_on h2, .place_label .labelK_on h2, .place_label .labelL_on h2 { font-weight: bold; }
+
+.paging {
+    border: 1px solid #d8d8d8;
+    height: 15px;
+}
+
+.paging a {
+    background: url(../images/arrows_03.png) no-repeat;
+    float: left;
+    height: 14px;
+    overflow: hidden;
+    width: 18px;
+}
+
+.paging .l_arrows_d {
+    background-position: left 0px;
+    width: 19px;
+}
+
+.paging a.l_arrows_e {
+    background-position: 0 -14px;
+    width: 19px
+}
+
+.paging a.l_arrows_e:hover { background-position: 0 -28px; }
+
+.paging a.r_arrows_e { background-position: right 0; }
+
+.paging a.r_arrows_e:hover { background-position: right -28px; }
+
+.r_arrows_d { background-position: right -14px; }
+
+.event_box6 .tags {
+    border-bottom: 2px solid #dc2121;
+    height: 26px;
+}
+
+.event_box6 .tags ul li {
+    background: #eaeaea;
+    border-radius: 5px 5px 0px 0px;
+    float: left;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    margin-right: 12px;
+    text-align: center;
+    width: 90px;
+}
+
+.event_box6 .tags ul li.nowtag { background: #dc2121; }
+
+.event_box6 .tags ul li.nowtag a {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.prizes .cont { padding: 10px 0; }
+
+.prizes .cont ul li {
+    background: #F2F2F2;
+    display: inline;
+    text-align: center;
+}
+
+.prizes .cont ul li a { display: block; }
+
+.prizes .cont .pic {
+    border: 1px solid #c3c3c3;
+    padding: 2px;
+}
+/*评分星星*/
+
+.grade_box .star { background: none }
+
+.score #doStar, .score .blockRA #doStar span, .score .blockRA .starInfo em, .star_score, .star_score span { background: url(../images/icon.png) no-repeat; }
+
+.score .s1, .score .blockRA .s2 {
+    display: inline-block;
+    margin-top: 11px;
+}
+
+.score .doStar {
+    display: inline;
+    float: left;
+    line-height: 20px;
+    margin: 16px 0 0 3px;
+    position: relative;
+    text-align: left;
+    width: 120px;
+}
+
+.score .blockRA .doStar p {
+    background: #FFEBC1;
+    height: 31px;
+    left: 0;
+    line-height: 30px;
+    position: absolute;
+    text-align: center;
+    top: -8px;
+    width: 180px;
+}
+
+.score .blockRA #doStar, .star_score {
+    background-position: 0 -220px;
+    cursor: pointer;
+    display: inline;
+    float: left;
+    height: 18px;
+    width: 120px;
+}
+
+.score .blockRA #doStar span, .star_score span {
+    background-position: 0 -240px;
+    display: block;
+    float: left;
+    height: 18px;
+    width: 0;
+}
+
+.score .blockRA .starInfo {
+    background: #f6f6f6;
+    border: 1px #A9CFEF solid;
+    display: none;
+    height: 15px;
+    left: 0;
+    line-height: 14px;
+    padding-top: 5px;
+    position: absolute;
+    text-align: center;
+    top: -28px;
+    width: 130px;
+}
+
+.score .blockRA .starInfo em {
+    background-position: -135px -170px;
+    font-size: 0;
+    height: 5px;
+    left: 2px;
+    position: absolute;
+    top: 19px;
+    width: 7px;
+}
+
+.mark {
+    color: #FF6000;
+    display: inline;
+    float: left;
+    margin: 8px 0 0 8px;
+    width: 53px;
+}
+
+.mark span {
+    font: 24px/32px "Arial";
+    font-weight: bold;
+}
+
+.mark em {
+    font: 18px/32px "Arial";
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+.per {
+    position: relative;
+    z-index: 2
+}
+
+.event_right .pingfen .total .per {
+    display: inline;
+    float: left;
+    line-height: 20px;
+    margin: 4px 0 0 10px;
+}
+
+.score .blockRC li {
+    float: left;
+    height: 130px;
+    margin: 0;
+    width: 124px;
+}
+
+.score .blockRE li {
+    display: inline;
+    height: 85px;
+    margin-right: 0;
+    width: 100%;
+}
+
+.score .blockRE .pic {
+    float: left;
+    width: 84px;
+}
+
+.score .blockRE dl {
+    float: right;
+    text-align: left;
+    width: 170px;
+}
+
+.score .blockRE dt { margin: 3px 0; }
+
+.score .blockRE .d1 { margin: 5px 0; }
+
+.score .blockRF .menuA, .score .blockRF .menuA ul { width: auto; }
+
+.score .blockRF .snList { width: auto; }
+
+.show { display: block; }
+
+.hidden { display: none; }
+
+.starbar {
+    background: url(../images/stars.gif) no-repeat;
+    height: 16px;
+    margin: 3px 0 0 0;
+    overflow: hidden;
+    padding: 0;
+    vertical-align: middle;
+    width: 88px;
+}
+
+.fx_mark {
+    color: #FF6000;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.fx_btn {
+    margin-top: 10px;
+    padding-left: 65px;
+}
+
+.star_rating {
+    ;
+    float: left;
+    margin: 6px 0
+}
+
+.pingfen #item p {
+    color: #666;
+    float: left;
+    margin-right: 5px;
+    padding: 2px;
+    text-align: right;
+    width: 72px;
+}
+
+.star_score { margin: 11px 0 0 6px; }
+/* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
+
+div.rating-cancel, div.star-rating {
+    background: transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 15px;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 17px;
+}
+
+div.rating-cancel, div.rating-cancel a {
+    background: url(delete.gif) no-repeat 0 -16px;
+    display: none
+}
+
+div.star-rating, div.star-rating a { background: url(../images/star.gif) no-repeat 0 0px }
+
+div.rating-cancel a, div.star-rating a {
+    background-position: 0 0px;
+    border: 0;
+    display: block;
+    height: 100%;
+    width: 16px;
+}
+
+div.star-rating-on a { background-position: 0 -16px!important }
+
+div.star-rating-hover a { background-position: 0 -32px }
+/* Read Only CSS */
+
+div.star-rating-readonly a { cursor: default !important }
+/* Partial Star CSS */
+
+div.star-rating {
+    background: transparent!important;
+    overflow: hidden!important
+}
+/* END jQuery.Rating Plugin CSS */
+
+.mg_gaikuang .pingfen { width: 170px }
+
+.event_right .pingfen { margin: 15px 0 10px 0 }
+
+.mg_gaikuang .pingfen .score .doStar { margin: 8px 0 0 3px }
+
+.mg_gaikuang .pingfen .mark { margin: 0 0 0 8px }
+
+.pingfen .total {
+    background: #ffefcd;
+    border: 1px solid #edd6a0;
+    border-radius: 5px;
+    color: #f07200;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 5px;
+}
+
+.pingfen .total .more {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.pingfen .total .more a { color: #9b9b9b; }
+
+.pingfen .total .arrow_d {
+    border-color: #B5B5B5 transparent transparent;
+    border-style: solid dashed dashed;
+    border-width: 4px 4px 0;
+    display: inline-block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    margin-left: 5px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 0;
+}
+
+.grade_box {
+    background: #ffebc1;
+    border: 1px solid #edd6a0;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 15px;
+    padding-bottom: 15px;
+}
+
+.grade_box .score {
+    background: url("../images/pf_arr.gif") no-repeat 25px 0;
+    float: left;
+    margin-top: -8px;
+    padding-left: 10px;
+    position: relative;
+    zoom: 1;
+}
+
+.grade_box .pf_num { padding: 0 10px }
+
+.grade_box .pf_num .look_num, .grade_box .pf_num .comm_num, .grade_box .pf_num .fav_num, .grade_box .pf_num .lov_num {
+    color: #999;
+    float: left;
+    text-align: center;
+    width: 60px;
+}
+
+.zt_pf_main {
+    background: #ffffff;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 15px 0;
+    position: absolute;
+    right: -10px;
+    top: 20px;
+    width: 185px;
+    z-index: 998;
+}
+
+.zt_pf_main .star { padding: 0 }
+
+.fx_list li {
+    padding: 5px 0;
+    position: relative
+}
+
+.fx_list li .fx_con {
+    float: left;
+    margin-right: 15px;
+    text-align: right;
+    vertical-align: middle;
+    width: 62px;
+}

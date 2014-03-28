@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.DataContextStorage</name>
+    </assembly>
+    <members>
+        <member name="M:Dev.Data.ContextStorage.SimpleDbContextStorage.GetAllDbContexts">
+            <summary>
+                Returns all the values of the internal dictionary of db contexts.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.ContextStorage.SimpleDbContextStorage.GetDbContextForKey(System.String)">
+            <summary>
+                Returns the db context associated with the specified key or
+                null if the specified key is not found.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.ContextStorage.SimpleDbContextStorage.SetDbContextForKey(System.String,System.Data.Entity.DbContext)">
+            <summary>
+                Stores the db context into a dictionary using the specified key.
+                If an object context already exists by the specified key,
+                it gets overwritten by the new object context passed in.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="context">The object context.</param>
+        </member>
+        <member name="T:Dev.Data.ContextStorage.WebDbContextStorage">
+            <summary>
+                The web db context storage.
+            </summary>
+        </member>
+    </members>
+</doc>

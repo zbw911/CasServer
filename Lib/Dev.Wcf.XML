@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Wcf</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Wcf.Authorization.CustomValidator">
+            <summary>
+            Summary description for CustomValidator
+            </summary>
+        </member>
+        <member name="T:Dev.Wcf.HandlerBehaviourAttribute.GlobalExceptionHandlerBehaviourAttribute">
+             <summary>
+              
+             <![CDATA[
+             using System;
+            namespace WcfService
+            {
+             [GlobalExceptionHandlerBehaviour(typeof (GlobalExceptionHandler))]
+            public class SomeService : ISomeService
+            ]]>
+              
+             </summary>
+        </member>
+        <member name="M:Dev.Wcf.HandlerBehaviourAttribute.GlobalExceptionHandlerBehaviourAttribute.#ctor(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="errorHandlerType"></param>
+        </member>
+        <member name="M:Dev.Wcf.HandlerBehaviourAttribute.GlobalExceptionHandlerBehaviourAttribute.Validate(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            
+            </summary>
+            <param name="description"></param>
+            <param name="serviceHostBase"></param>
+        </member>
+        <member name="M:Dev.Wcf.HandlerBehaviourAttribute.GlobalExceptionHandlerBehaviourAttribute.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            
+            </summary>
+            <param name="description"></param>
+            <param name="serviceHostBase"></param>
+            <param name="endpoints"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:Dev.Wcf.HandlerBehaviourAttribute.GlobalExceptionHandlerBehaviourAttribute.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            
+            </summary>
+            <param name="description"></param>
+            <param name="serviceHostBase"></param>
+        </member>
+        <member name="T:Dev.Wcf.HandlerBehaviourAttribute.GlobalExceptionHandler">
+            <summary>
+            GlobalExceptionHandler
+            </summary>
+        </member>
+        <member name="M:Dev.Wcf.HandlerBehaviourAttribute.GlobalExceptionHandler.HandleError(System.Exception)">
+            <summary>
+            HandleError
+            </summary>
+            <param name="ex">ex</param>
+            <returns>true</returns>
+        </member>
+        <member name="M:Dev.Wcf.HandlerBehaviourAttribute.GlobalExceptionHandler.ProvideFault(System.Exception,System.ServiceModel.Channels.MessageVersion,System.ServiceModel.Channels.Message@)">
+            <summary>
+            ProvideFault
+            </summary>
+            <param name="ex">ex</param>
+            <param name="version">version</param>
+            <param name="msg">msg</param>
+        </member>
+        <member name="T:Dev.Wcf.HeaderAuthor.AuthInspectorAttribute">
+                 * 
+                 * 
+                 *  <appSettings>
+                
+                <add key="wcfclientuser" value="aaa,aaa;bbb,bbb;ccc,ccc" />
+              </appSettings>
+                 * 
+                 * 
+                 <bindings>
+                 
+                  <wsHttpBinding>
+                    <binding name="wsHttpBindingConfig" closeTimeout="00:00:01" sendTimeout="01:00:00"
+                             maxReceivedMessageSize="2147483647">
+                      <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647"
+                                    maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
+                      <security mode="None">
+                        <transport clientCredentialType="None" />
+                        <message clientCredentialType="None" negotiateServiceCredential="false" establishSecurityContext="false" />
+                      </security>
+                    </binding>
+                  </wsHttpBinding>
+                </bindings>
+                 * 
+                 * 
+                  <behavior name="AssocFileServiceBehavior">
+                      <serviceMetadata httpGetEnabled="true" />
+                      <serviceDebug includeExceptionDetailInFaults="true" />
+            
+                  </behavior>
+                 * 
+                 * 
+                 * 多绑定
+                 *  <service behaviorConfiguration="AssocFileServiceBehavior" name="Dx.Activity.DistributeService.Host.API.T">
+                    <endpoint address="mmm" binding="webHttpBinding" bindingConfiguration="webHttpBindingWithJsonP"
+                              contract="Dx.Activity.DistributeService.Host.API.IT" behaviorConfiguration="httpbehavior" />
+                    <endpoint binding="wsHttpBinding" bindingConfiguration="wsHttpBindingConfig"
+                              contract="Dx.Activity.DistributeService.Host.API.IT" />
+            
+            
+                  </service>
+                 * 
+                 * 
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,162 @@
+﻿@model CASServer.Models.LoginModel
+
+@{
+    this.ViewBag.Title = "登录";
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $(function() {
+
+            if ($("#UserName").val() == "") {
+                $("#UserName").next().show();
+            } else {
+                $("#UserName").next().hide();
+            }
+
+            setTimeout(function() {
+                if ($("#UserName").val() == "") {
+                    $("#UserName").next().show();
+                } else {
+                    $("#UserName").next().hide();
+                }
+                if ($("#Password").val() == "") {
+                    $("#Password").next().show();
+                } else {
+                    $("#Password").next().hide();
+                }
+
+            }, 1000);
+
+
+            $("#UserName").focusin(function() {
+                $(this).next().hide();
+                $(".login_error").hide();
+            });
+
+            $("#UserName").focusout(function() {
+
+                if ($(this).val() == "")
+                    $(this).next().show();
+            });
+
+            $("#Password").focusin(function() {
+                $(this).next().hide();
+                $(".login_error").hide();
+            });
+
+            $("#Password").focusout(function() {
+
+                if ($(this).val() == "")
+                    $(this).next().show();
+            });
+
+            $(".lg_def").click(function() {
+                $(this).hide();
+                $(this).prev().focus();
+            });
+        });
+        $(".green_btn").click(function() {
+            //if (allcheck()) {
+            $(this).closest("form").submit();
+            //}
+            $(".login_error").hide();
+            return false;
+        });
+
+        $(document).keydown(function(e) {
+            if (e.keyCode == 13) {
+                $(".green_btn").click();
+                return false;
+            }
+        });
+    </script>
+
+}
+
+<div class="reg_wp">
+    <div class="reg_title">
+        <span class="reg_tag">登录XXXXX</span><span>进入XXXXX，享受一起游戏的快乐  </span>
+    </div>
+    <div class="reg_cont clear">
+        <div style="margin-left: 110px; margin-top: 10px; position: absolute">@Html.ValidationSummary(false)</div>
+
+        <div class="reg_form">
+
+            @using (this.Html.BeginForm(new {ReturnUrl = this.ViewBag.ReturnUrl}))
+            {
+                @Html.Hidden("service", this.ViewBag.ReturnUrl as string)
+
+
+                <div class="new_item">
+                    <div class="tit">用户名：</div>
+                    <div class="bdmain" id="b_email">
+                        <div class="bd_input">
+                            @Html.TextBoxFor(m => m.UserName, new {@class = "de_text"})
+                            <span class="lg_def">请填写常用邮箱或手机号码</span>
+                        </div>
+                    </div>
+                    @*<div style="display: none;" class="reg_warn"><span class="error"></span><span>请输入用户名</span></div>*@
+                    @Html.ValidationMessageFor(x => x.UserName)
+                    @*  @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage as string))
+                    {
+                        <div class="login_error"><i class="arrow"></i>@(ViewBag.ErrorMessage as string)</div>
+                    }*@
+
+
+                </div>
+                <div class="new_item">
+                    <div class="tit">
+                        密码：
+                    </div>
+                    <div class="bdmain" id="b_pass">
+                        <div class="bd_input">
+                            @Html.PasswordFor(x => x.Password, new {@class = "regP"})
+                            <span class="lg_def">请填写密码</span>
+                        </div>
+                    </div>
+
+                    @*<div style="display: none;" class="reg_warn"><span class="error"></span><span>请输入密码</span></div>*@
+                    @Html.ValidationMessageFor(x => x.Password)
+                </div>
+                <div class="new_item">
+                    <div class="bd-des">
+                        <p class="reg_pdl">
+                            @Html.CheckBoxFor(m => m.RememberMe, new {@checked = "checked"})
+                            <label class="green2" for="RememberMe">记住我（两周免登录）</label>
+                            <span class="fg_pasd">@Html.ActionLink("忘记密码？", "GetPwd", "account")</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="new_item">
+                    <p class="reg_pdl">
+                        <a class="green_btn" href="javascript:void(0);">登录</a>
+                    </p>
+                </div>
+            }
+            <div class="login_other reg_pdl lg_o2">
+                <p>您也可以通过以下方式登录：</p>
+                @Html.Action("ExternalLoginsList", "account", new {ReturnUrl = this.ViewBag.ReturnUrl})
+            </div>
+
+        </div>
+        <div class="reg_right">
+            <div class="reg_login">
+                <p>还没有XXXXX账号？</p>
+                <p>
+                    <a title="登录即可分享新鲜事" class="b_gray_btn" href="/Account/Register/">立即注册</a>
+                </p>
+            </div>
+            <div class="reg_r2">
+                @* <p>
+                    已有<span>12240</span>玩家加入XXXXX
+                </p>
+                <p>
+                    已举办<span>2116</span>场游戏活动
+                </p>*@
+            </div>
+        </div>
+    </div>
+</div>

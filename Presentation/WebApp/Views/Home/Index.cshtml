@@ -1,0 +1,40 @@
+﻿@{
+    this.ViewBag.Title = "主页";
+}
+@*@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                若要了解有关 ASP.NET MVC 的详细信息，请访问
+                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>。
+                该页提供 <mark>视频、教程和示例</mark> 以帮助你充分利用 ASP.NET MVC。
+                如果你对 ASP.NET MVC 有任何疑问，请访问
+                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">我们的论坛</a>。
+            </p>
+        </div>
+    </section>
+}*@
+<h3>下面是已经注册的单点登录客户端</h3>
+<ol class="round">
+
+    @foreach (var client in Dev.CasServer.Configuration.CasServerConfiguration.Config.ClientList)
+    {
+        <li class="one">
+            <h5>开始使用</h5>
+            <a href="@client.Url">@client.Url</a>
+        </li>
+    }
+    <li class="one">
+        @Html.ActionLink("管理", "Manage", "Account")
+
+    </li>
+
+    <li class="one">
+        @Html.Partial("_LoginPartial")
+
+    </li>
+</ol>

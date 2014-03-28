@@ -1,0 +1,59 @@
+﻿@model Dev.Comm.Web.Mvc.Pager.Pagination
+
+@*分页页面模板*@
+
+@if (this.Model.TotalPages > 1)
+{
+    <div class="fy">
+        <div class="fy_size"><span>第<em>@Model.CurrentPage</em>页</span>/<span>共<em>@Model.TotalPages</em>页</span></div>
+        <ul class="fy_list">
+            @if (this.Model.CurrentPage != 1)
+            {
+                <li><a href="@this.Url.Action(this.Model.Action, this.Model.Controller, this.Model.GetDictionary(1)) ">首页</a></li>
+                <li >
+                    <a href="@this.Url.Action(this.Model.Action, this.Model.Controller, this.Model.GetDictionary(this.Model.CurrentPage - 1)) ">
+                        &#171; 上一页
+                    </a>
+                </li>
+            } 
+
+            <li class="@(this.Model.CurrentPage == 1 ? "fy_current" : "")">
+                @Html.ActionLink("1", this.Model.Action, this.Model.Controller, this.Model.GetDictionary(1), null)
+            </li>
+
+            @if (this.Model.Shorten && this.Model.CurrentPage > 5)
+            {
+                <li>
+                    @Html.ActionLink("...", this.Model.Action, this.Model.Controller, this.Model.GetDictionary(this.Model.CurrentPage - 3), null) 
+                </li>
+            } 
+            @for (var i = this.Model.Start; i <= this.Model.Stop; i++)
+            {
+                <li class="@(this.Model.CurrentPage == i ? "fy_current" : "")">
+                    @Html.ActionLink(i.ToString(), this.Model.Action, this.Model.Controller, this.Model.GetDictionary(i), null)
+                </li>
+            }
+
+            @if (this.Model.Shorten && this.Model.CurrentPage <= (this.Model.TotalPages - 5))
+            {
+                <li>
+                    @Html.ActionLink("...", this.Model.Action, this.Model.Controller, this.Model.GetDictionary(this.Model.CurrentPage + 3), null) 
+                </li>
+            } 
+
+            <li class="@(this.Model.CurrentPage == this.Model.TotalPages ? "fy_current" : "")">
+                @Html.ActionLink(this.Model.TotalPages.ToString(), this.Model.Action, this.Model.Controller, this.Model.GetDictionary(this.Model.TotalPages), null)      
+            </li>
+
+            @if (this.Model.CurrentPage != this.Model.TotalPages)
+            {
+                <li>
+                    <a href="@this.Url.Action(this.Model.Action, this.Model.Controller, this.Model.GetDictionary(this.Model.CurrentPage + 1)) ">
+                        下一页 &#187;
+                    </a>
+                </li>
+                <li><a href="@this.Url.Action(this.Model.Action, this.Model.Controller, this.Model.GetDictionary(this.Model.TotalPages))">尾页</a></li>
+            } 
+        </ul>
+    </div>
+}

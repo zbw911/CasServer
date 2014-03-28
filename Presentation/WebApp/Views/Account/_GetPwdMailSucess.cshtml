@@ -1,0 +1,14 @@
+﻿@using Application.MainBoundedContext
+@model string
+@{
+    this.ViewBag.Title = "找回密码";
+    var result = SystemMessagerManager.OpenMail(this.Model);
+}
+
+
+<div class="reg_cont clear">
+    <p class="mail_suss">
+        系统已发送一封密码找回信至您的邮箱 <a class="red" href="#">@Model</a> ，建议马上查看 
+        <a id="ContentPlaceHolder1_hy_mail" class="b_green_btn ml10" href="@result" target="_blank">进入邮箱</a>
+    </p>
+</div>

@@ -1,0 +1,1399 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QConnectSDK</name>
+    </assembly>
+    <members>
+        <member name="T:QConnectSDK.Api.RestApi">
+            <summary>
+            QQ登录API
+            </summary>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.AddWeibo(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            发表一条微博信息（纯文本）到腾讯微博平台上
+            </summary>
+            <param name="content">表示要发表的微博内容。必须为UTF-8编码，最长为140个汉字，也就是420字节。
+            如果微博内容中有URL，后台会自动将该URL转换为短URL，每个URL折算成11个字节。</param>
+            <param name="clientip">用户ip，以分析用户所在地</param>
+            <param name="jing">用户所在地理位置的经度。为实数，最多支持10位有效数字。有效范围：-180.0到+180.0，+表示东经，默认为0.0</param>
+            <param name="wei">用户所在地理位置的纬度。为实数，最多支持10位有效数字。有效范围：-90.0到+90.0，+表示北纬，默认为0.0。</param>
+            <param name="syncflag">标识是否将发布的微博同步到QQ空间（0：同步； 1：不同步；），默认为0.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.AddWeiboPicture(System.String,System.String,System.Byte[],System.String,System.String,System.String,System.Int32)">
+            <summary>
+            上传一张图片，并发布一条消息到腾讯微博平台上
+            </summary>
+            <param name="content">表示要发表的微博内容。必须为UTF-8编码，最长为140个汉字，也就是420字节。
+            如果微博内容中有URL，后台会自动将该URL转换为短URL，每个URL折算成11个字节。</param>
+            <param name="picBytes">要上传的图片的文件名以及图片的内容（在发送请求时，图片内容以二进制数据流的形式发送。
+            图片仅支持JPEG、GIF、PNG格式（所有图片都会重新压缩，gif被重新压缩后不会再有有动画效果），图片size小于2M。</param>
+            <param name="clientip">用户ip，以分析用户所在地</param>
+            <param name="jing">用户所在地理位置的经度。为实数，最多支持10位有效数字。有效范围：-180.0到+180.0，+表示东经，默认为0.0</param>
+            <param name="wei">用户所在地理位置的纬度。为实数，最多支持10位有效数字。有效范围：-90.0到+90.0，+表示北纬，默认为0.0。</param>
+            <param name="syncflag">标识是否将发布的微博同步到QQ空间（0：同步； 1：不同步；），默认为0.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.DelWeibo(System.Int64)">
+            <summary>
+            根据微博ID删除指定微博。
+            </summary>
+            <param name="id">微博ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetRepostlist(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取一条微博的转播或评论信息列表。
+            </summary>
+            <param name="flag">标识获取的是转播列表还是点评列表。
+            0：获取转播列表；
+            1：获取点评列表；
+            2：转播列表和点评列表都获取。
+            </param>
+            <param name="rootid">转发或点评的源微博的ID.</param>
+            <param name="pageflag">分页标识。
+            0：第一页；
+            1：向下翻页；
+            2：向上翻页。 
+            </param>
+            <param name="pagetime">本页起始时间。
+            第一页：0；
+            向下翻页：上一次请求返回的最后一条记录时间；
+            向上翻页：上一次请求返回的第一条记录的时间。 
+            </param>
+            <param name="reqnum">每次请求记录的条数。取值为1-100条。</param>
+            <param name="twitterid">翻页时使用。
+            第1-100条：0；
+            继续向下翻页：上一次请求返回的最后一条记录id。
+            </param>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetWeiboUserInfo">
+            <summary>
+            获取腾讯微博登录用户的用户资料。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetOtherWeiboUserInfo(System.String,System.String)">
+            <summary>
+            获取腾讯微博其他用户详细信息。
+            name和fopenids至少选一个，若同时存在则以name值为主。
+            </summary>
+            <param name="name">其他用户的账户名</param>
+            <param name="openId">其他用户的openid</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetFansList(System.Int32,System.Int32)">
+            <summary>
+            获取登录用户的听众列表
+            </summary>
+            <param name="reqnum">求获取的听众个数。取值范围为1-30。</param>
+            <param name="startindex">请求获取听众列表的起始位置。第一页：0；继续向下翻页：reqnum*（page-1）</param>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetIdolList(System.Int32,System.Int32)">
+            <summary>
+            获取登录用户收听的人的列表。
+            </summary>
+            <param name="reqnum">求获取的收听个数。取值范围为1-30。</param>
+            <param name="startindex">请求获取收听列表的起始位置。第一页：0；继续向下翻页：reqnum*（page-1）</param>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.AddIdol(System.String,System.String)">
+            <summary>
+            收听腾讯微博上的用户。
+            name和fopenids至少选一个，若同时存在则以name值为主
+            </summary>
+            <param name="name">要收听的用户的账户名列表。多个账户名之间用“,”隔开，例如：abc,bcde,cde。 </param>
+            <param name="fopenids">要收听的用户的openid列表。多个openid之间用“_”隔开，例如：B624064BA065E01CB73F835017FE96FA_B624064BA065E01CB73F835017FE96FB。</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.DelIdol(System.String,System.String)">
+            <summary>
+            取消收听腾讯微博上的用户。        
+            </summary>
+            <param name="name">要取消收听的用户的账户名  </param>
+            <param name="fopenid ">要取消收的用户的openid列表。 </param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetAccessToken(System.String,System.String)">
+            <summary>
+            通过Authorization Code获取Access Token
+            </summary>
+            <param name="oAuthVericode"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetCurrentUser">
+            <summary>
+            获取当前的登陆用户信息
+            </summary>
+            <returns>当前登陆用户信息</returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.AddFeeds(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            第三方网站可以调用本分享接口，在用户授权的情况下，可以以用户的名义发布一条动态（feeds）到QQ空间和朋友网上，
+            此外还可在腾讯微博上发一条微博（用户可自己选择是否转发到微博）。
+            1. 网站主动推送。当用户在网站上进行操作（例如上传视频，图片，发表评论等）后，以该用户的名义发布一条feeds到QQ空间中。 
+            2. 用户主动分享。用户在网站上点击“分享”按钮，发布一条feeds到QQ空间中，分享某个视频，网页或者其它内容。 例如：某用户在某个第三方网站上对某条新闻发表了评论，网站将以该用户的名义发表一条动态到QQ空间中，动态的具体展示如下： 
+            上图中的1-6标注对feeds的组成以及规格进行了说明： 
+            1. 用户评论：用户在第三方网站发布的评论等UGC信息，选填项。
+            2. 分享的内容标题，含源网页URL，点击跳转至第三方网站网页，必填项。
+            3. 详细描述：网页摘要，选填项。
+            4. 外部图片：引用外部图片（大小不超过100 x 100 px），选填项。
+            5. 分享的场景：支持以下场景 1.通过网页 2.通过手机 3.通过软件 4.通过IPHONE 5.通过IPAD，选填项。
+            6：来源网站名称及域名：标明分享的来源，必填项。
+            </summary>
+            <param name="title">feeds的标题，对应上文接口说明中的2。最长36个中文字，超出部分会被截断。</param>
+            <param name="url">分享所在网页资源的链接，点击后跳转至第三方网页，对应上文接口说明中2的超链接。请以http://开头。 </param>
+            <param name="comment">用户评论内容，也叫发表分享时的分享理由，对应上文接口说明的1。禁止使用系统生产的语句进行代替。最长40个中文字，超出部分会被截断。</param>
+            <param name="summary">所分享的网页资源的摘要内容，或者是网页的概要描述，对应上文接口说明的3。最长80个中文字，超出部分会被截断。</param>
+            <param name="images">所分享的网页资源的代表性图片链接"，对应上文接口说明的4。
+            请以http://开头，长度限制255字符。多张图片以竖线（|）分隔，目前只有第一张图片有效，图片规格100*100为佳。</param>
+            <param name="source">分享的场景，对应上文接口说明的6。取值说明：1.通过网页 2.通过手机 3.通过软件 4.通过IPHONE 5.通过 IPAD。 </param>
+            <param name="type">分享内容的类型。4表示网页；5表示视频（type=5时，必须传入playurl）。 </param>
+            <param name="playurl">长度限制为256字节。仅在type=5的时候有效。</param>
+            <param name="nswb">值为1时，表示分享不默认同步到微博，其他值或者不传此参数表示默认同步到微博</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.CheckPagefans(System.String)">
+            <summary>
+            验证登录的用户是否为某个认证空间的粉丝
+            </summary>
+            <param name="qq">认证空间的qq号</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetCurrentUserListAlbum">
+            <summary>
+            获取登录用户的相册列表。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.AddAlbum(System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            登录用户创建相册
+            </summary>
+            <param name="albumname">相册名，不能超过30个字符。</param>
+            <param name="albumdesc">相册描述，不能超过200个字符。</param>
+            <param name="priv">相册权限，其取值含义为： 1=公开；3=只主人可见； 4=QQ好友可见； 5=问答加密。
+            不传则相册默认为公开权限。
+            如果priv取值为5，即相册是问答加密的，则必须包含问题和答案两个参数：
+            -question: 问题，不能超过30个字符。
+            -answer: 答案，不能超过30个字符。</param>
+            <param name="question">问题，不能超过30个字符</param>
+            <param name="answer">答案，不能超过30个字符。</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.UploadPic(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Byte[])">
+            <summary>
+            登录用户上传照片。
+            </summary>
+            <param name="photodesc">照片描述，注意照片描述不能超过200个字符。</param>
+            <param name="title">照片的命名，必须以.jpg, .gif, .png, .jpeg, .bmp此类后缀结尾。</param>
+            <param name="albumid">相册id，不填则传到默认相册</param>
+            <param name="x">照片拍摄时的地理位置的经度。请使用原始数据（纯经纬度，0-360）。</param>
+            <param name="y">照片拍摄时的地理位置的纬度。请使用原始数据（纯经纬度，0-360）。</param>
+            <param name="picture">上传照片的文件名</param>
+            <param name="pictureData">上传照片的内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.AddBlog(System.String,System.String)">
+            <summary>
+            登录用户发表一篇新日志
+            </summary>
+            <param name="title">日志标题（纯文本，最大长度128个字节，utf-8编码）</param>
+            <param name="content">文章内容（html数据，最大长度100*1024个字节，utf-8编码）.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.AddTopic(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            登录用户发布心情，发布以后，将在QQ空间的说说下添加一条动态，以分享给好友。
+            用户发布心情时，可以是纯文本，也可以带超链接，视频，或者图片的富文本。
+            本接口支持LBS信息，即用户动态中可以包含位置信息，例如经纬度，地点名称及描述。 
+            </summary>
+            <param name="richtype">
+            发布心情时引用的信息的类型。
+            1表示图片； 2表示网页； 3表示视频。
+            </param>
+            <param name="richval">发布心情时引用的信息的值。有richtype时必须有richval 
+            （1）当richtype为图片（即richtype为1，应用场景为针对QQ空间相册中的某张图片发表评论）时，richval需包含下列参数的值，每个值中间用逗号分隔，如下所示 ：
+            “albumid,pictureid,sloc,pictype,picheight,picwidth”。
+            这些值都需要通过调用相册OpenAPI来获得。参数意义如下：
+            参数名称  是否必须  类型  描述  
+            albumid  必须  string  图片所属空间相册的ID
+            pictureid  必须  string  图片ID  
+            sloc  必须  string  小图ID
+            pictype   string  图片类型（JPG = 1；GIF = 2；PNG = 3）
+            picheight   string  图片高度，单位： px  
+            picwidth   string  图片宽度，单位： px
+            （2）当richtype为网页（即richtype为2，应用场景为针对某网页发表评论）时，richval需要传入该网页的URL，发表为feeds时，后台会自动将该URL转换为短URL。
+            （3）当richtype为视频（即richtype为3，应用场景为针对某视频发表评论）时，richval需要传入该视频的URL，发表为feeds时，后台会对该URL进行解析，在feeds上显示播放器，视频源及缩略图。
+            </param>
+            <param name="con">发布的心情的内容。</param>
+            <param name="lbs_nm">地址文。例如：广东省深圳市南山区高新科技园腾讯大厦。lbs_nm，lbs_x，lbs_y通常一起使用，来明确标识一个地址。 </param>
+            <param name="lbs_x">经度。请使用原始数据（纯经纬度，0-360）。</param>
+            <param name="lbs_y">纬度。请使用原始数据（纯经纬度，0-360）。</param>
+            <param name="third_source">第三方应用的平台类型。1表示QQ空间； 2表示腾讯朋友； 3表示腾讯微博平台； 4表示腾讯Q+平台。 </param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.#ctor(QConnectSDK.Context.QzoneContext)">
+            <summary>
+            构造函数，初始化访问QQ互联API的上下文数据
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetTenpayAddr(System.String,System.String,System.String)">
+            <summary>
+            获取财付通用户的收货地址。一个用户可能设置了多条收货地址信息。
+            查询的用户必须为财付通用户，否则查询将返回失败。
+            </summary>
+            <param name="offset">表示查询收货地址的偏移量，一般情况下offset可以不传值或传入0，表示从第一条开始读取。
+            offset参数是为一种特殊情况准备的，即该收货人有很多条收获地址，需要分页展示，则offset可设置为该页显示的条数。例如如果offset为10，则会跳过第10条收货地址，从第11条收货地址开始读取。 
+            </param>
+            <param name="limit">表示查询收货地址的返回限制数（即最多期望返回几个收货地址）。 limit不传默认按照5来处理。
+            </param>
+            <param name="ver">用于接口版本控制。固定填1。</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Api.RestApi.GetLibraryType">
+            <summary>
+            获取库视图支持的类型
+            </summary>
+            <param name="appId">第三方接入ID</param>         
+            <returns></returns>
+        </member>
+        <member name="P:QConnectSDK.Api.RestApi.Context">
+            <summary>
+            QQ互联API的上下文数据
+            </summary>
+        </member>
+        <member name="F:QConnectSDK.Api.Util.RndSeed">
+            <summary>
+            随机种子
+            </summary>
+        </member>
+        <member name="M:QConnectSDK.Api.Util.GenerateRndNonce">
+            <summary>
+            生成一个随机码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QConnectSDK.Authenticators.OAuthUriQueryParameterAuthenticator">
+            <summary>
+            腾讯社区开放平台OAuth2，腾讯社区开放平台额外增加了一个OpenId的参数
+            </summary>
+        </member>
+        <member name="M:QConnectSDK.Authenticators.OAuthUriQueryParameterAuthenticator.#ctor(System.String,System.String,System.String)">
+            <summary>
+            构造函数，OAuth2.0协议必须传入的通用参数
+            </summary>
+            <param name="openId">用户唯一ID</param>
+            <param name="accessToken"></param>
+            <param name="consumerkey">申请QQ登录成功后，分配给应用的appid </param>
+        </member>
+        <member name="M:QConnectSDK.Authenticators.OAuthUriQueryParameterAuthenticator.Authenticate(RestSharp.IRestClient,RestSharp.IRestRequest)">
+            <summary>
+            调用所有OpenAPI时，除了各接口私有的参数外，所有OpenAPI都需要传入基于OAuth2.0协议的通用参数
+            将这些通用参数加入RestRequest
+            </summary>
+            <param name="client"></param>
+            <param name="request"></param>
+        </member>
+        <member name="F:QConnectSDK.Config.Endpoints.ApiBaseUrl">
+            <summary>
+            QQ互联API的基础地址
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Config.QQConnectConfig">
+            <summary>
+            QQ互联的配置数据
+            </summary>
+        </member>
+        <member name="M:QConnectSDK.Config.QQConnectConfig.GetAuthorizeURL">
+            <summary>
+            获取Authorization Code的URL地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Config.QQConnectConfig.GetAppKey">
+            <summary>
+            申请QQ登录成功后，分配给应用的appid
+            </summary>
+            <returns>string AppKey</returns>
+        </member>
+        <member name="M:QConnectSDK.Config.QQConnectConfig.GetAppSecret">
+            <summary>
+            申请QQ登录成功后，分配给网站的appkey
+            </summary>
+            <returns>string AppSecret</returns>
+        </member>
+        <member name="M:QConnectSDK.Config.QQConnectConfig.GetCallBackURI">
+            <summary>
+            得到回调地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QConnectSDK.Context.QzoneContext">
+            <summary>
+            QQ登陆的上下文数据
+            </summary>
+        </member>
+        <member name="M:QConnectSDK.Context.QzoneContext.#ctor(System.String)">
+            <summary>
+            用于用户接受授权后使用Authorization Code进行上下文设置
+            </summary>
+            <param name="authVericode">Authorization Code（注意此code会在10分钟内过期）</param>
+        </member>
+        <member name="M:QConnectSDK.Context.QzoneContext.#ctor">
+            <summary>
+            用户将第一次使用QQ互联服务
+            </summary>
+        </member>
+        <member name="M:QConnectSDK.Context.QzoneContext.#ctor(QConnectSDK.Models.OAuthToken)">
+            <summary>
+            用于用户已经完成授权后，将OAuthToken持久化保存后，使用这个函数从持久化介质中获取到的
+            OAuthToken，进行后续的API调用。
+            </summary>
+            <param name="oAuthToken"></param>
+        </member>
+        <member name="M:QConnectSDK.Context.QzoneContext.GetAuthorizationUrl(System.String,System.String)">
+            <summary>
+            获取Authorization Code的URL地址
+            </summary>
+            <param name="state">client端的状态值。用于第三方应用防止CSRF攻击，成功授权后回调时会原样带回。</param>
+            <param name="scope">请求用户授权时向用户显示的可进行授权的列表。可填写的值是【QQ登录】API文档中列出的接口，
+            以及一些动作型的授权（目前仅有：do_like），如果要填写多个接口名称，请用逗号隔开。
+            例如：scope=get_user_info,add_share,list_album,upload_pic,check_page_fans,add_t,add_pic_t,del_t,get_repost_list,get_info,get_other_info 
+            get_fanslist,get_idolist,add_idol,del_idol
+            不传则默认请求对接口get_user_info进行授权。
+            建议控制授权项的数量，只传入必要的接口名称，因为授权项越多，用户越可能拒绝进行任何授权。</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.Context.QzoneContext.GetAccessToken(System.String)">
+            <summary>
+            通过Authorization Code获取Access Token
+            </summary>
+            <param name="oAuthVericode"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="P:QConnectSDK.Context.QzoneContext.Config">
+            <summary>
+            配置数据
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Context.QzoneContext.OAuthVericode">
+            <summary>
+            用于用户接受授权后使用Authorization Code，用于后续获取Access Token
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Context.QzoneContext.AccessToken">
+            <summary>
+            通过Authorization Code获取到的Access Token
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Exceptions.QzoneException">
+            <summary>
+            异常处理类
+            </summary>
+        </member>
+        <member name="M:QConnectSDK.Exceptions.QzoneException.#ctor">
+             <summary>
+            默认构造函数
+             </summary>
+        </member>
+        <member name="M:QConnectSDK.Exceptions.QzoneException.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:QConnectSDK.Exceptions.QzoneException.#ctor(RestSharp.IRestResponse)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="r"></param>
+        </member>
+        <member name="P:QConnectSDK.Exceptions.QzoneException.StatusCode">
+            <summary>
+            Http请求状态
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Exceptions.QzoneException.Response">
+            <summary>
+            The response of the error call (for Debugging use)
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.AddBlogResult">
+            <summary>
+            登录用户发表一篇新日志的结果
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.QzoneBase">
+            <summary>
+            QQ互联的所有结果的基类
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.QzoneBase.Ret">
+            <summary>
+            返回码 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.QzoneBase.Msg">
+            <summary>
+            如果ret 小于 0，会有相应的错误信息提示，返回数据全部用UTF-8编码 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.AddBlogResult.Url">
+            <summary>
+             固定为http://i.qq.com。用户在登录态下，可以通过该URL直接进入空间首页（这里不直接返回新发表日志的URL是为了避免泄漏用户信息） 
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.AddWeiboResult">
+            <summary>
+            添加微博返回结果数据Json格式
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.MicroBlogBase">
+            <summary>
+            微博的基类
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.MicroBlogBase.Errcode">
+            <summary>
+            二级错误码,http://wiki.opensns.qq.com/wiki/%E3%80%90QQ%E7%99%BB%E5%BD%95%E3%80%91%E5%BE%AE%E5%8D%9A%E7%A7%81%E6%9C%89%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%B4%E6%98%8E
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.AddWeiboResult.Data">
+            <summary>
+            微博数据
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.WeiboData">
+            <summary>
+            微博
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.WeiboData.Id">
+            <summary>
+            微博的Id
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.WeiboData.Timestamp">
+            <summary>
+            微博消息的发表时间
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.CheckPageResult">
+            <summary>
+            验证登录的用户是否为某个认证空间的粉丝
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.CheckPageResult.Isfans">
+            <summary>
+            1 表示登录的用户是该认证空间的粉丝；
+            0 表示登录的用户没有关注该认证空间。
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.DelWeiboResult">
+            <summary>
+            删除微博的结果
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.DelWeiboResult.Data">
+            <summary>
+            删除的微博
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.GetMediaTypeResult">
+            <summary>
+            获取微云支持的库视图类型结果
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.WeiyunBase">
+            <summary>
+            微云接口基类
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.WeiyunBase.Ret">
+            <summary>
+            返回码 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.WeiyunBase.Msg">
+            <summary>
+            如果ret 小于 0，会有相应的错误信息提示，返回数据全部用UTF-8编码 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.GetMediaTypeResult.Data">
+            <summary>
+            库视图支持的类型列表
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.LibraryType">
+            <summary>
+            库视图支持的类型
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.LibraryType.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.LibraryType.Desc">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.LibTypeList">
+            <summary>
+            库视图支持的类型列表
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.OAuthToken">
+            <summary>
+            QQ空间OAuth2.0
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.OAuthToken.AccessToken">
+            <summary>
+            access token
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.OAuthToken.OpenId">
+            <summary>
+            用户唯一标识
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.OAuthToken.ExpiresAt">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.Callback">
+            <summary>
+            根据access_token获得对应用户身份的openid
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Callback.client_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Callback.openid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.Picture">
+            <summary>
+            照片数据
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Picture.Albumid">
+            <summary>
+            相册ID
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Picture.Lloc">
+            <summary>
+            大图ID 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Picture.Sloc">
+            <summary>
+             小图ID 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Picture.Large_url">
+            <summary>
+            大图地址 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Picture.Small_url">
+            <summary>
+            小图地址 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Picture.Height">
+            <summary>
+            图片高（单位：像素）
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Picture.Width">
+            <summary>
+            图片宽（单位：像素） 
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.User">
+            <summary>
+            QQ空间的个人资料
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.User.Nickname">
+            <summary>
+            昵称 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.User.Figureurl">
+            <summary>
+            头像URL
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.User.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.User.Vip">
+            <summary>
+            标识用户是否为黄钻用户（0：非黄钻用户； 1：黄钻用户） 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.User.Level">
+            <summary>
+             黄钻等级。如果不是黄钻用户，则返回0 
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.UserAlbums">
+            <summary>
+             用户的相册
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserAlbums.Album">
+            <summary>
+            相册列表
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserAlbums.Albumnum">
+            <summary>
+            相册总数 
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.Album">
+            <summary>
+            相册
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Album.Albumid">
+            <summary>
+             相册ID
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Album.Classid">
+            <summary>
+            相册分类ID 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Album.Createtime">
+            <summary>
+            相册创建时间 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Album.Desc">
+            <summary>
+            相册描述 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Album.Name">
+            <summary>
+            相册名称 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Album.Picnum">
+            <summary>
+             照片数 
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.WeiboFan">
+            <summary>
+            用户的粉丝
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.WeiboFan.Data">
+            <summary>
+            听众的列表信息。
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.WeiboIdol">
+            <summary>
+            用户的听众
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.WeiboIdol.Data">
+            <summary>
+            听众的列表信息。
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.UserData">
+            <summary>
+            微博用户数据
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserData.Timestamp">
+            <summary>
+            服务器时间戳。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserData.Hasnext">
+            <summary>
+             表示是否还有听众信息可以拉取。
+             0：还有听众信息可以拉取。
+             1：已拉取完。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserData.Info">
+            <summary>
+            听众的详细信息列
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.Fan">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Name">
+            <summary>
+            听众的账户名。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Openid">
+            <summary>
+            听众的唯一ID，与QQ号码一一对应。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Nick">
+            <summary>
+             听众的昵称。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Head">
+            <summary>
+            听众头像url。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Sex">
+            <summary>
+            听众性别（0：表示未填写； 1：男； 2：女）。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Location">
+            <summary>
+            听众所在地。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Fansnum">
+            <summary>
+             听众数。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Idolnum">
+            <summary>
+             收听的人数。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Isidol">
+            <summary>
+            是否为用户收听的人（0：不是； 1：是）。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Isvip">
+            <summary>
+            听众是否为微博认证用户（0：不是； 1：是）。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Fan.Tag">
+            <summary>
+            标签信息列表
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Tweet.From">
+            <summary>
+            微博的来源。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Tweet.Id">
+            <summary>
+            微博ID，用来唯一标识一条微博。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Tweet.Text">
+            <summary>
+            微博的内容。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.Tweet.Timestamp">
+            <summary>
+            发表微博的时间。
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.WeiboRePost">
+            <summary>
+            转播或者评论
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.WeiboRePost.Data">
+            <summary>
+            转播或评论的信息列表。
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.RePost">
+            <summary>
+            转播或评论的信息
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.RePost.Hasnext">
+            <summary>
+            表示是否还有微博可以拉取。
+            0：还有微博可以拉取。
+            1：已拉取完。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.RePost.timestamp">
+            <summary>
+            服务器时间戳
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.RePost.Totalnum">
+            <summary>
+            总数
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.RePost.Info">
+            <summary>
+            微博的详细信息列表。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Text">
+            <summary>
+            获取的微博的内容。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Origtext">
+            <summary>
+             获取源微博的内容。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Count">
+            <summary>
+            转播次数。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.MCount">
+            <summary>
+             评论数。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.From">
+            <summary>
+            微博来源。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Id">
+            <summary>
+            微博的ID，用来唯一标识一条微博。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Image">
+            <summary>
+            微博中的图片url。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Name">
+            <summary>
+            发表或转播微博的用户名称。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Openid">
+            <summary>
+            发表或转播微博的用户QQ号码对应的ID。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Nick">
+            <summary>
+            用户昵称。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Self">
+            <summary>
+            是否为自己发表的微博（0：不是； 1：是）。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Timestamp">
+            <summary>
+            发表或转播微博的时间。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Type">
+            <summary>
+            表示微博的类型。
+            1：原创发表；
+            2：转播;
+            3：私信；
+            4：回复；
+            5：没有内容的回复；
+            6：提及；
+            7：评论。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Head">
+            <summary>
+             用户的头像url。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Location">
+            <summary>
+            用户所在的省市。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Country_code">
+            <summary>
+             用户所在的国家代码。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Province_code">
+            <summary>
+             用户所在的省代码。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.City_code">
+            <summary>
+             用户所在的城市代码  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Isvip">
+            <summary>
+             用户是否为微博认证用户（0：不是； 1：是）。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.PostInfo.Geo">
+            <summary>
+            用户地理信息。  
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.WeiboUser">
+            <summary>
+            微博的用户数据
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.WeiboUser.Data">
+            <summary>
+            登录用户的详细信息列表。
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.UserInfo">
+            <summary>
+            用户数据
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Name">
+            <summary>
+            登录用户的帐号名。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Openid">
+            <summary>
+            登录用户的唯一ID，与QQ号码一一对应。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Nick">
+            <summary>
+            登录用户昵称。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Head">
+            <summary>
+            登录用户头像url。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Location">
+            <summary>
+             登录用户所在地。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Isvip">
+            <summary>
+            登录用户是否为微博认证用户（0：不是； 1：是）。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Isent">
+            <summary>
+            登录用户是否为企业机构（0：不是； 1：是）。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Introduction">
+            <summary>
+            登录用户的个人介绍。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Verifyinfo">
+            <summary>
+            认证信息。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Birth_year">
+            <summary>
+            登录用户出生年。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Birth_month">
+            <summary>
+            登录用户出生月份。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Birth_day">
+            <summary>
+            登录用户出生日。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Country_code">
+            <summary>
+            登录用户所在的国家代码。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Province_code">
+            <summary>
+            登录用户所在的省代码。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.City_code">
+            <summary>
+            登录用户所在的城市代码。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Sex">
+            <summary>
+              登录用户性别（1：男； 2：女； 3：未知）。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Fansnum">
+            <summary>
+             登录用户听众数。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Idolnum">
+            <summary>
+            登录用户收听的人数。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Tweetnum">
+            <summary>
+            登录用户发表的微博数。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Tag">
+            <summary>
+            标签信息列表
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Edu">
+            <summary>
+            登录用户教育信息列表。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserInfo.Email">
+            <summary>
+            用户注册的邮箱。 
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.Models.UserTag">
+            <summary>
+            个人标签
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserTag.Id">
+            <summary>
+            个人标签id
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserTag.name">
+            <summary>
+             标签名。
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserEdu.Id">
+            <summary>
+            学历记录ID。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserEdu.Year">
+            <summary>
+            入学年。  
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserEdu.Schoolid">
+            <summary>
+            学校ID
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserEdu.Departmentid">
+            <summary>
+             院系id。 
+            </summary>
+        </member>
+        <member name="P:QConnectSDK.Models.UserEdu.Level">
+            <summary>
+            学历级别。
+            </summary>
+        </member>
+        <member name="T:QConnectSDK.QOpenClient">
+            <summary>
+            QQ登录 API 入口
+            </summary>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.#ctor(System.String,System.String)">
+            <summary>
+            构造函数，用于用户接受授权后使用Authorization Code获取AccessToken
+            </summary>
+            <param name="verifierCode">Authorization Code（注意此code会在10分钟内过期）。</param>
+            <param name="state">client端的状态值。用于第三方应用防止CSRF攻击，成功授权后回调时会原样带回</param>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.#ctor(QConnectSDK.Models.OAuthToken)">
+            <summary>
+            构造函数，用于用户已经完成授权后，将OAuthToken持久化保存后，使用这个函数从持久化介质中获取到的
+            OAuthToken，进行后续的API调用。
+            </summary>
+            <param name="oAuthToken"></param>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetCurrentUser">
+            <summary>
+            获取用户在QQ空间的个人资料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.AddFeeds(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            第三方网站可以调用本分享接口，在用户授权的情况下，可以以用户的名义发布一条动态（feeds）到QQ空间和朋友网上，
+            此外还可在腾讯微博上发一条微博（用户可自己选择是否转发到微博）。
+            1. 网站主动推送。当用户在网站上进行操作（例如上传视频，图片，发表评论等）后，以该用户的名义发布一条feeds到QQ空间中。 
+            2. 用户主动分享。用户在网站上点击“分享”按钮，发布一条feeds到QQ空间中，分享某个视频，网页或者其它内容。 例如：某用户在某个第三方网站上对某条新闻发表了评论，网站将以该用户的名义发表一条动态到QQ空间中，动态的具体展示如下： 
+            上图中的1-6标注对feeds的组成以及规格进行了说明： 
+            1. 用户评论：用户在第三方网站发布的评论等UGC信息，选填项。
+            2. 分享的内容标题，含源网页URL，点击跳转至第三方网站网页，必填项。
+            3. 详细描述：网页摘要，选填项。
+            4. 外部图片：引用外部图片（大小不超过100 x 100 px），选填项。
+            5. 分享的场景：支持以下场景 1.通过网页 2.通过手机 3.通过软件 4.通过IPHONE 5.通过IPAD，选填项。
+            6：来源网站名称及域名：标明分享的来源，必填项。
+            </summary>
+            <param name="title">feeds的标题，对应上文接口说明中的2。最长36个中文字，超出部分会被截断。</param>
+            <param name="url">分享所在网页资源的链接，点击后跳转至第三方网页，对应上文接口说明中2的超链接。请以http://开头。 </param>
+            <param name="comment">用户评论内容，也叫发表分享时的分享理由，对应上文接口说明的1。禁止使用系统生产的语句进行代替。最长40个中文字，超出部分会被截断。</param>
+            <param name="summary">所分享的网页资源的摘要内容，或者是网页的概要描述，对应上文接口说明的3。最长80个中文字，超出部分会被截断。</param>
+            <param name="images">所分享的网页资源的代表性图片链接"，对应上文接口说明的4。
+            请以http://开头，长度限制255字符。多张图片以竖线（|）分隔，目前只有第一张图片有效，图片规格100*100为佳。</param>
+            <param name="source">分享的场景，对应上文接口说明的6。取值说明：1.通过网页 2.通过手机 3.通过软件 4.通过IPHONE 5.通过 IPAD。 </param>
+            <param name="type">分享内容的类型。4表示网页；5表示视频（type=5时，必须传入playurl）。 </param>
+            <param name="playurl">长度限制为256字节。仅在type=5的时候有效。</param>
+            <param name="nswb">值为1时，表示分享不默认同步到微博，其他值或者不传此参数表示默认同步到微博</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.CheckPagefans(System.String)">
+            <summary>
+            验证登录的用户是否为某个认证空间的粉丝
+            </summary>
+            <param name="qq">认证空间的QQ号</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.AddWeibo(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            发表一条微博信息（纯文本）到腾讯微博平台上
+            </summary>
+            <param name="content">表示要发表的微博内容。必须为UTF-8编码，最长为140个汉字，也就是420字节。
+            如果微博内容中有URL，后台会自动将该URL转换为短URL，每个URL折算成11个字节。</param>
+            <param name="clientip">用户ip，以分析用户所在地</param>
+            <param name="jing">用户所在地理位置的经度。为实数，最多支持10位有效数字。有效范围：-180.0到+180.0，+表示东经，默认为0.0</param>
+            <param name="wei">用户所在地理位置的纬度。为实数，最多支持10位有效数字。有效范围：-90.0到+90.0，+表示北纬，默认为0.0。</param>
+            <param name="syncflag">标识是否将发布的微博同步到QQ空间（0：同步； 1：不同步；），默认为0.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.AddWeiboPicture(System.String,System.String,System.Byte[],System.String,System.String,System.String,System.Int32)">
+            <summary>
+            上传一张图片，并发布一条消息到腾讯微博平台上
+            </summary>
+            <param name="content">表示要发表的微博内容。必须为UTF-8编码，最长为140个汉字，也就是420字节。
+            如果微博内容中有URL，后台会自动将该URL转换为短URL，每个URL折算成11个字节。</param>
+            <param name="picBytes">要上传的图片的文件名以及图片的内容（在发送请求时，图片内容以二进制数据流的形式发送。
+            图片仅支持JPEG、GIF、PNG格式（所有图片都会重新压缩，gif被重新压缩后不会再有有动画效果），图片size小于2M。</param>
+            <param name="clientip">用户ip，以分析用户所在地</param>
+            <param name="jing">用户所在地理位置的经度。为实数，最多支持10位有效数字。有效范围：-180.0到+180.0，+表示东经，默认为0.0</param>
+            <param name="wei">用户所在地理位置的纬度。为实数，最多支持10位有效数字。有效范围：-90.0到+90.0，+表示北纬，默认为0.0。</param>
+            <param name="syncflag">标识是否将发布的微博同步到QQ空间（0：同步； 1：不同步；），默认为0.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.DelWeibo(System.Int64)">
+            <summary>
+            根据微博ID删除指定微博。
+            </summary>
+            <param name="id">微博ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetRepostlist(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取一条微博的转播或评论信息列表。
+            </summary>
+            <param name="flag">标识获取的是转播列表还是点评列表。
+            0：获取转播列表；
+            1：获取点评列表；
+            2：转播列表和点评列表都获取。
+            </param>
+            <param name="rootid">转发或点评的源微博的ID.</param>
+            <param name="pageflag">分页标识。
+            0：第一页；
+            1：向下翻页；
+            2：向上翻页。 
+            </param>
+            <param name="pagetime">本页起始时间。
+            第一页：0；
+            向下翻页：上一次请求返回的最后一条记录时间；
+            向上翻页：上一次请求返回的第一条记录的时间。 
+            </param>
+            <param name="reqnum">每次请求记录的条数。取值为1-100条。</param>
+            <param name="twitterid">翻页时使用。
+            第1-100条：0；
+            继续向下翻页：上一次请求返回的最后一条记录id。
+            </param>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetWeiboUserInfo">
+            <summary>
+            获取腾讯微博登录用户的用户资料。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetWeiboUserInfo(System.String,System.String)">
+            <summary>
+            获取腾讯微博其他用户详细信息。
+            name和fopenids至少选一个，若同时存在则以name值为主。
+            </summary>
+            <param name="name">其他用户的账户名</param>
+            <param name="openId">其他用户的openid</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetFansList(System.Int32,System.Int32)">
+            <summary>
+            获取登录用户的听众列表
+            </summary>
+            <param name="reqnum">求获取的听众个数。取值范围为1-30。</param>
+            <param name="startindex">请求获取听众列表的起始位置。第一页：0；继续向下翻页：reqnum*（page-1）</param>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetIdolList(System.Int32,System.Int32)">
+            <summary>
+            获取登录用户收听的人的列表。
+            </summary>
+            <param name="reqnum">求获取的收听个数。取值范围为1-30。</param>
+            <param name="startindex">请求获取收听列表的起始位置。第一页：0；继续向下翻页：reqnum*（page-1）</param>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.AddIdol(System.String,System.String)">
+            <summary>
+            收听腾讯微博上的用户。
+            name和fopenids至少选一个，若同时存在则以name值为主
+            </summary>
+            <param name="name">要收听的用户的账户名列表。多个账户名之间用“,”隔开，例如：abc,bcde,cde。 </param>
+            <param name="fopenids">要收听的用户的openid列表。多个openid之间用“_”隔开，例如：B624064BA065E01CB73F835017FE96FA_B624064BA065E01CB73F835017FE96FB。</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.DelIdol(System.String,System.String)">
+            <summary>
+            取消收听腾讯微博上的用户。        
+            </summary>
+            <param name="name">要取消收听的用户的账户名  </param>
+            <param name="fopenid ">要取消收的用户的openid列表。 </param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetCurrentUserListAlbum">
+            <summary>
+            获取登录用户的相册列表。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.AddAlbum(System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            登录用户创建相册
+            </summary>
+            <param name="albumname">相册名，不能超过30个字符。</param>
+            <param name="albumdesc">相册描述，不能超过200个字符。</param>
+            <param name="priv">相册权限，其取值含义为： 1=公开；3=只主人可见； 4=QQ好友可见； 5=问答加密。
+            不传则相册默认为公开权限。
+            如果priv取值为5，即相册是问答加密的，则必须包含问题和答案两个参数：
+            -question: 问题，不能超过30个字符。
+            -answer: 答案，不能超过30个字符。</param>
+            <param name="question">问题，不能超过30个字符</param>
+            <param name="answer">答案，不能超过30个字符。</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.UploadPic(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Byte[])">
+            <summary>
+            登录用户上传照片。
+            </summary>
+            <param name="photodesc">照片描述，注意照片描述不能超过200个字符。</param>
+            <param name="title">照片的命名，必须以.jpg, .gif, .png, .jpeg, .bmp此类后缀结尾。</param>
+            <param name="albumid">相册id，不填则传到默认相册</param>
+            <param name="x">照片拍摄时的地理位置的经度。请使用原始数据（纯经纬度，0-360）。</param>
+            <param name="y">照片拍摄时的地理位置的纬度。请使用原始数据（纯经纬度，0-360）。</param>
+            <param name="picture">上传照片的文件名</param>
+            <param name="pictureData">上传照片的内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.AddBlog(System.String,System.String)">
+            <summary>
+            登录用户发表一篇新日志
+            </summary>
+            <param name="title">日志标题（纯文本，最大长度128个字节，utf-8编码）</param>
+            <param name="content">文章内容（html数据，最大长度100*1024个字节，utf-8编码）.</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.AddTopic(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            登录用户发布心情，发布以后，将在QQ空间的说说下添加一条动态，以分享给好友。
+            用户发布心情时，可以是纯文本，也可以带超链接，视频，或者图片的富文本。
+            本接口支持LBS信息，即用户动态中可以包含位置信息，例如经纬度，地点名称及描述。 
+            </summary>
+            <param name="richtype">
+            发布心情时引用的信息的类型。
+            1表示图片； 2表示网页； 3表示视频。
+            </param>
+            <param name="richval">发布心情时引用的信息的值。有richtype时必须有richval 
+            （1）当richtype为图片（即richtype为1，应用场景为针对QQ空间相册中的某张图片发表评论）时，richval需包含下列参数的值，每个值中间用逗号分隔，如下所示 ：
+            “albumid,pictureid,sloc,pictype,picheight,picwidth”。
+            这些值都需要通过调用相册OpenAPI来获得。参数意义如下：
+            参数名称  是否必须  类型  描述  
+            albumid  必须  string  图片所属空间相册的ID
+            pictureid  必须  string  图片ID  
+            sloc  必须  string  小图ID
+            pictype   string  图片类型（JPG = 1；GIF = 2；PNG = 3）
+            picheight   string  图片高度，单位： px  
+            picwidth   string  图片宽度，单位： px
+            （2）当richtype为网页（即richtype为2，应用场景为针对某网页发表评论）时，richval需要传入该网页的URL，发表为feeds时，后台会自动将该URL转换为短URL。
+            （3）当richtype为视频（即richtype为3，应用场景为针对某视频发表评论）时，richval需要传入该视频的URL，发表为feeds时，后台会对该URL进行解析，在feeds上显示播放器，视频源及缩略图。
+            </param>
+            <param name="con">发布的心情的内容。</param>
+            <param name="lbs_nm">地址文。例如：广东省深圳市南山区高新科技园腾讯大厦。lbs_nm，lbs_x，lbs_y通常一起使用，来明确标识一个地址。 </param>
+            <param name="lbs_x">经度。请使用原始数据（纯经纬度，0-360）。</param>
+            <param name="lbs_y">纬度。请使用原始数据（纯经纬度，0-360）。</param>
+            <param name="third_source">第三方应用的平台类型。1表示QQ空间； 2表示腾讯朋友； 3表示腾讯微博平台； 4表示腾讯Q+平台。 </param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetTenpayAddr(System.String,System.String,System.String)">
+            <summary>
+            获取财付通用户的收货地址。一个用户可能设置了多条收货地址信息。
+            查询的用户必须为财付通用户，否则查询将返回失败。
+            </summary>
+            <param name="offset">表示查询收货地址的偏移量，一般情况下offset可以不传值或传入0，表示从第一条开始读取。
+            offset参数是为一种特殊情况准备的，即该收货人有很多条收获地址，需要分页展示，则offset可设置为该页显示的条数。例如如果offset为10，则会跳过第10条收货地址，从第11条收货地址开始读取。 
+            </param>
+            <param name="limit">表示查询收货地址的返回限制数（即最多期望返回几个收货地址）。 limit不传默认按照5来处理。
+            </param>
+            <param name="ver">用于接口版本控制。固定填1。</param>
+            <returns></returns>
+        </member>
+        <member name="M:QConnectSDK.QOpenClient.GetLibraryType">
+            <summary>
+            获取库视图支持的类型
+            </summary>
+            <param name="appId">第三方接入ID</param>         
+            <returns></returns>
+        </member>
+        <member name="P:QConnectSDK.QOpenClient.OAuthToken">
+            <summary>
+            访问QQ互联的SDK的AccessToken
+            </summary>
+        </member>
+    </members>
+</doc>

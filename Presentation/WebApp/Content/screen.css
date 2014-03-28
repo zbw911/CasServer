@@ -1,0 +1,283 @@
+/* 
+	Lightbox v2.0 Project page styles	
+	Author: Lokesh Dhakar http://www.huddletogether.com
+	Table of Contents:
+		layout
+		typography
+*/
+
+
+
+
+/* layout
+----------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #1A1A1A;
+    color: #eee;
+    font: 76% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif,;
+    word-wrap: break-word; /* IE */
+}
+
+#topborder {
+    background-color: #c0dB5A;
+    height: 1.0em;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#sidebar {
+    left: 20px;
+    position: fixed;
+    top: 38px;
+    width: 250px;
+}
+
+* html div#sidebar {
+    left: 20px;
+    position: absolute;
+    top: 38px;
+    width: 250px;
+}
+
+#content { margin: 23px 10% 5em 315px; }
+
+
+/* typography
+----------------------------------------------- */
+
+p {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin-bottom: 1.0em;
+}
+
+p.lead { font-size: 1.0em; }
+
+ol, ul { margin: 0.5em 0 1.2em 2em; }
+
+ol, ul, dl { line-height: 1.5em; }
+
+ol li { margin-bottom: 0.2em; }
+
+li { font-size: 0.9em; }
+
+li strong { color: #999; }
+
+dl { margin: 0.5em 0 1.2em 0; }
+
+dt {
+    color: #999;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding-top: 0.4em;
+}
+
+dd {
+    border-bottom: 1px dashed #3d3d33;
+    font-size: 0.9em;
+    margin-bottom: 1.0em;
+    padding-bottom: 0.9em;
+}
+
+
+h1, h2, h3 { font-family: "Trebuchet MS", Verdana, Sans-Serif; }
+
+h1 { font-size: 2.5em; }
+
+h1 a {
+    border: none;
+    color: #fff;
+}
+
+h1 em {
+    color: #D0EB6A;
+    font-style: normal;
+}
+
+h2 {
+    color: #D0EB6A;
+    font-size: 1.5em;
+    letter-spacing: 0.4pt;
+    padding-top: 0.5em;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: #c0dB5A;
+    font-size: 1.0em;
+    letter-spacing: 0.2pt;
+    padding-top: 0.5em;
+    text-transform: uppercase;
+}
+
+a {
+    color: #8ad459;
+    text-decoration: none;
+    xfont-weight: bold;
+}
+
+p a:hover { border-bottom: 1px dotted #8ad459; }
+
+a img { border: none; }
+
+small { font-size: 0.8em; }
+
+pre {
+    background-color: #000;
+    border-left: 1px solid #222;
+    display: block;
+    margin: 1.0em 0;
+    overflow: auto;
+    padding-left: 0.8em;
+}
+
+code {
+    background-color: #000;
+    color: #aaa;
+    font-family: Verdana, Sans-Serif;
+    font-size: 11px;
+}
+
+pre code { line-height: 1.1em; }
+
+kbd {
+    background-color: #ddd;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    color: #555;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0 3px 2px 4px;
+}
+
+fieldset { border: none; }
+
+/* sidebar
+----------------------------------------------- */
+
+#sidebar a { color: #fff; }
+
+#sidebar p a:hover { border-bottom: 1px dotted #fff; }
+
+#sidebar h1 a { font-weight: bold; }
+
+#sidebar h1 a:hover { color: inherit; }
+
+#nav {
+    list-style: none;
+    margin: 2.0em 0;
+    width: 15em;
+}
+
+#nav li {
+    margin: 0;
+    padding: 0;
+}
+
+#nav a {
+    background-color: #333;
+    border-bottom: 1px solid #1a1a1a;
+    color: #eee;
+    display: block;
+    height: 2.0em;
+    padding: 0.3em 0.2em 0.2em 0.8em;
+}
+
+#nav a:hover {
+    background-color: #D0EB6A;
+    color: #1a1a1a;
+}	
+
+
+/* content
+----------------------------------------------- */
+
+#content ul { margin-left: 4px; }
+
+#content ul li {
+    background: url(../images/bullet.gif) no-repeat 0 6px;
+    list-style: none;
+    padding: 0 0 0 12px;
+}
+
+.download {
+    background-color: #333;
+    border: 1px solid #444;
+    padding: 0.7em 1.5em;
+}
+
+.download:hover {
+    background-color: #555;
+    border: 1px solid #777;
+}
+
+#content ul.download li {
+    background-image: none;
+    padding: 0.3em 0;
+}
+
+.download img { padding-right: 0.3em; }
+
+.download li strong {
+    color: #fff;
+    font-family: "Trebuchet MS", Verdana, Sans-Serif;
+    font-size: 2.25em;
+}
+
+.download li em {
+    color: #D0EB6A;
+    font-style: normal;
+}
+
+/* misc
+----------------------------------------------- */
+
+.section {
+    border-top: 1px solid #3d3d33;
+    padding: 1.5em 0;
+}
+
+.first { border-top: none; }
+
+.thumbnail {
+    background-color: #222;
+    border: 1px solid #2a2a2a;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 3px 3px 8px 3px;
+}
+
+.caption {
+    font-size: 0.9em;
+    padding-top: 0.2em;
+}
+
+
+
+/* clearing
+----------------------------------------------- */
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+* html > body .clearfix {
+    display: inline-block;
+    width: 100%;
+}
+
+* html .clearfix { /* Hides from IE-mac \*/height: 1%;
+    /* End hide from IE-mac */ }

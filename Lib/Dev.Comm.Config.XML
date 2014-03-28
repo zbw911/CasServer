@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Comm.Config</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Comm.ReadWriteAppSettings">
+             <summary> 
+            Summary description for ReadWriteConfig. 
+            .config appsetting readwrite  
+            added by zbw911
+             </summary> 
+        </member>
+    </members>
+</doc>

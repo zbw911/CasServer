@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Web.CompositionRootBase</name>
+    </assembly>
+    <members>
+        <member name="M:Dev.Web.CompositionRootBase.App_Start.AutoMapperBootrapper.Start">
+            <summary>
+                Starts the application
+            </summary>
+        </member>
+        <member name="M:Dev.Web.CompositionRootBase.App_Start.AutoMapperBootrapper.Stop">
+            <summary>
+                Stops the application.
+            </summary>
+        </member>
+        <member name="M:Dev.Web.CompositionRootBase.App_Start.NinjectWebCommon.Start">
+            <summary>
+                Starts the application
+            </summary>
+        </member>
+        <member name="M:Dev.Web.CompositionRootBase.App_Start.NinjectWebCommon.Stop">
+            <summary>
+                Stops the application.
+            </summary>
+        </member>
+        <member name="M:Dev.Web.CompositionRootBase.App_Start.NinjectWebCommon.CreateKernel">
+            <summary>
+                Creates the kernel that will manage your application.
+            </summary>
+            <returns>The created kernel.</returns>
+        </member>
+        <member name="M:Dev.Web.CompositionRootBase.App_Start.NinjectWebCommon.RegisterServices(Ninject.IKernel)">
+            <summary>
+                Load your modules or register your services here!
+            </summary>
+            <param name="kernel">The kernel.</param>
+        </member>
+        <member name="M:Dev.Web.CompositionRootBase.RegisterContextBase.RegContextWith``2(System.String)">
+            <summary>
+                使用连接名进行的注入，要在 Manager中进行初始化Context,这个Context将是存于 ContextStorage中的，就要注意线程安全，特别是使用并发方法的时候，
+            </summary>
+            <typeparam name="TI"></typeparam>
+            <typeparam name="TImp"></typeparam>
+            <param name="connectionStringName"></param>
+        </member>
+        <member name="M:Dev.Web.CompositionRootBase.RegisterContextBase.RegContextWith``2(System.Data.Entity.DbContext)">
+            <summary>
+                使用这个注入，直接注入的是的 XXXXXRepository，这个对像是理论上线程的安全的
+            </summary>
+            <typeparam name="TI"></typeparam>
+            <typeparam name="TImp"></typeparam>
+            <param name="dbContext"></param>
+        </member>
+        <member name="M:Dev.Web.CompositionRootBase.RegisterContextBase.RegServiceWith``2">
+            <summary>
+            绑定 Service 
+            </summary>
+            <typeparam name="TI"></typeparam>
+            <typeparam name="TImp"></typeparam>
+        </member>
+        <member name="T:Dev.Web.CompositionRootBase.Tools.NinjectControllerActivator">
+            <summary>
+                用于MVC的 Activator
+            </summary>
+        </member>
+        <member name="T:Dev.Web.CompositionRootBase.Tools.NinjectDependencyScope">
+            <summary>
+                用于 WebApi的 注入依赖
+            </summary>
+        </member>
+    </members>
+</doc>

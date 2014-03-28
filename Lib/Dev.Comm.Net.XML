@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Comm.Net</name>
+    </assembly>
+    <members>
+        <member name="M:Dev.Comm.Net.Http.GetHostName">
+            <summary>
+            获取本地机器名称
+            </summary>
+            <returns>机器名称</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetHostIp">
+            <summary>
+            获取本地机器IP
+            </summary>
+            <returns>IP地址</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetWebUrl(System.String)">
+            <summary>
+            获取指定WEB页面
+            </summary>
+            <param name="strurl">URL</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="AutoRedirect">是否自动跳转</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="http_type"> 请求类型 http https </param>
+            <param name="encoding">编码方式</param>
+            <param name="timeout">超时时间 ms</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.Int32)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="timeout">超时时间 ms</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.String@)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="outcookieheader">输出cookie</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.String)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="cookieheader">输入cookie</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.String,System.Boolean)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="AutoRedirect">是否自动跳转</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.String,System.String@,System.String,System.String)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="http_type">请求类型 http https</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.String,System.String,System.String@,System.String,System.String)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="http_type">请求类型 http https</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.String,System.String,System.String@,System.String,System.String,System.String)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="http_type">请求类型 http https</param>
+            <param name="encoding">编码方式</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.String,System.String@,System.String,System.Boolean,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="AutoRedirect">是否自动跳转</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="http_type">请求类型 http https</param>
+            <param name="encoding">编码方式</param>
+            <param name="timeout">超时时间 ms</param>
+            <param name="mywebproxy">代理地址 例  "xx.xx.xx.xx:xx"</param>
+            <param name="NetworkCredentialName">帐号 身份验证帐号 对于一些需要身份严重的地址有用</param>
+            <param name="NetworkCredentialPassword">密码 身份验证密码</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetUrl(System.String,System.String,System.String@,System.String,System.Boolean,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            GET方法获取页面
+            </summary>
+            <param name="url">要请求的url</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="AutoRedirect">是否自动跳转</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="http_type">请求类型 http https</param>
+            <param name="encoding">编码方式</param>
+            <param name="timeout">超时时间 ms</param>
+            <param name="mywebproxy">代理地址 例  "xx.xx.xx.xx:xx"</param>
+            <param name="NetworkCredentialName">帐号 身份验证帐号 对于一些需要身份严重的地址有用</param>
+            <param name="NetworkCredentialPassword">密码 身份验证密码</param>
+            <param name="HttpExpect100Continue">HTTP100Continue</param>
+            <param name="ServicePointManagerExpect100Continue">服务100Continue</param>
+            <returns>返回被请求页面的内容</returns>
+        </member>
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String@)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String,System.String@)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String,System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String,System.String@,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String,System.String@,System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String,System.String@,System.String,System.Boolean,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String,System.String@,System.String,System.Boolean,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.Boolean,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:Dev.Comm.Net.Http.PostUrl(System.String,System.String,System.String,System.String@,System.String,System.Boolean,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.Boolean,System.Boolean,System.String[])”忽略有格式错误的 XML 注释 -->
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String,System.String)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String,System.String,System.String@,System.String)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String,System.String,System.String)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="http_type">请求类型 http 或 https</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String,System.String,System.String@)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String,System.String,System.String@,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="http_type">请求类型 http 或 https</param>
+            <param name="timeout">超时时间 ms  输入0则为默认时间</param>
+            <param name="mywebproxy">代理地址 例  "xx.xx.xx.xx:xx"</param>
+            <param name="NetworkCredentialName">帐号 身份验证帐号 对于一些需要身份严重的地址有用</param>
+            <param name="NetworkCredentialPassword">密码 身份验证密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String,System.String,System.String@,System.String,System.String,System.Boolean,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="IsAcceptEncoding">包头 Accept-Encoding（为true时请求包头会包含该值）</param>
+            <param name="http_type">请求类型 http 或 https</param>
+            <param name="timeout">超时时间 ms  输入0则为默认时间</param>
+            <param name="mywebproxy">代理地址 例  "xx.xx.xx.xx:xx"</param>
+            <param name="NetworkCredentialName">帐号 身份验证帐号 对于一些需要身份严重的地址有用</param>
+            <param name="NetworkCredentialPassword">密码 身份验证密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Http.GetImage(System.String,System.String,System.String@,System.String,System.String,System.Boolean,System.String,System.Int32,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            GET方法获取图片
+            </summary>
+            <param name="url">图片地址</param>
+            <param name="cookieheader">输入cookie</param>
+            <param name="outcookieheader">输出cookie</param>
+            <param name="Header_Referer">包头 Referer</param>
+            <param name="Header_UserAgent">包头 UserAgent</param>
+            <param name="IsAcceptEncoding">包头 Accept-Encoding（为true时请求包头会包含该值）</param>
+            <param name="http_type">请求类型 http 或 https</param>
+            <param name="timeout">超时时间 ms  输入0则为默认时间</param>
+            <param name="mywebproxy">代理地址 例  "xx.xx.xx.xx:xx"</param>
+            <param name="NetworkCredentialName">帐号 身份验证帐号 对于一些需要身份严重的地址有用</param>
+            <param name="NetworkCredentialPassword">密码 身份验证密码</param>
+            <param name="HttpExpect100Continue">HTTP100Continue(默认为false。一次性向官方发送所有数据)</param>
+            <param name="ServicePointManagerExpect100Continue">服务100Continue(默认为false，一次性向官方所有数据)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.IPHelper.IPToLong(System.String)">
+            <summary>
+            将IP地址转换为数字[long型] 杨栋添加
+            </summary>
+            <param name="strIP">IP地址</param>
+            <returns>返回long型数字</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.IPHelper.LongToIP(System.Int64)">
+            <summary>
+            将[long型]数字转换为IP地址 杨栋添加
+            </summary>
+            <param name="strNum">数字</param>
+            <returns>返回IP地址</returns>
+        </member>
+        <!-- 对于成员“T:Dev.Comm.Net.Mail”忽略有格式错误的 XML 注释 -->
+        <member name="F:Dev.Comm.Net.Mail.strResponse">
+            <summary>
+            SMTP服务器反馈的信息
+            </summary>
+        </member>
+        <member name="F:Dev.Comm.Net.Mail.strErrMessage">
+            <summary>
+            错误反馈信息
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Net.Mail.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Net.Mail.Encode(System.String)">
+            <summary>
+            进行BASE64编码
+            </summary>
+            <param name="Data">数据</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Mail.Decode(System.String)">
+            <summary>
+            进行BASE64解码
+            </summary>
+            <param name="Data">数据</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Mail.FormatString(System.String)">
+            <summary>
+            返回错误描述
+            </summary>
+            <param name="str">服务器返回的信息</param>
+            <returns>错误描述</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Mail.ToSendMail(System.String,System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            发邮件，web.config中读取配置节点，拆分以后调用发邮件方法
+            </summary>
+            <param name="configMessage"></param>
+            <param name="mail"></param>
+            <param name="name"></param>
+            <param name="Subject"></param>
+            <param name="emailMessage"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Mail.SendMail(System.String,System.Int32,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,Dev.Comm.Net.Mail.Priority,System.Boolean,System.String,System.String,System.String,System.String@)">
+            <summary>
+            发送邮件
+            </summary>
+            <param name="SmtpHost">SMTP服务器</param>
+            <param name="Port">SMTP服务器端口</param>
+            <param name="From">邮件发送者</param>
+            <param name="DisplayFromName">显示的发送者名称</param>
+            <param name="Authentication">是否进行认证</param>
+            <param name="UserName">认证用户名</param>
+            <param name="Password">认证密码</param>
+            <param name="To">邮件接收者</param>
+            <param name="DisplayToName">显示的接收者名称</param>
+            <param name="Priority">优先级</param>
+            <param name="Html">是否为HTML</param>
+            <param name="Base">URL</param>
+            <param name="Subject">邮件主题</param>
+            <param name="Message">邮件内容</param>
+        </member>
+        <member name="M:Dev.Comm.Net.Mail.SendMoreMail(System.String,System.Int32,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,Dev.Comm.Net.Mail.Priority,System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            群发邮件
+            </summary>
+            <param name="SmtpHost"></param>
+            <param name="Port"></param>
+            <param name="From"></param>
+            <param name="DisplayFromName"></param>
+            <param name="Authentication"></param>
+            <param name="UserName"></param>
+            <param name="Password"></param>
+            <param name="To">多个时以;分隔</param>
+            <param name="DisplayToName"></param>
+            <param name="Priority"></param>
+            <param name="Html"></param>
+            <param name="Base"></param>
+            <param name="Subject"></param>
+            <param name="Message"></param>
+            <param name="errmsg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Comm.Net.Mail.GetHtmlBody(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            根据 本地文件 获得内容模板
+            </summary>
+            <param name="path">本地文件模板路径</param>
+            <param name="replaceContent">文件中的参数名和参数值以键值对的形式对应</param>
+            <returns></returns>
+        </member>
+        <member name="P:Dev.Comm.Net.Mail.ErrorMessage">
+            <summary>
+            取得错误反馈信息
+            </summary>
+        </member>
+        <member name="P:Dev.Comm.Net.Mail.ServerResponse">
+            <summary>
+            取得SMTP服务器反馈的信息
+            </summary>
+        </member>
+        <member name="T:Dev.Comm.Net.Mail.Priority">
+            <summary>
+            邮件发送优先级
+            </summary>
+        </member>
+        <member name="F:Dev.Comm.Net.Mail.Priority.HIGH">
+            <summary>最高级别</summary>
+        </member>
+        <member name="F:Dev.Comm.Net.Mail.Priority.NORMAL">
+            <summary>默认级别</summary>
+        </member>
+        <member name="F:Dev.Comm.Net.Mail.Priority.LOW">
+            <summary>最低级别</summary>
+        </member>
+        <member name="T:Dev.Comm.Net.SMTPClient">
+            <summary>
+            TcpClient派生类，用来进行SMTP服务器的连接工作
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Net.SMTPClient.isConnected">
+            <summary>
+            是否以连接
+            </summary>
+            <returns>连接为True，不连接为False</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.SMTPClient.SendCommandToServer(System.String)">
+            <summary>
+            向服务器发送命令
+            </summary>
+            <param name="Command">命令</param>
+        </member>
+        <member name="M:Dev.Comm.Net.SMTPClient.GetServerResponse">
+            <summary>
+            取得服务器反馈信息
+            </summary>
+            <returns>字符串</returns>
+        </member>
+        <member name="M:Dev.Comm.Net.SMTPClient.DoesStringContainSMTPCode(System.String,System.String)">
+            <summary>
+            判断返回的信息中是否有指定的SMTP代码出现
+            </summary>
+            <param name="Message">信息</param>
+            <param name="SMTPCode">SMTP代码</param>
+            <returns>存在返回False，不存在返回True</returns>
+        </member>
+        <member name="T:Dev.Comm.Net.TextLog">
+            <summary>
+            记录日志到文本
+            </summary>
+        </member>
+        <member name="M:Dev.Comm.Net.TextLog.ErrorLog(System.String,System.String,System.String[],System.String[],System.String,System.String)">
+            <summary>
+             记录日志到Text文件
+            </summary>
+            <param name="Server">  服务器路径</param>
+            <param name="TextName">Text名称_虚拟路径下</param>
+            <param name="Name">    参数名称</param>
+            <param name="NameParameter">参数值</param>
+        </member>
+        <member name="M:Dev.Comm.Net.TextLog.ErrorLog(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+             记录日志到Text文件
+            </summary>
+            <param name="Server">  服务器路径</param>
+            <param name="TextName">Text名称_虚拟路径下</param>
+            <param name="Name">    参数名称</param>
+            <param name="NameParameter">参数值</param>
+        </member>
+        <member name="T:Dev.Comm.Net.TrustAllCertificatePolicy">
+            <summary>
+            TrustAllCertificatePolicy ��ժҪ˵����
+            </summary>
+        </member>
+    </members>
+</doc>

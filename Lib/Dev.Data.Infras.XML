@@ -1,0 +1,1111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dev.Data.Infras</name>
+    </assembly>
+    <members>
+        <member name="T:Dev.Data.Infras.Extensions.ExpressionExtension">
+            <summary>
+                http://blogs.msdn.com/b/meek/archive/2008/05/02/linq-to-entities-combining-predicates.aspx
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionExtension.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                The and.
+            </summary>
+            <param name="first">
+                The first.
+            </param>
+            <param name="second">
+                The second.
+            </param>
+            <typeparam name="T">
+            </typeparam>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionExtension.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+                The compose.
+            </summary>
+            <param name="first">
+                The first.
+            </param>
+            <param name="second">
+                The second.
+            </param>
+            <param name="merge">
+                The merge.
+            </param>
+            <typeparam name="T">
+            </typeparam>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionExtension.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                The or.
+            </summary>
+            <param name="first">
+                The first.
+            </param>
+            <param name="second">
+                The second.
+            </param>
+            <typeparam name="T">
+            </typeparam>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="T:Dev.Data.Infras.Extensions.ExpressionVisitor">
+            <summary>
+                This comes from Matt Warren's sample:
+                http://blogs.msdn.com/mattwar/archive/2007/07/31/linq-building-an-iqueryable-provider-part-ii.aspx.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.Visit(System.Linq.Expressions.Expression)">
+            <summary>
+                The visit.
+            </summary>
+            <param name="exp">
+                The exp.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+            <exception cref="T:System.Exception">
+            </exception>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitBinary(System.Linq.Expressions.BinaryExpression)">
+            <summary>
+                The visit binary.
+            </summary>
+            <param name="b">
+                The b.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitBinding(System.Linq.Expressions.MemberBinding)">
+            <summary>
+                The visit binding.
+            </summary>
+            <param name="binding">
+                The binding.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.MemberBinding"/>.
+            </returns>
+            <exception cref="T:System.Exception">
+            </exception>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitBindingList(System.Collections.ObjectModel.ReadOnlyCollection{System.Linq.Expressions.MemberBinding})">
+            <summary>
+                The visit binding list.
+            </summary>
+            <param name="original">
+                The original.
+            </param>
+            <returns>
+                The <see cref="!:IEnumerable"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitConditional(System.Linq.Expressions.ConditionalExpression)">
+            <summary>
+                The visit conditional.
+            </summary>
+            <param name="c">
+                The c.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitConstant(System.Linq.Expressions.ConstantExpression)">
+            <summary>
+                The visit constant.
+            </summary>
+            <param name="c">
+                The c.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitElementInitializer(System.Linq.Expressions.ElementInit)">
+            <summary>
+                The visit element initializer.
+            </summary>
+            <param name="initializer">
+                The initializer.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.ElementInit"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitElementInitializerList(System.Collections.ObjectModel.ReadOnlyCollection{System.Linq.Expressions.ElementInit})">
+            <summary>
+                The visit element initializer list.
+            </summary>
+            <param name="original">
+                The original.
+            </param>
+            <returns>
+                The <see cref="!:IEnumerable"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitExpressionList(System.Collections.ObjectModel.ReadOnlyCollection{System.Linq.Expressions.Expression})">
+            <summary>
+                The visit expression list.
+            </summary>
+            <param name="original">
+                The original.
+            </param>
+            <returns>
+                The <see cref="!:ReadOnlyCollection"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitInvocation(System.Linq.Expressions.InvocationExpression)">
+            <summary>
+                The visit invocation.
+            </summary>
+            <param name="iv">
+                The iv.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitLambda(System.Linq.Expressions.LambdaExpression)">
+            <summary>
+                The visit lambda.
+            </summary>
+            <param name="lambda">
+                The lambda.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitListInit(System.Linq.Expressions.ListInitExpression)">
+            <summary>
+                The visit list init.
+            </summary>
+            <param name="init">
+                The init.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitMemberAccess(System.Linq.Expressions.MemberExpression)">
+            <summary>
+                The visit member access.
+            </summary>
+            <param name="m">
+                The m.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitMemberAssignment(System.Linq.Expressions.MemberAssignment)">
+            <summary>
+                The visit member assignment.
+            </summary>
+            <param name="assignment">
+                The assignment.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.MemberAssignment"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitMemberInit(System.Linq.Expressions.MemberInitExpression)">
+            <summary>
+                The visit member init.
+            </summary>
+            <param name="init">
+                The init.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitMemberListBinding(System.Linq.Expressions.MemberListBinding)">
+            <summary>
+                The visit member list binding.
+            </summary>
+            <param name="binding">
+                The binding.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.MemberListBinding"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitMemberMemberBinding(System.Linq.Expressions.MemberMemberBinding)">
+            <summary>
+                The visit member member binding.
+            </summary>
+            <param name="binding">
+                The binding.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.MemberMemberBinding"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitMethodCall(System.Linq.Expressions.MethodCallExpression)">
+            <summary>
+                The visit method call.
+            </summary>
+            <param name="m">
+                The m.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitNew(System.Linq.Expressions.NewExpression)">
+            <summary>
+                The visit new.
+            </summary>
+            <param name="nex">
+                The nex.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.NewExpression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitNewArray(System.Linq.Expressions.NewArrayExpression)">
+            <summary>
+                The visit new array.
+            </summary>
+            <param name="na">
+                The na.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitParameter(System.Linq.Expressions.ParameterExpression)">
+            <summary>
+                The visit parameter.
+            </summary>
+            <param name="p">
+                The p.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitTypeIs(System.Linq.Expressions.TypeBinaryExpression)">
+            <summary>
+                The visit type is.
+            </summary>
+            <param name="b">
+                The b.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ExpressionVisitor.VisitUnary(System.Linq.Expressions.UnaryExpression)">
+            <summary>
+                The visit unary.
+            </summary>
+            <param name="u">
+                The u.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="T:Dev.Data.Infras.Extensions.ParameterRebinder">
+            <summary>
+                http://blogs.msdn.com/b/meek/archive/2008/05/02/linq-to-entities-combining-predicates.aspx
+            </summary>
+        </member>
+        <member name="F:Dev.Data.Infras.Extensions.ParameterRebinder.map">
+            <summary>
+                The map.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ParameterRebinder.#ctor(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Dev.Data.Infras.Extensions.ParameterRebinder"/> class.
+            </summary>
+            <param name="map">
+                The map.
+            </param>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ParameterRebinder.ReplaceParameters(System.Collections.Generic.Dictionary{System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.ParameterExpression},System.Linq.Expressions.Expression)">
+            <summary>
+                The replace parameters.
+            </summary>
+            <param name="map">
+                The map.
+            </param>
+            <param name="exp">
+                The exp.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Extensions.ParameterRebinder.VisitParameter(System.Linq.Expressions.ParameterExpression)">
+            <summary>
+                The visit parameter.
+            </summary>
+            <param name="p">
+                The p.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.Expressions.Expression"/>.
+            </returns>
+        </member>
+        <member name="T:Dev.Data.Infras.Extensions.PredicateBuilder">
+            <summary>
+                用于创建起始的条件，简化一些操作了
+            </summary>
+        </member>
+        <member name="T:Dev.Data.Infras.IRepository">
+            <summary>
+                The Repository interface.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Add``1(``0)">
+            <summary>
+                Adds the specified entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Attach``1(``0)">
+            <summary>
+                Attaches the specified entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Count``1">
+            <summary>
+                Counts the specified entities.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Count``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                Counts entities with the specified criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Count``1(Dev.Data.Infras.Specification.ISpecification{``0})">
+            <summary>
+                Counts entities satifying specification.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Delete``1(``0)">
+            <summary>
+                Deletes the specified entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                Deletes one or many entities matching the specified criteria
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Delete``1(Dev.Data.Infras.Specification.ISpecification{``0})">
+            <summary>
+                Deletes entities which satify specificatiion
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Find``1(Dev.Data.Infras.Specification.ISpecification{``0})">
+            <summary>
+                Finds entities based on provided criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Find``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                Finds entities based on provided criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.FindOne``1(Dev.Data.Infras.Specification.ISpecification{``0})">
+            <summary>
+                Finds one entity based on provided criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.FindOne``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                Finds one entity based on provided criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.First``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                Firsts the specified predicate.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.First``1(Dev.Data.Infras.Specification.ISpecification{``0})">
+            <summary>
+                Gets first entity with specification.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Get``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Dev.Data.Infras.SortOrder)">
+            <summary>
+                Gets the specified order by.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TOrderBy">The type of the order by.</typeparam>
+            <param name="orderBy">The order by.</param>
+            <param name="pageIndex">Index of the page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="sortOrder">The sort order.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Get``2(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Dev.Data.Infras.SortOrder)">
+            <summary>
+                Gets the specified criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TOrderBy">The type of the order by.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <param name="orderBy">The order by.</param>
+            <param name="pageIndex">Index of the page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="sortOrder">The sort order.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Get``2(Dev.Data.Infras.Specification.ISpecification{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Int32,System.Int32,Dev.Data.Infras.SortOrder)">
+            <summary>
+                Gets entities which satifies a specification.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TOrderBy">The type of the order by.</typeparam>
+            <param name="specification">The specification.</param>
+            <param name="orderBy">The order by.</param>
+            <param name="pageIndex">Index of the page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="sortOrder">The sort order.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.GetAll``1">
+            <summary>
+                Gets all.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.GetByKey``1(System.Object)">
+            <summary>
+                Gets entity by key.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="keyValue">The key value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.GetQuery``1">
+            <summary>
+                Gets the query.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.GetQuery``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                Gets the query.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.GetQuery``1(Dev.Data.Infras.Specification.ISpecification{``0})">
+            <summary>
+                Gets the query.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Single``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                Gets one entity based on matching criteria
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Single``1(Dev.Data.Infras.Specification.ISpecification{``0})">
+            <summary>
+                Gets single entity using specification
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository.Update``1(``0)">
+            <summary>
+                Updates changes of the existing entity.
+                The caller must later call SaveChanges() on the repository explicitly to save the entity to database
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="P:Dev.Data.Infras.IRepository.UnitOfWork">
+            <summary>
+                Gets the unit of work.
+            </summary>
+            <value>The unit of work.</value>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Add(`0)">
+            <summary>
+                Adds the specified entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Attach(`0)">
+            <summary>
+                Attaches the specified entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Count">
+            <summary>
+                Counts the specified entities.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                Counts entities with the specified criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Count(Dev.Data.Infras.Specification.ISpecification{`0})">
+            <summary>
+                Counts entities satifying specification.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Delete(`0)">
+            <summary>
+                Deletes the specified entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                Deletes one or many entities matching the specified criteria
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Delete(Dev.Data.Infras.Specification.ISpecification{`0})">
+            <summary>
+                Deletes entities which satify specificatiion
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Find(Dev.Data.Infras.Specification.ISpecification{`0})">
+            <summary>
+                Finds entities based on provided criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                Finds entities based on provided criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.FindOne(Dev.Data.Infras.Specification.ISpecification{`0})">
+            <summary>
+                Finds one entity based on provided criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.FindOne(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                Finds one entity based on provided criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.First(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                Firsts the specified predicate.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.First(Dev.Data.Infras.Specification.ISpecification{`0})">
+            <summary>
+                Gets first entity with specification.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Get``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Int32,System.Int32,Dev.Data.Infras.SortOrder)">
+            <summary>
+                Gets the specified order by.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TOrderBy">The type of the order by.</typeparam>
+            <param name="orderBy">The order by.</param>
+            <param name="pageIndex">Index of the page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="sortOrder">The sort order.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Get``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Int32,System.Int32,Dev.Data.Infras.SortOrder)">
+            <summary>
+                Gets the specified criteria.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TOrderBy">The type of the order by.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <param name="orderBy">The order by.</param>
+            <param name="pageIndex">Index of the page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="sortOrder">The sort order.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Get``1(Dev.Data.Infras.Specification.ISpecification{`0},System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Int32,System.Int32,Dev.Data.Infras.SortOrder)">
+            <summary>
+                Gets entities which satifies a specification.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <typeparam name="TOrderBy">The type of the order by.</typeparam>
+            <param name="specification">The specification.</param>
+            <param name="orderBy">The order by.</param>
+            <param name="pageIndex">Index of the page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="sortOrder">The sort order.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.GetAll">
+            <summary>
+                Gets all.要注意了, 返回的是IEnumerable 类型,如是数据大,或后面 有 count(), 用  GetQuery()
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.GetByKey(System.Object)">
+            <summary>
+                Gets entity by key.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="keyValue">The key value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.GetQuery">
+            <summary>
+                Gets the query.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.GetQuery(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                Gets the query.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.GetQuery(Dev.Data.Infras.Specification.ISpecification{`0})">
+            <summary>
+                Gets the query.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Single(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                Gets one entity based on matching criteria
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Single(Dev.Data.Infras.Specification.ISpecification{`0})">
+            <summary>
+                Gets single entity using specification
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dev.Data.Infras.IRepository`1.Update(`0)">
+            <summary>
+                Updates changes of the existing entity.
+                The caller must later call SaveChanges() on the repository explicitly to save the entity to database
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="P:Dev.Data.Infras.IRepository`1.UnitOfWork">
+            <summary>
+                Gets the unit of work.
+            </summary>
+            <value>The unit of work.</value>
+        </member>
+        <member name="T:Dev.Data.Infras.IUnitOfWork">
+            <summary>
+                The UnitOfWork interface.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.IUnitOfWork.BeginTransaction">
+            <summary>
+                The begin transaction.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.IUnitOfWork.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+                The begin transaction.
+            </summary>
+            <param name="isolationLevel">
+                The isolation level.
+            </param>
+        </member>
+        <member name="M:Dev.Data.Infras.IUnitOfWork.CommitTransaction">
+            <summary>
+                The commit transaction.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.IUnitOfWork.RollBackTransaction">
+            <summary>
+                The roll back transaction.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.IUnitOfWork.SaveChanges">
+            <summary>
+                The save changes.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.IUnitOfWork.SaveChanges(System.Data.Objects.SaveOptions)">
+            <summary>
+                The save changes.
+            </summary>
+            <param name="saveOptions">
+                The save options.
+            </param>
+        </member>
+        <member name="P:Dev.Data.Infras.IUnitOfWork.IsInTransaction">
+            <summary>
+                Gets a value indicating whether is in transaction.
+            </summary>
+        </member>
+        <member name="T:Dev.Data.Infras.SortOrder">
+            <summary>
+                The sort order.
+            </summary>
+        </member>
+        <member name="F:Dev.Data.Infras.SortOrder.Ascending">
+            <summary>
+                The ascending.
+            </summary>
+        </member>
+        <member name="F:Dev.Data.Infras.SortOrder.Descending">
+            <summary>
+                The descending.
+            </summary>
+        </member>
+        <member name="T:Dev.Data.Infras.Specification.AndSpecification`1">
+            <summary>
+                The and specification.
+            </summary>
+            <typeparam name="TEntity">
+            </typeparam>
+        </member>
+        <member name="T:Dev.Data.Infras.Specification.CompositeSpecification`1">
+            <summary>
+                http://devlicio.us/blogs/jeff_perrin/archive/2006/12/13/the-specification-pattern.aspx
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:Dev.Data.Infras.Specification.ISpecification`1">
+            <summary>
+                In simple terms, a specification is a small piece of logic which is independent and give an answer
+                to the question “does this match ?”. With Specification, we isolate the logic that do the selection
+                into a reusable business component that can be passed around easily from the entity we are selecting.
+            </summary>
+            <see cref="!:http://en.wikipedia.org/wiki/Specification_pattern"/>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.ISpecification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entities from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.ISpecification`1.SatisfyingEntityFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entity from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="!:TEntity"/>.
+            </returns>
+        </member>
+        <member name="F:Dev.Data.Infras.Specification.CompositeSpecification`1._leftSide">
+            <summary>
+                The _left side.
+            </summary>
+        </member>
+        <member name="F:Dev.Data.Infras.Specification.CompositeSpecification`1._rightSide">
+            <summary>
+                The _right side.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.CompositeSpecification`1.#ctor(Dev.Data.Infras.Specification.Specification{`0},Dev.Data.Infras.Specification.Specification{`0})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Dev.Data.Infras.Specification.CompositeSpecification`1"/> class.
+            </summary>
+            <param name="leftSide">
+                The left side.
+            </param>
+            <param name="rightSide">
+                The right side.
+            </param>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.CompositeSpecification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entities from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.CompositeSpecification`1.SatisfyingEntityFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entity from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="!:TEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.AndSpecification`1.#ctor(Dev.Data.Infras.Specification.Specification{`0},Dev.Data.Infras.Specification.Specification{`0})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Dev.Data.Infras.Specification.AndSpecification`1"/> class.
+            </summary>
+            <param name="leftSide">
+                The left side.
+            </param>
+            <param name="rightSide">
+                The right side.
+            </param>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.AndSpecification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entities from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.AndSpecification`1.SatisfyingEntityFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entity from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="!:TEntity"/>.
+            </returns>
+        </member>
+        <member name="T:Dev.Data.Infras.Specification.OrSpecification`1">
+            <summary>
+                The or specification.
+            </summary>
+            <typeparam name="TEntity">
+            </typeparam>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.OrSpecification`1.#ctor(Dev.Data.Infras.Specification.Specification{`0},Dev.Data.Infras.Specification.Specification{`0})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Dev.Data.Infras.Specification.OrSpecification`1"/> class.
+            </summary>
+            <param name="leftSide">
+                The left side.
+            </param>
+            <param name="rightSide">
+                The right side.
+            </param>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.OrSpecification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entities from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.OrSpecification`1.SatisfyingEntityFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entity from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="!:TEntity"/>.
+            </returns>
+        </member>
+        <member name="T:Dev.Data.Infras.Specification.Specification`1">
+            <summary>
+                The specification.
+            </summary>
+            <typeparam name="TEntity">
+            </typeparam>
+        </member>
+        <member name="F:Dev.Data.Infras.Specification.Specification`1.Predicate">
+            <summary>
+                The predicate.
+            </summary>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.Specification`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Dev.Data.Infras.Specification.Specification`1"/> class.
+            </summary>
+            <param name="predicate">
+                The predicate.
+            </param>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.Specification`1.And(Dev.Data.Infras.Specification.Specification{`0})">
+            <summary>
+                The and.
+            </summary>
+            <param name="specification">
+                The specification.
+            </param>
+            <returns>
+                The <see cref="N:Dev.Data.Infras.Specification"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.Specification`1.And(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                The and.
+            </summary>
+            <param name="predicate">
+                The predicate.
+            </param>
+            <returns>
+                The <see cref="N:Dev.Data.Infras.Specification"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.Specification`1.Or(Dev.Data.Infras.Specification.Specification{`0})">
+            <summary>
+                The or.
+            </summary>
+            <param name="specification">
+                The specification.
+            </param>
+            <returns>
+                The <see cref="N:Dev.Data.Infras.Specification"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.Specification`1.Or(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+                The or.
+            </summary>
+            <param name="predicate">
+                The predicate.
+            </param>
+            <returns>
+                The <see cref="N:Dev.Data.Infras.Specification"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.Specification`1.SatisfyingEntitiesFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entities from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Dev.Data.Infras.Specification.Specification`1.SatisfyingEntityFrom(System.Linq.IQueryable{`0})">
+            <summary>
+                The satisfying entity from.
+            </summary>
+            <param name="query">
+                The query.
+            </param>
+            <returns>
+                The <see cref="!:TEntity"/>.
+            </returns>
+        </member>
+    </members>
+</doc>

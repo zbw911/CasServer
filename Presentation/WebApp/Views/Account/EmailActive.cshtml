@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "_EmailActive";
+}
+
+<div class="reg_wp">
+        
+    <div class="reg_title">
+        <span class="reg_tag">激活游戏团账号</span>
+    </div>
+    <div class="reg_cont clear">
+        <div class="reg_act_wp">
+            <div class="reg_act clear">
+                <span class="check_mark l"></span>
+                <input id="emails" type="hidden" value="asdfasdfsadfasdf@1.com">
+                <ul class="l">
+                    <li><span class="f_title">恭喜您注册成功！</span></li>
+                    <li>请接收激活邮件以完成注册步骤</li>
+                    <li>系统已发送一封激活邮件至您的邮箱，建议马上激活邮箱
+                        <a class="b_green_btn ml10" id="ContentPlaceHolder1_hy_mail" href="http://mail.1.com" target="_blank">进入邮箱</a></li></ul>
+            </div>
+            <ul class="reg_act_list">
+                <li>还没有收到确认邮件？</li>
+                <li>您可以尝试</li>
+                <li>1.在邮箱的广告邮件或垃圾邮件文件夹中找找;</li>
+                <li>2.让系统给您<a class="red" id="hy_send" style="cursor: pointer;" onclick="sendemail()">重新发送确认信</a>;</li>
+                <li>3.请检查您填写邮箱是否正确;</li>
+                <li>4.抱歉，如果以上方法都失败了，请 <a class="red" href="/Register.aspx">重新注册</a>
+                    或 <a class="red" href="/Login.aspx">返回登录页</a> 吧。</li></ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function sendemail() {
+            var value = $("#emails").val();
+            $.ajax({ type: "POST",
+                contentType: "application/json",
+                url: "RegisterSuccess.aspx/SendEmail",
+                data: "{email:'" + value + "'}",
+                dataType: 'json',
+                success: function (result) {
+                    if (result.d == "True") {
+                        showSuccess("发送激活邮件成功！");
+
+                    }
+                    else {
+                        showError("发送失败，请重试");
+                    }
+                }
+            });
+        }
+    </script>
+
+    </div>

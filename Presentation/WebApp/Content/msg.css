@@ -1,0 +1,224 @@
+/*短消息*/
+.nav_bar { border-bottom: 3px solid #d6dcdd }
+
+.nav_bar li, .nav_bar li.on {
+    background: url(../images/nav_bar_on.gif) right -34px;
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    margin-right: 10px;
+    padding-right: 15px;
+}
+
+.nav_bar li a, .nav_bar li.on a {
+    background: url(../images/nav_bar_on.gif) 0 -34px;
+    color: #333;
+    float: left;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 15px;
+}
+
+.nav_bar li.on { background: url(../images/nav_bar_on.gif) right 0; }
+
+.nav_bar li.on a {
+    background: url(../images/nav_bar_on.gif) 0 0;
+    font-weight: bold
+}
+
+.sortmsg {
+    border: 1px solid #dddddd;
+    margin: 0 auto;
+    margin-top: 22px;
+    padding: 20px;
+    width: 685px;
+}
+
+.sortmsg .msg_list_link {
+    height: 30px;
+    line-height: 30px;
+}
+
+.sortmsg .msg_list_link a { padding: 0 10px }
+
+.sortmsg .msg_list_link a.this_list { color: #b41e1e; }
+
+.sortmsg .msg_list li {
+    border-bottom: 1px dashed #CCCCCC;
+    float: left;
+    padding: 10px;
+    width: 665px
+}
+
+.sortmsg .msg_list li.active { background: #F5F5F5; }
+
+.msg_list li.active { background: #F5F5F5; }
+
+.sortmsg .msg_list .sm_img {
+    float: left;
+    margin-top: 2px;
+    width: 20px;
+}
+
+.sortmsg .msg_list .sys_msg .info {
+    float: left;
+    margin: 0 0 0 10px;
+    position: relative;
+    width: 635px;
+}
+
+.sortmsg .msg_list .sys_msg .time {
+    float: right;
+    width: auto;
+}
+
+.sortmsg .msg_list .info .title label {
+    padding: 5px 0 0;
+    _padding: 0px;
+}
+
+.sortmsg .msg_list .info .title p {
+    font-size: 14px;
+    padding: 0 0 0 10px;
+}
+
+.sortmsg .msg_list .info .msg {
+    color: #545454;
+    float: left;
+    line-height: 26px;
+    overflow: hidden;
+    text-indent: 2em;
+    width: 100%;
+}
+
+.sortmsg .msg_page .handle {
+    float: left;
+    padding: 13px 0 0 40px;
+}
+
+.sortmsg .msg_page .handle .all_chioce {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.sortmsg .send_msg_btn a {
+    background: #b41e1e;
+    color: #FFFFFF;
+    display: inline-block;
+    float: right;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+}
+
+.sortmsg .send_msg_btn a.on {
+    background: #d6dcdd;
+    color: #333
+}
+
+.mg12 { margin: 0 12px; }
+
+.sortmsg .msg_list .moredown {
+    bottom: 0;
+    line-height: 26px;
+    position: absolute;
+    right: 0;
+    width: 40px;
+}
+
+.sortmsg .msg_list .moredown a { color: #bd425a; }
+
+.sortmsg .msg_list .moredown .more { border-top-color: #bd425a; }
+
+.sortmsg .msg_list .moredown .more {
+    border-color: #bd425a transparent transparent;
+    border-style: solid dashed dashed;
+    border-width: 4px 4px 0;
+    display: inline-block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    margin: 0 0 0 3px;
+    vertical-align: middle;
+    width: 0;
+}
+
+.sortmsg .msg_list .moreup {
+    bottom: 0;
+    line-height: 26px;
+    padding-right: 4px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: 110px;
+}
+
+.sortmsg .msg_list .moreup a { color: #bd425a; }
+
+.sortmsg .msg_list .moreup .more { border-top-color: #bd425a; }
+
+.sortmsg .msg_list .moreup .more {
+    border-color: transparent transparent #bd425a;
+    border-style: dashed dashed solid;
+    border-width: 0 4px 4px;
+    display: inline-block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    margin: 0 0 0 3px;
+    vertical-align: middle;
+    width: 0;
+}
+
+.sortmsg .msg_none {
+    background: url(../images/msg_none.jpg) no-repeat 227px 77px;
+    font-size: 14px;
+    height: 123px;
+    padding: 81px 0 0 275px;
+}
+
+.sortmsg .fr_list li {
+    border-bottom: 1px dashed #CCCCCC;
+    float: left;
+    padding: 10px;
+    width: 918px;
+}
+
+.sortmsg .fr_list li.active { background: #F5F5F5; }
+
+.sortmsg .fr_list .fr_info { margin-left: 68px; }
+
+.sortmsg .fr_list .fr_info .title { font-size: 14px; }
+
+.sortmsg .fr_list .fr_info .cont { line-height: 26px; }
+
+.sortmsg .fr_list .fr_btn {
+    float: right;
+    margin: 15px 0 0;
+}
+
+.sortmsg .send_msg { padding: 25px 0 0 15px; }
+
+.sortmsg .send_msg .recipient input {
+    border: 1px solid #d8d8d8;
+    height: 29px;
+    line-height: 29px;
+    padding: 0 3px;
+    width: 230px;
+}
+
+.sortmsg .send_msg .cont textarea {
+    border: 1px solid #d8d8d8;
+    height: 113px;
+    padding: 5px 3px;
+    width: 678px;
+}
+
+.sortmsg .send_msg .tips {
+    color: #CCCCCC;
+    line-height: 35px;
+    padding-left: 35px;
+}
+
+.sortmsg .send_msg .send_btn { padding: 15px 0 0 24px; }

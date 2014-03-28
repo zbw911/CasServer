@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShareSessionModule</name>
+    </assembly>
+    <members>
+        <member name="T:ShareSessionModule.CrossDomainCookie">
+            added by zbw911
+            修改respone cookies
+            
+        </member>
+        <member name="T:ShareSessionModule.SharedSessionChangeDomainOnly">
+            <summary>
+             added by zbw911
+             Session
+            </summary>
+        </member>
+        <member name="M:ShareSessionModule.SharedSessionChangeDomainOnly.Init(System.Web.HttpApplication)">
+            <summary>
+            Initializes a module and prepares it to handle requests.
+            </summary>
+            <param name="context">
+            An System.Web.HttpApplication
+            that provides access to the methods,
+            properties, and events common to all application objects within 
+            an ASP.NET application.
+            </param>
+        </member>
+        <member name="M:ShareSessionModule.SharedSessionChangeDomainOnly.Dispose">
+            <summary>
+            Disposes of the resources (other than memory) used by the module
+            that implements.
+            </summary>
+        </member>
+        <member name="T:ShareSessionModule.SharedSessionModule">
+            <summary>
+            
+            A HttpModule used for sharing the session between Applications in 
+            sub domains.
+            
+            added by zbw911 from : msdn
+            </summary>
+        </member>
+        <member name="M:ShareSessionModule.SharedSessionModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Initializes a module and prepares it to handle requests.
+            </summary>
+            <param name="context">
+            An System.Web.HttpApplication
+            that provides access to the methods,
+            properties, and events common to all application objects within 
+            an ASP.NET application.
+            </param>
+        </member>
+        <member name="M:ShareSessionModule.SharedSessionModule.Dispose">
+            <summary>
+            Disposes of the resources (other than memory) used by the module
+            that implements.
+            </summary>
+        </member>
+        <member name="M:ShareSessionModule.SharedSessionModule.context_PostRequestHandlerExecute(System.Object,System.EventArgs)">
+            <summary>
+            Before sending response content to client, change the Cookie to Root Domain
+            and store current Session Id.
+            </summary>
+            <param name="sender">
+            An instance of System.Web.HttpApplication that provides access to
+            the methods, properties, and events common to all application
+            objects within an ASP.NET application.
+            </param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>@this.ViewBag.Title </title>
+        @Styles.Render("~/Content/css")
+        @this.RenderSection("css", required: false)
+    </head>
+    <body>
+        @if (Dev.Comm.Web.DevRequest.GetInt("in", 0) != 1)
+        {
+            <div class="reg_head">
+                <div class="reg_top">
+                    <a href="@Dev.CasServer.Configuration.CasServerConfiguration.Config.DefaultUrl" class="reg_logo"></a>
+                    <a href="#" class="reg_help">帮助中心</a>
+                </div>
+            </div>
+        }
+
+        @this.RenderBody()
+        @if (Dev.Comm.Web.DevRequest.GetInt("in", 0) != 1)
+        {
+            <div class="footer mt12">
+                <div class="foot">
+                    <h3>合作伙伴</h3>
+                    <div><a href="#">猫扑游戏</a><a href="#">天涯游戏 </a><a href="#">游卡桌游</a><a href="#">扑家汉化组 </a><a href="#">动漫周边</a><a href="#"> 78动漫</a><a href="#"> 78439小游戏 </a><a href="#">叶网网页游戏</a><a href="#">单机游戏大全  </a><a href="#">单机游戏库  </a><a href="#">游戏补丁下载  </a><a href="#">单机游戏攻略  </a><a href="#">ABAB小游戏   </a><a href="#">游戏补丁下载电玩海域  </a><a href="#">苹果游戏下载 </a><a href="#">红色警戒 </a><a href="#">最新网页游戏  </a><a href="#">07073新闻中心 </a><a href="#">平板电脑游戏 </a><a href="#">游戏兵工厂 </a><a href="#">火影忍者漫画  </a></div>
+                    <p class="center">
+                        <span>© 2012 XXXXXXXXX有限公司 xxxxxxx.com 京ICP备XXXXXXXX号</span>  <a href="#">关于XXXXX</a><span>|</span><a href="#"> 网站地图</a><span>|</span><a href="#">联系我们</a><span>|</span><a href="#">免责声明</a><span>|</span><a href="#">隐私保护</a><span>|</span><a href="#">帮助中心</a>
+                    </p>
+                    <p class="center">京公网安备000000000000000号</p>
+
+                </div>
+            </div>
+        }
+    </body>
+    @Scripts.Render("~/bundles/jquery")
+    @this.RenderSection("scripts", required: false)
+</html>

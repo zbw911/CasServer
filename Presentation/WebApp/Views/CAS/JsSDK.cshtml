@@ -1,0 +1,82 @@
+﻿var CasSdk = {
+IsLogined: null,// 
+CurUserName: null,//
+LoginUrl:null,// 
+LogOffUrl: null,//
+LocalLoginoffUrl:null,//
+//当Server未登录，本地登录时，是否只在本地退出
+IsLocalLoginoff: true,
+//初始化
+Init:function(isLogined,curUserName,loginUrl,logOffUrl,localLoginoffUrl,isLocalLoginoff) {
+CasSdk.IsLogined = isLogined;
+CasSdk.CurUserName = curUserName;
+CasSdk.LoginUrl = loginUrl;
+CasSdk.LogOffUrl = logOffUrl;
+CasSdk.LocalLoginoffUrl = localLoginoffUrl;
+CasSdk.IsLocalLoginoff = (isLocalLoginoff == undefined) ? true : isLocalLoginoff;
+return CasSdk;
+},
+tologin:function () {
+window.location.href = CasSdk.LoginUrl;
+},
+checklogin:function () {
+if(CasSdk.IsLogined) {
+return true;
+}
+else {
+CasSdk.tologin();
+return false;
+}
+},
+State: function() {
+                 
+if(CasSdk.IsLogined==null||CasSdk.CurUserName==null||CasSdk.LoginUrl==null||CasSdk.LogOffUrl==null||CasSdk.LocalLoginoffUrl==null) {
+window.alert('未初始化');
+return;
+}
+
+$.get('@this.ViewData["basurl"]/api/user/get?' + $.now(), function(b) {
+// window.alert('casserver name '+b.UserName);
+                     
+if (!b.UserName) {
+if (CasSdk.IsLogined) {
+CasSdk.locallogoff(function() {
+window.location.reload();
+});
+}
+} else {
+if (!CasSdk.IsLogined) {
+window.location.href = CasSdk.LoginUrl;
+return;
+}
+
+if (b.UserName != CasSdk.CurUserName) {
+window.alert('登录状态发生变化,重新引导登录....');
+CasSdk.locallogoff(function() {
+window.location.href = CasSdk.LoginUrl;
+});
+}
+
+}
+}, 'jsonp');
+},
+//退出
+locallogoff: function(callback) {
+if (CasSdk.IsLocalLoginoff) {
+var url = CasSdk.LocalLoginoffUrl;
+if(url.indexOf("?")>0)
+url += "&";
+else
+url += "?";
+url += "wwwww=true";
+$.get(url+'&r=' + $.now(), callback);
+} else {
+window.location.href = CasSdk.LoginUrl;
+}
+},
+             
+Login: function() {
+window.alert('层');
+window.alert("toserver");
+}
+};
